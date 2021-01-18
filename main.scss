@@ -1,0 +1,56 @@
+$sky: blue;
+$earth: green;
+$fire: red;
+$flex: 50px;
+
+
+
+@mixin flex($color, $height, $border: 1px solid red){
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    background: $color;
+    height: $height;
+    border: $border;
+}
+@mixin card($color, $background){
+    height: 500px;
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 0 5px;
+    color: $color;
+    background: $background;
+}
+
+@mixin bordered($color, $width: 2px) {  
+    color: #77C1EF;  
+    border: $width solid black;  
+    width: 500px;  
+}  
+
+
+.header{
+    @include flex(blue, 500px);
+}
+h1{
+    @include bordered($color:red, $width: 5px);  
+
+}
+p{
+    color: $sky;
+    font-size: $flex;
+    @include card(yellow, green);
+
+}
+div{
+    color: $earth;
+    font-size: $flex;
+    @include card(yellow, green);
+
+}
+span{
+    color: $fire;
+    @include card(yellow, green);
+
+}

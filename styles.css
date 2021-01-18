@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  background: blue;
+  height: 500px;
+  border: 1px solid red;
+}
+
+h1 {
+  color: #77C1EF;
+  border: 5px solid black;
+  width: 500px;
+}
+
+p {
+  color: blue;
+  font-size: 50px;
+  height: 500px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px;
+  color: yellow;
+  background: green;
+}
+
+div {
+  color: green;
+  font-size: 50px;
+  height: 500px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px;
+  color: yellow;
+  background: green;
+}
+
+span {
+  color: red;
+  height: 500px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px;
+  color: yellow;
+  background: green;
+}
+
+/*# sourceMappingURL=styles.css.map */
