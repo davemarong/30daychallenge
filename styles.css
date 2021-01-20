@@ -1,3 +1,16 @@
+/*----------------------VARIABLES----------*/
+/*----------------------MIXINS----------*/
+/*----------------------BODY----------*/
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
 /*----------------------HOME PAGE----------*/
 .topPage-home {
   display: flex;
@@ -85,6 +98,68 @@
   font-size: 1em;
   margin-left: auto;
   margin-right: 10px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+}
+.nav a {
+  float: left;
+  display: block;
+  color: #a348cb;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.25s color;
+}
+.nav a:hover {
+  color: #69f0ae;
+}
+.nav a.active {
+  text-decoration: underline;
+  text-decoration-color: #69f0ae;
+}
+.nav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .nav {
+    display: block;
+  }
+
+  .nav a:not(:first-child) {
+    display: none;
+  }
+
+  .nav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .nav.responsive {
+    position: relative;
+  }
+
+  .nav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
