@@ -1,56 +1,74 @@
-$sky: blue;
-$earth: green;
-$fire: red;
-$flex: 50px;
-
-
-
-@mixin flex($color, $height, $border: 1px solid red){
+/*----------------------HOME PAGE----------*/
+@mixin flex($align-it: center, $justify-con: center){
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-content: center;
-    background: $color;
+    justify-content: $justify-con;
+    align-items: $align-it;
+}
+.topPage-home{
+    @include flex(flex-start);
+    background-image: url(images/background.svg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 50px 20px;
+}
+@mixin button($width:120px, $height:50px, $font-size: 1.4em){
+    background: #93CDD9;
+    width: $width;
     height: $height;
-    border: $border;
-}
-@mixin card($color, $background){
-    height: 500px;
-    width: 300px;
-    border-radius: 20px;
+    border-radius: 7px;
+    border: none;
     box-shadow: 0 0 5px;
-    color: $color;
-    background: $background;
+    font-size: $font-size;
 }
-
-@mixin bordered($color, $width: 2px) {  
-    color: #77C1EF;  
-    border: $width solid black;  
-    width: 500px;  
-}  
-
-
-.header{
-    @include flex(blue, 500px);
+.button{
+    @include button;
 }
-h1{
-    @include bordered($color:red, $width: 5px);  
-
+.img__calendar{
+    width: 100%;
 }
-p{
-    color: $sky;
-    font-size: $flex;
-    @include card(yellow, green);
-
+@mixin margin-width{
+    * {
+        margin: 30px 0;
+    }
+    p{
+        max-width: 80%;
+    }
 }
-div{
-    color: $earth;
-    font-size: $flex;
-    @include card(yellow, green);
-
+.howItWorks{
+    h2{
+        margin: 50vh 0;
+        text-align: center;
+    }
+    .howItWorks__step{
+        position: relative;
+        @include flex;
+        @include margin-width;
+    }
+    @keyframes arrow{
+        from {transform: translate(0px, 0px);}
+        to {transform: translate(0px, 30px);}
+    }
+    .img__arrow{
+        animation-name: arrow;
+        animation-duration: 0.8s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
 }
-span{
-    color: $fire;
-    @include card(yellow, green);
-
+.popular30day__part{
+    @include flex;
+    @include margin-width;
+    h2{
+        text-align: center;
+    }
+    img{
+        width: 100%;
+    }
+    .button{
+        @include button(100px, 40px, 1em);
+        margin-left: auto;
+        margin-right: 10px;
+    }
 }
