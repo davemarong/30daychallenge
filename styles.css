@@ -13,6 +13,8 @@ p {
 
 h1, h2, h3 {
   max-width: 80%;
+  text-align: center;
+  margin: auto;
 }
 
 /*-------Nav----------*/
@@ -165,6 +167,32 @@ h1, h2, h3 {
   border-bottom: 1px dashed grey;
 }
 
+/*----------------------MY CHALLENGE----------*/
+.calendar__30days {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+  text-align: center;
+}
+.calendar__30days li {
+  padding: 25px 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s background;
+  border-radius: 10px;
+}
+.calendar__30days li:hover {
+  background: #a348cb;
+}
+
+.calendar__daysLabel {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  list-style-type: none;
+  text-align: center;
+}
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
   .nav {

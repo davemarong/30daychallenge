@@ -45,6 +45,8 @@ p{
 }
 h1, h2, h3{
     max-width: 80%;
+    text-align: center;
+    margin: auto;
 }
 /*-------Nav----------*/
 .nav {
@@ -152,6 +154,33 @@ h1, h2, h3{
 
 }
 
+/*----------------------MY CHALLENGE----------*/
+@mixin calendar-grid($rows:1fr 1fr 1fr 1fr){
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: $rows;
+    list-style-type: none;
+    text-align: center;
+}
+
+.calendar__30days{
+    @include calendar-grid;
+    li{
+        padding: 25px 10px;
+        margin: 10px;
+        cursor: pointer;
+        transition: 0.3s background;
+        border-radius: 10px;
+    }
+    li:hover{
+        background: $purple;
+    }
+}
+.calendar__daysLabel{
+    @include calendar-grid(1fr);
+    li{
+    }
+}
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
     .nav{
