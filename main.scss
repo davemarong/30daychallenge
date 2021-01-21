@@ -1,7 +1,7 @@
 /*----------------------VARIABLES----------*/
 $white : #FFFFF5;
 $purple : #a348cb;
-
+$darkpurple :#A247CB;
 /*----------------------MIXINS----------*/
 @mixin flex($align-it: center, $justify-con: center, $flex-dir: column){
     display: flex;
@@ -26,8 +26,15 @@ $purple : #a348cb;
         max-width: 80%;
     }
 }
+@mixin accordion{
+    border: 1px solid grey;
+    border-top: 10px solid $purple;
+    width: 80%;
+    margin: 100px auto;
+    color: $darkpurple;
+}
 
-/*----------------------BODY----------*/
+/*----------------------GLOBAL----------*/
 body{
     font-family: 'Raleway', sans-serif;
     margin: 0;
@@ -36,62 +43,10 @@ body{
 p{
     font-family: 'Montserrat', sans-serif;
 }
-
-/*----------------------HOME PAGE----------*/
-
-.topPage-home{
-    @include flex(flex-start);
-    background-image: url(images/background.svg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    padding: 50px 20px;
+h1, h2, h3{
+    max-width: 80%;
 }
-.button{
-    @include button;
-}
-.img__calendar{
-    width: 100%;
-}
-
-.howItWorks{
-    h2{
-        margin: 50vh 0;
-        text-align: center;
-    }
-    .howItWorks__step{
-        position: relative;
-        @include flex;
-        @include margin-width;
-    }
-    @keyframes arrow{
-        from {transform: translate(0px, 0px);}
-        to {transform: translate(0px, 30px);}
-    }
-    .img__arrow{
-        animation-name: arrow;
-        animation-duration: 0.8s;
-        animation-direction: alternate;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-    }
-}
-.popular30day__part{
-    @include flex;
-    @include margin-width;
-    h2{
-        text-align: center;
-    }
-    img{
-        width: 100%;
-    }
-    .button{
-        @include button(100px, 40px, 1em);
-        margin-left: auto;
-        margin-right: 10px;
-    }
-}
-
-
+/*-------Nav----------*/
 .nav {
     @include flex(center, space-around, row);
     background-color: white;
@@ -112,16 +67,93 @@ p{
         color: #69f0ae;
     }
     a.active {
-        text-decoration: underline;
-        text-decoration-color: #69f0ae;
+        color: #69f0ae;
     }
     .icon {
         display: none;
     }
 }
+/*-------Button----------*/
+.button{
+    @include button;
+}
 
+/*----------------------HOME PAGE----------*/
+/*-------Top page----------*/
+.topPage-home{
+    @include flex(flex-start);
+    background-image: url(images/background.svg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 50px 20px;
+}
+.img__calendar{
+    width: 100%;
+}
+/*-------How it works----------*/
+.howItWorks{
+    h2{
+        margin: 50vh auto;
+        text-align: center;
+    }
+    .howItWorks__step{
+        position: relative;
+        @include flex;
+        @include margin-width;
+    }
+    @keyframes arrow{
+        from {transform: translate(0px, 0px);}
+        to {transform: translate(0px, 30px);}
+    }
+    .img__arrow{
+        animation-name: arrow;
+        animation-duration: 0.8s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+    }
+}
+/*-------Popular 30 day challenges----------*/
+.popular30day__part{
+    @include flex;
+    @include margin-width;
+    h2{
+        text-align: center;
+    }
+    img{
+        width: 90%;
+    }
+    .button{
+        @include button(100px, 40px, 1em);
+        margin-left: auto;
+        margin-right: 10px;
+    }
+}
+/*-------Accordion----------*/
+.accordion{
+    @include accordion;
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 20px;
+        box-shadow: 5px 5px 5px grey;
+        li{
+            border-top: 1px dashed grey;
+            padding: 30px;
+            padding-left: 0px;
+        }
+        li:first-child{
+            margin-top: 50px;
+        }
+        li:last-child{
+            border-bottom: 1px dashed grey;
+        }
+    }
+
+}
+
+/*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
-    
     .nav{
         display: block;
     }
@@ -146,5 +178,4 @@ p{
         right: 0;
         top: 0;
     } 
-
 }

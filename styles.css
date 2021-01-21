@@ -1,6 +1,6 @@
 /*----------------------VARIABLES----------*/
 /*----------------------MIXINS----------*/
-/*----------------------BODY----------*/
+/*----------------------GLOBAL----------*/
 body {
   font-family: "Raleway", sans-serif;
   margin: 0;
@@ -11,7 +11,54 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
+h1, h2, h3 {
+  max-width: 80%;
+}
+
+/*-------Nav----------*/
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+}
+.nav a {
+  float: left;
+  display: block;
+  color: #a348cb;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.25s color;
+}
+.nav a:hover {
+  color: #69f0ae;
+}
+.nav a.active {
+  color: #69f0ae;
+}
+.nav .icon {
+  display: none;
+}
+
+/*-------Button----------*/
+.button {
+  background: #93CDD9;
+  width: 120px;
+  height: 50px;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 5px;
+  font-size: 1.4em;
+}
+
 /*----------------------HOME PAGE----------*/
+/*-------Top page----------*/
 .topPage-home {
   display: flex;
   flex-direction: column;
@@ -23,22 +70,13 @@ p {
   padding: 50px 20px;
 }
 
-.button {
-  background: #93CDD9;
-  width: 120px;
-  height: 50px;
-  border-radius: 7px;
-  border: none;
-  box-shadow: 0 0 5px;
-  font-size: 1.4em;
-}
-
 .img__calendar {
   width: 100%;
 }
 
+/*-------How it works----------*/
 .howItWorks h2 {
-  margin: 50vh 0;
+  margin: 50vh auto;
   text-align: center;
 }
 .howItWorks .howItWorks__step {
@@ -70,6 +108,7 @@ p {
   animation-timing-function: ease-in-out;
 }
 
+/*-------Popular 30 day challenges----------*/
 .popular30day__part {
   display: flex;
   flex-direction: column;
@@ -86,7 +125,7 @@ p {
   text-align: center;
 }
 .popular30day__part img {
-  width: 100%;
+  width: 90%;
 }
 .popular30day__part .button {
   background: #93CDD9;
@@ -100,37 +139,33 @@ p {
   margin-right: 10px;
 }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  background-color: white;
-  overflow: hidden;
+/*-------Accordion----------*/
+.accordion {
+  border: 1px solid grey;
+  border-top: 10px solid #a348cb;
+  width: 80%;
+  margin: 100px auto;
+  color: #A247CB;
+}
+.accordion ul {
   list-style-type: none;
   margin: 0;
+  padding: 20px;
+  box-shadow: 5px 5px 5px grey;
 }
-.nav a {
-  float: left;
-  display: block;
-  color: #a348cb;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  transition: 0.25s color;
+.accordion ul li {
+  border-top: 1px dashed grey;
+  padding: 30px;
+  padding-left: 0px;
 }
-.nav a:hover {
-  color: #69f0ae;
+.accordion ul li:first-child {
+  margin-top: 50px;
 }
-.nav a.active {
-  text-decoration: underline;
-  text-decoration-color: #69f0ae;
-}
-.nav .icon {
-  display: none;
+.accordion ul li:last-child {
+  border-bottom: 1px dashed grey;
 }
 
+/*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
   .nav {
     display: block;
