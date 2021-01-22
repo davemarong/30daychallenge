@@ -76,6 +76,12 @@ h1, h2, h3 {
   width: 100%;
 }
 
+.img1 {
+  position: absolute;
+  clip-path: circle(78.5% at 50% 21%);
+  z-index: -1;
+}
+
 /*-------How it works----------*/
 .howItWorks h2 {
   margin: 50vh auto;
@@ -175,14 +181,14 @@ h1, h2, h3 {
   list-style-type: none;
   text-align: center;
 }
-.calendar__30days li {
+.calendar__30days .day {
   padding: 25px 10px;
   margin: 10px;
   cursor: pointer;
   transition: 0.3s background;
   border-radius: 10px;
 }
-.calendar__30days li:hover {
+.calendar__30days .day:hover {
   background: #a348cb;
 }
 
@@ -193,6 +199,14 @@ h1, h2, h3 {
   list-style-type: none;
   text-align: center;
 }
+#day-1 {
+  background: green;
+}
+
+#day-2 {
+  background: red;
+}
+
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
   .nav {

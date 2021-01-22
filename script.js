@@ -6,3 +6,9 @@ function myFunction() {
     x.className = "nav";
   }
 }
+let days = document.getElementsByClassName("day");
+let daysArray = Array.from(days);
+
+function correct(){
+    
+}
