@@ -9,11 +9,11 @@ function myFunction() {
 }
 
 /*----------------------MY CHALLENGE----------*/
-
+/*-------Style "completed" and "uncompleted" mark on days----------*/
 let days = document.getElementsByClassName("day");
 let daysArray = Array.from(days);
 
-daysArray.forEach(function bro(current) {
+daysArray.forEach(function(current) {
     current.addEventListener("click", function() {
         if (current.classList.contains("purpleHover")){
             current.classList.remove("purpleHover")
@@ -25,6 +25,25 @@ daysArray.forEach(function bro(current) {
         }
     });
 })
+
+
+
+/*-------Create new calendar----------*/
+let calendar = document.querySelector("#calendar");
+let createNewBtn = document.querySelector("#createCalendar");
+let clone = calendar.cloneNode(true);
+
+function newId(){ 
+    let newNumber = 2;
+    clone.id = "calendar" + newNumber;
+    newNumber += 1;
+    calendar.after(clone);
+    
+}
+createNewBtn.addEventListener("click", newId);
+
+
+
 
 
 
