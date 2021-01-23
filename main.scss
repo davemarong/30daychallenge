@@ -124,6 +124,7 @@ h1, h2, h3{
         animation-timing-function: ease-in-out;
     }
 }
+
 /*-------Popular 30 day challenges----------*/
 .popular30day__part{
     @include flex;
@@ -171,7 +172,19 @@ h1, h2, h3{
     list-style-type: none;
     text-align: center;
 }
-
+@mixin fail{
+    background: red;
+}
+@mixin correct{
+    background: green;
+}
+@mixin correctAnimation {
+    @keyframes correct{
+        from {background: $purple;}
+        to {background: green;}
+    }
+    animation: correct 1s forwards;
+}
 .calendar__30days{
     @include calendar-grid;
     .day{
@@ -181,28 +194,20 @@ h1, h2, h3{
         transition: 0.3s background;
         border-radius: 10px;
     }
-    .day:hover{
-        background: $purple;
-    }
 }
 .calendar__daysLabel{
     @include calendar-grid(1fr);
     li{
     }
 }
-@mixin correct{
-    background: green;
+.correct{
+    @include correctAnimation;
     
 }
-@mixin fail{
-    background: red;
+.purpleHover:hover{
+    background: $purple;
 }
-#day-1{
-    @include correct;   
-}
-#day-2{
-    @include fail;
-}
+
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
     .nav{

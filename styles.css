@@ -188,9 +188,6 @@ h1, h2, h3 {
   transition: 0.3s background;
   border-radius: 10px;
 }
-.calendar__30days .day:hover {
-  background: #a348cb;
-}
 
 .calendar__daysLabel {
   display: grid;
@@ -199,12 +196,20 @@ h1, h2, h3 {
   list-style-type: none;
   text-align: center;
 }
-#day-1 {
-  background: green;
+.correct {
+  animation: correct 1s forwards;
+}
+@keyframes correct {
+  from {
+    background: #a348cb;
+  }
+  to {
+    background: green;
+  }
 }
 
-#day-2 {
-  background: red;
+.purpleHover:hover {
+  background: #a348cb;
 }
 
 /*----------------------MEDIA QUERIES----------*/
