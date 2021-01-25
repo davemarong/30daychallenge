@@ -208,6 +208,18 @@ h1, h2, h3 {
   }
 }
 
+.reverseAnimation {
+  animation: revers 0.5s;
+}
+@keyframes revers {
+  from {
+    background: green;
+  }
+  to {
+    background: #a348cb;
+  }
+}
+
 .purpleHover:hover {
   background: #a348cb;
 }

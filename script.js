@@ -22,10 +22,12 @@ daysArray.forEach(function(current) {
     current.addEventListener("click", function() {
         if (current.classList.contains("purpleHover")){
             current.classList.remove("purpleHover")
+            current.classList.remove("reverseAnimation")
             current.classList.add("correct")
         }
         else{
             current.classList.add("purpleHover")
+            current.classList.add("reverseAnimation")
             current.classList.remove("correct")
         }
     });
@@ -36,29 +38,29 @@ daysArray.forEach(function(current) {
 
 
 function newId(){ 
-    
+
     let newNumber = 2;
     clone.id = "calendar" + newNumber;
     newNumber += 1;
     calendar.after(clone);
-    
+
     let days2 = document.getElementsByClassName("day0");
     let daysArray2 = Array.from(days2);
     createNewBtn.addEventListener("click", newId);
     daysArray2.forEach(function(current) {
-    current.classList.remove("day0");
-    current.addEventListener("click", function() {
-        if (current.classList.contains("purpleHover")){
-            current.classList.remove("purpleHover")
-            current.classList.add("correct")
-        }
-        else{
-            current.classList.add("purpleHover")
-            current.classList.remove("correct")
-        }
-    });
-})
-    
+        current.classList.remove("day0");
+        current.addEventListener("click", function() {
+            if (current.classList.contains("purpleHover")){
+                current.classList.remove("purpleHover")
+                current.classList.add("correct")
+            }
+            else{
+                current.classList.add("purpleHover")
+                current.classList.remove("correct")
+            }
+        });
+    })
+
 }
 createNewBtn.addEventListener("click", newId);
 

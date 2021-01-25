@@ -185,6 +185,13 @@ h1, h2, h3{
     }
     animation: correct 1s forwards;
 }
+@mixin reverse {
+    @keyframes revers{
+        from {background: green;}
+        to {background: $purple;}
+    }
+    animation: revers 0.5s;
+}
 .calendar__30days{
     @include calendar-grid;
     .day{
@@ -202,7 +209,9 @@ h1, h2, h3{
 }
 .correct{
     @include correctAnimation;
-    
+}
+.reverseAnimation{
+    @include reverse;
 }
 .purpleHover:hover{
     background: $purple;
