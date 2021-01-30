@@ -305,6 +305,10 @@ h1, h2, h3 {
     padding: 10px 5px;
     margin: 5px;
   }
+
+  .purpleHover:hover {
+    background: none;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
