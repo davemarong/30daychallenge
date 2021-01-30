@@ -54,6 +54,13 @@ challengeName.addEventListener("input", function(){
     let name = challengeName.textContent;
     createCookie("name",name,100);
 })
+/*-------Creates challenge name description cookie----------*/
+let challengeDescription = document.querySelector(".challengeDescription__textarea");
+challengeDescription.addEventListener("input", function(){
+    let description = challengeDescription.value;
+    createCookie("description",description,100);
+})
+
 
 /*-------Check for cookies when page load----------*/
 let numberX = 1;
@@ -70,8 +77,12 @@ function updateChallengeName(){
     let name = readCookie("name");
     challengeName.textContent = name;
 }
+function updateDescription(){
+    let description = readCookie("description");
+    challengeDescription.value = description;
+}
+updateDescription()
 updateChallengeName()
-
 
 
 

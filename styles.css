@@ -189,6 +189,21 @@ h1, h2, h3 {
   padding: 50px 0;
 }
 
+.challengeDescription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.challengeDescription__textarea {
+  background: transparent;
+  border: 2px solid lightblue;
+  border-radius: 10px;
+  height: 200px;
+  width: 70%;
+}
+
 .calendar__30days {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
