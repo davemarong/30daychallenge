@@ -37,7 +37,7 @@ daysArray.forEach(function(current) {
             current.classList.remove("purpleHover")
             current.classList.remove("reverseAnimation")
             current.classList.add("correct")
-            createCookie('day'+x,x,0);
+            createCookie('day'+x,x,100);
         }
         else{
             current.classList.add("purpleHover")
@@ -48,7 +48,14 @@ daysArray.forEach(function(current) {
     });
 })
 
-/*-------Check for cookies and add complete marks----------*/
+/*-------Creates challenge name(h1) cookie----------*/
+let challengeName = document.querySelector(".challengeName");
+challengeName.addEventListener("input", function(){
+    let name = challengeName.textContent;
+    createCookie("name",name,100);
+})
+
+/*-------Check for cookies when page load----------*/
 let numberX = 1;
 daysArray.forEach(function(current){
     let name = readCookie("day"+numberX);
@@ -59,6 +66,14 @@ daysArray.forEach(function(current){
     };
     numberX += 1;
 })
+function updateChallengeName(){
+    let name = readCookie("name");
+    challengeName.textContent = name;
+}
+updateChallengeName()
+
+
+
 
 /*-------Create new calendar----------*/
 let calendar = document.querySelector("#calendar");
