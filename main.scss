@@ -18,6 +18,7 @@ $green :#69f0ae;
     border: none;
     box-shadow: 0 0 5px;
     font-size: $font-size;
+    cursor: pointer;
 }
 @mixin margin-width{
     * {
@@ -195,7 +196,6 @@ h1, h2, h3{
 }
 
 .calendar{
-    background-image: url(images/yoga.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-color: $green;
@@ -203,6 +203,15 @@ h1, h2, h3{
     background-position: center;
     padding: 150px 0;
     font-size: large;
+}
+.calendar-yoga{
+    background-image: url(images/yoga.svg);
+}
+.calendar-nofap{
+    background-image: url(images/noFap.svg);
+}
+.calendar-junkfood{
+    background-image: url(images/junk-food.svg);
 }
 .challengeName{
     padding: 50px 0;
@@ -219,6 +228,7 @@ h1, h2, h3{
 }
 .calendar__30days{
     @include calendar-grid;
+    padding: 0;
     .day{
         padding: 25px 10px;
         margin: 10px;
@@ -229,6 +239,7 @@ h1, h2, h3{
 }
 .calendar__daysLabel{
     @include calendar-grid(1fr);
+    padding: 0;
     li{
     }
 }
@@ -272,4 +283,15 @@ h1, h2, h3{
         right: 0;
         top: 0;
     } 
+
+
+
+
+
+    .calendar__30days{
+        .day{
+            padding: 10px 5px;
+            margin: 5px;
+        }
+    }
 }

@@ -8,25 +8,31 @@ function myFunction() {
     }
 }
 
-/*----------------------MY CHALLENGE----------*/
+/*-------Cookie for marked days----------*/
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
 
-/*-------Create challenge name----------*/
-/*
-let btn_noFap = document.querySelector(".btn-noFap");
-let btn_yoga = document.querySelector(".btn-yoga");
-let btn_noSugar = document.querySelector(".btn-noSugar");
-let challengeName = document.querySelector(".challengeName");
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
 
-btn_noFap.addEventListener("click", function(){
-    document.cookie = "ChallengeName=No Fap";
-       })
-
-*/
-
-
-
-
-
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
 
 
 
