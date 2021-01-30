@@ -24,6 +24,7 @@ function eraseCookie(name) {
     createCookie(name,"",-1);
 }
 
+
 /*-------Style "completed" and "uncompleted" mark on days----------*/
 let days = document.getElementsByClassName("day0");
 let daysArray = Array.from(days);
@@ -31,24 +32,39 @@ let daysArray = Array.from(days);
 daysArray.forEach(function(current) {
     current.classList.remove("day0");
     current.addEventListener("click", function() {
+        let x = current.id;
         if (current.classList.contains("purpleHover")){
             current.classList.remove("purpleHover")
             current.classList.remove("reverseAnimation")
             current.classList.add("correct")
-            let x = current.id;
             createCookie('day'+x,x,0);
         }
         else{
             current.classList.add("purpleHover")
             current.classList.add("reverseAnimation")
             current.classList.remove("correct")
+            eraseCookie('day'+x)
         }
     });
+})
+
+/*-------Check for cookies and add complete marks----------*/
+let numberX = 1;
+daysArray.forEach(function(current){
+    let name = readCookie("day"+numberX);
+    if (name == current.id){
+        current.classList.remove("purpleHover")
+        current.classList.remove("reverseAnimation")
+        current.classList.add("correct")
+    };
+    numberX += 1;
 })
 
 /*-------Create new calendar----------*/
 let calendar = document.querySelector("#calendar");
 let clone = calendar.cloneNode(true);
+/*
+
 let createNewBtn = document.querySelector("#createCalendar");
 
 function newId(){ 
@@ -78,6 +94,6 @@ function newId(){
 }
 createNewBtn.addEventListener("click", newId);
 
-
+*/
 
 

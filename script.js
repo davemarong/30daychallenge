@@ -11,7 +11,7 @@ function myFunction() {
 /*----------------------MY CHALLENGE----------*/
 
 /*-------Create challenge name----------*/
-
+/*
 let btn_noFap = document.querySelector(".btn-noFap");
 let btn_yoga = document.querySelector(".btn-yoga");
 let btn_noSugar = document.querySelector(".btn-noSugar");
@@ -21,7 +21,7 @@ btn_noFap.addEventListener("click", function(){
     document.cookie = "ChallengeName=No Fap";
        })
 
-
+*/
 
 
 

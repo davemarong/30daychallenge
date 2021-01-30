@@ -2,6 +2,7 @@
 $white : #FFFFF5;
 $purple : #a348cb;
 $darkpurple :#A247CB;
+$green :#69f0ae;
 /*----------------------MIXINS----------*/
 @mixin flex($align-it: center, $justify-con: center, $flex-dir: column){
     display: flex;
@@ -192,6 +193,20 @@ h1, h2, h3{
     }
     animation: revers 0.5s;
 }
+
+.calendar{
+    background-image: url(images/yoga.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: $green;
+    background-blend-mode: soft-light;
+    background-position: center;
+    padding: 150px 0;
+    font-size: large;
+}
+.challengeName{
+    padding: 50px 0;
+}
 .calendar__30days{
     @include calendar-grid;
     .day{
@@ -216,6 +231,7 @@ h1, h2, h3{
 .purpleHover:hover{
     background: $purple;
 }
+
 /*----------------------MY CHALLENGE----------*/
 
 
