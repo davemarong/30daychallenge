@@ -322,48 +322,14 @@ h1, h2, h3{
     visibility: hidden;
     justify-self: center;
 }
-/*----------------------MY CHALLENGE----------*/
-
-
-
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
-    .nav{
-        display: block;
-    }
-    .nav a:not(:first-child) {
-        display: none;
-    }
-    .nav a.icon {
-        float: right;
-        display: block;
-    }
-    .nav.responsive 
-    {
-        position: relative;
-    }
-    .nav.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-    .nav.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    } 
-
-
-
-
-
     .calendar__30days{
         .day{
             padding: 10px 5px;
             margin: 5px;
         }
     }
-
 
     .purpleHover:hover{
         background: none;
