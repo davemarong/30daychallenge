@@ -48,6 +48,15 @@ h1, h2, h3 {
   display: none;
 }
 
+.nav-grid {
+  grid-area: 1/4/2/5;
+}
+.nav-grid ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
 /*-------Button----------*/
 .button {
   background: #93CDD9;
@@ -350,6 +359,34 @@ h1, h2, h3 {
 
   .purpleHover:hover {
     background: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .topPage-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    list-style-type: none;
+    text-align: center;
+  }
+  .topPage-home .topPage__calendar {
+    grid-area: 2/1/4/3;
+    justify-self: center;
+    width: 100%;
+  }
+  .topPage-home .topPage__logo {
+    grid-area: 1/1/2/3;
+    width: 100%;
+  }
+  .topPage-home .topPage__logo .header__logo {
+    width: 70%;
+  }
+  .topPage-home .topPage__h1 {
+    grid-area: 2/3/3/5;
+  }
+  .topPage-home .topPage__button {
+    grid-area: 3/3/4/5;
+    justify-self: center;
   }
 }
 
