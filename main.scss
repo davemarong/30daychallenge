@@ -194,7 +194,33 @@ h1, h2, h3{
     }
     animation: revers 0.5s;
 }
+@mixin triangle($border-left: 20px solid blue, $border-right: 0) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 0; 
+    height: 0; 
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: $border-left;
+    border-right: $border-right;
+    cursor: pointer;
+}
+@mixin arrow ($transform: rotate(-45deg)) {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 8px;
+    transform: $transform;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 0;
+    margin: auto;
+    top: 10px;
+    cursor: pointer;
 
+}
 .calendar{
     background-repeat: no-repeat;
     background-size: contain;
@@ -240,7 +266,15 @@ h1, h2, h3{
 .calendar__daysLabel{
     @include calendar-grid(1fr);
     padding: 0;
-    li{
+    position: relative;
+    .rotateBackward{
+        grid-area: 2/7/3/8;
+        @include arrow;
+
+    }
+    .rotateForward{
+        grid-area: 2/1/3/2;
+        @include arrow(rotate(135deg));
     }
 }
 .correct{
@@ -294,8 +328,8 @@ h1, h2, h3{
             margin: 5px;
         }
     }
-    
-    
+
+
     .purpleHover:hover{
         background: none;
     }

@@ -75,6 +75,27 @@ updateChallengeType();
 updateChallengeName();
 
 
+/*-------Move weekdays up or down----------*/
+/*let calendarWeekdays = document.querySelector(".calendar__daysLabel");
+
+function rotateWeekDaysForward(){
+    let firstDay = calendarWeekdays.firstElementChild;
+    firstDay.remove();
+    calendarWeekdays.appendChild(firstDay);
+}
+function rotateWeekDaysBackwards (){
+    let lastDay = calendarWeekdays.lastElementChild;
+    let firstDay = calendarWeekdays.firstElementChild;
+    lastDay.remove();
+    calendarWeekdays.insertBefore(lastDay, firstDay);
+}
+let rotateForward = document.querySelector(".rotateForward");
+let rotateBackward = document.querySelector(".rotateBackward");
+
+rotateForward.addEventListener("click", rotateWeekDaysForward);
+rotateBackward.addEventListener("click", rotateWeekDaysBackwards);
+*/
+
 
 /*-------Create new calendar----------*/
 let clone = calendar.cloneNode(true);
