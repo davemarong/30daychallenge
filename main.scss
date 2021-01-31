@@ -3,6 +3,9 @@ $white : #FFFFF5;
 $purple : #a348cb;
 $darkpurple :#A247CB;
 $green :#69f0ae;
+$blue :#93cdd9;
+$lightblue :#81d8e9;
+$lighterblue :#6be6ff;
 /*----------------------MIXINS----------*/
 @mixin flex($align-it: center, $justify-con: center, $flex-dir: column){
     display: flex;
@@ -19,6 +22,12 @@ $green :#69f0ae;
     box-shadow: 0 0 5px;
     font-size: $font-size;
     cursor: pointer;
+}
+@mixin buttonHover{
+    background: $lightblue;
+}
+@mixin buttonActive{
+    background: $lighterblue;
 }
 @mixin margin-width{
     * {
@@ -81,7 +90,12 @@ h1, h2, h3{
 .button{
     @include button;
 }
-
+.button:hover{
+    @include buttonHover;
+}
+.button:active{
+    @include buttonActive;
+}
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
 .topPage-home{
@@ -167,9 +181,9 @@ h1, h2, h3{
 }
 
 /*----------------------MY CHALLENGE----------*/
-@mixin calendar-grid($rows:1fr 1fr 1fr 1fr){
+@mixin grid($rows:1fr 1fr 1fr 1fr, $columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr){
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: $columns;
     grid-template-rows: $rows;
     list-style-type: none;
     text-align: center;
@@ -219,7 +233,9 @@ h1, h2, h3{
     margin: auto;
     top: 10px;
     cursor: pointer;
-
+}
+@mixin editable {
+    border: 1px solid $purple;
 }
 .calendar{
     background-repeat: no-repeat;
@@ -239,21 +255,23 @@ h1, h2, h3{
 .calendar-junkfood{
     background-image: url(images/junk-food.svg);
 }
-.challengeName{
+.challengeName__h1{
     padding: 50px 0;
 }
 .challengeDescription{
-    @include flex;
+    @include grid(1fr 1fr, 1fr 1fr 1fr);
 }
 .challengeDescription__textarea{
+    grid-area: 1/1/2/4;
     background: transparent;
-    border: 2px solid lightblue;
+    border:0px solid lightblue;
     border-radius: 10px;
-    height: 200px;
+    height: auto;
     width: 70%;
+    justify-self: center;
 }
 .calendar__30days{
-    @include calendar-grid;
+    @include grid;
     padding: 0;
     .day{
         padding: 25px 10px;
@@ -261,10 +279,12 @@ h1, h2, h3{
         cursor: pointer;
         transition: 0.3s background;
         border-radius: 10px;
+        border: 1px dashed purple;
+        box-shadow: 0 0 5px;
     }
 }
 .calendar__daysLabel{
-    @include calendar-grid(1fr);
+    @include grid(1fr);
     padding: 0;
     position: relative;
     .rotateBackward{
@@ -286,7 +306,22 @@ h1, h2, h3{
 .purpleHover:hover{
     background: $purple;
 }
-
+.editable{
+    @include editable;
+}
+.button-small{
+    @include button(80px, 35px, 1.1em);
+}
+.editButton{
+    grid-area: 2/3/3/4;
+    justify-self: end;
+    margin-right: 20px;
+}
+.saveButton{
+    grid-area: 2/2/3/3;
+    visibility: hidden;
+    justify-self: center;
+}
 /*----------------------MY CHALLENGE----------*/
 
 

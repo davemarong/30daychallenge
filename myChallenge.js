@@ -21,20 +21,43 @@ daysArray.forEach(function(current) {
     });
 })
 
-/*-------Creates challenge name(h1) cookie----------*/
-let challengeName = document.querySelector(".challengeName");
-challengeName.addEventListener("input", function(){
+/*-------Creates and edits challenge name(h1) and description cookie----------*/
+let challengeName = document.querySelector(".challengeName__h1");
+let challengeDescription = document.querySelector(".challengeDescription__textarea");
+let editBtn = document.querySelector(".editButton");
+let saveBtn = document.querySelector(".saveButton");
+
+editBtn.addEventListener("click", function(){
+    challengeName.setAttribute("contenteditable", true);
+    challengeName.classList.add("editable");
+    challengeName.focus();
+    challengeDescription.setAttribute("contenteditable", true);
+    challengeDescription.classList.add("editable");
+    saveBtn.style.visibility = "visible";
+})
+saveBtn.addEventListener("click", function(){
+    let name = challengeName.textContent;
+    let description = challengeDescription.textContent;
+    createCookie("challengeName",name,100);
+    createCookie("challengeDescription",description,100);
+    challengeName.setAttribute("contenteditable", false);
+    challengeDescription.setAttribute("contenteditable", false);
+    challengeName.classList.remove("editable");
+    challengeDescription.classList.remove("editable");
+    saveBtn.style.visibility = "hidden";
+})
+/*challengeName.addEventListener("input", function(){
     let name = challengeName.textContent;
     createCookie("name",name,100);
 })
-/*-------Creates challenge name description cookie----------*/
-/*
-let challengeDescription = document.querySelector(".challengeDescription__textarea");
+
+
 challengeDescription.addEventListener("input", function(){
     let description = challengeDescription.value;
     createCookie("description",description,100);
 })
 */
+/*-------Check for cookies when page load----------*/
 
 /*-------Check for cookies when page load----------*/
 let numberX = 1;
@@ -47,10 +70,18 @@ daysArray.forEach(function(current){
     };
     numberX += 1;
 })
-function updateChallengeName(){
+
+function updateChallengeInfo(){
+    let name = readCookie('challengeName');
+    let description = readCookie('challengeDescription');
+    challengeName.textContent = name;
+    challengeDescription.textContent = description;
+}
+/*function updateChallengeName(){
     let name = readCookie("name");
     challengeName.textContent = name;
 }
+*/
 let calendar = document.querySelector("#calendar");
 
 function removeChallengeTypeClasses(){
@@ -71,9 +102,10 @@ function updateChallengeType(){
 }
 updateDescription()
 */
-updateChallengeType();
-updateChallengeName();
 
+//updateChallengeName();
+updateChallengeType();
+updateChallengeInfo();
 
 /*-------Move weekdays up or down----------*/
 /*let calendarWeekdays = document.querySelector(".calendar__daysLabel");

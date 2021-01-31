@@ -60,6 +60,14 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
+.button:hover {
+  background: #81d8e9;
+}
+
+.button:active {
+  background: #6be6ff;
+}
+
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
 .topPage-home {
@@ -198,23 +206,26 @@ h1, h2, h3 {
   background-image: url(images/junk-food.svg);
 }
 
-.challengeName {
+.challengeName__h1 {
   padding: 50px 0;
 }
 
 .challengeDescription {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  list-style-type: none;
+  text-align: center;
 }
 
 .challengeDescription__textarea {
+  grid-area: 1/1/2/4;
   background: transparent;
-  border: 2px solid lightblue;
+  border: 0px solid lightblue;
   border-radius: 10px;
-  height: 200px;
+  height: auto;
   width: 70%;
+  justify-self: center;
 }
 
 .calendar__30days {
@@ -231,6 +242,8 @@ h1, h2, h3 {
   cursor: pointer;
   transition: 0.3s background;
   border-radius: 10px;
+  border: 1px dashed purple;
+  box-shadow: 0 0 5px;
 }
 
 .calendar__daysLabel {
@@ -299,6 +312,33 @@ h1, h2, h3 {
 
 .purpleHover:hover {
   background: #a348cb;
+}
+
+.editable {
+  border: 1px solid #a348cb;
+}
+
+.button-small {
+  background: #93CDD9;
+  width: 80px;
+  height: 35px;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.editButton {
+  grid-area: 2/3/3/4;
+  justify-self: end;
+  margin-right: 20px;
+}
+
+.saveButton {
+  grid-area: 2/2/3/3;
+  visibility: hidden;
+  justify-self: center;
 }
 
 /*----------------------MY CHALLENGE----------*/
