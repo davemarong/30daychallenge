@@ -88,12 +88,13 @@ h1, h2, h3{
         display: none;
     }
 }
-.nav-grid{
-    @include nav-grid;
-    ul{
-        list-style-type: none;
-        display: flex;
-        justify-content: space-between;
+.nav-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    a{
+        text-decoration: none;
     }
 }
 /*-------Button----------*/
@@ -109,23 +110,19 @@ h1, h2, h3{
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
 .topPage-home{
-    @include flex(flex-start);
     background-image: url(images/background.svg);
     background-repeat: no-repeat;
     background-size:cover;
     padding: 50px 20px;
 }
-.img__calendar{
-    width: 100%;
-}
-
 .img1{
     position: absolute;
     clip-path: circle(78.5% at 50% 21%);
     z-index: -1;
-
 }
-
+.topPage__calendar{
+    width: 100%;
+}
 
 /*-------How it works----------*/
 .howItWorks{
@@ -347,6 +344,14 @@ h1, h2, h3{
 }
 
 @media screen and (min-width: 600px) {
+    .nav-grid{
+        @include nav-grid;
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
     .topPage-home{
         @include grid(1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
         .topPage__calendar{
