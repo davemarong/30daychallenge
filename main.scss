@@ -1,413 +1,396 @@
 /*----------------------VARIABLES----------*/
-$white : #FFFFF5;
-$purple : #a348cb;
-$darkpurple :#A247CB;
-$green :#69f0ae;
-$blue :#93cdd9;
-$lightblue :#81d8e9;
-$lighterblue :#6be6ff;
+$white: #fffff5;
+$purple: #a348cb;
+$darkpurple: #a247cb;
+$green: #69f0ae;
+$blue: #93cdd9;
+$lightblue: #81d8e9;
+$lighterblue: #6be6ff;
 /*----------------------MIXINS----------*/
-@mixin flex($align-it: center, $justify-con: center, $flex-dir: column){
-    display: flex;
-    flex-direction: $flex-dir;
-    justify-content: $justify-con;
-    align-items: $align-it;
+@mixin flex($align-it: center, $justify-con: center, $flex-dir: column) {
+  display: flex;
+  flex-direction: $flex-dir;
+  justify-content: $justify-con;
+  align-items: $align-it;
 }
-@mixin button($width:120px, $height:50px, $font-size: 1.4em){
-    background: #93CDD9;
-    width: $width;
-    height: $height;
-    border-radius: 7px;
-    border: none;
-    box-shadow: 0 0 5px;
-    font-size: $font-size;
-    cursor: pointer;
+@mixin button($width: 120px, $height: 50px, $font-size: 1.4em) {
+  background: #93cdd9;
+  width: $width;
+  height: $height;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 5px;
+  font-size: $font-size;
+  cursor: pointer;
 }
-@mixin buttonHover{
-    background: $lightblue;
+@mixin buttonHover {
+  background: $lightblue;
 }
-@mixin buttonActive{
-    background: $lighterblue;
+@mixin buttonActive {
+  background: $lighterblue;
 }
-@mixin margin-width{
-    * {
-        margin: 30px 0;
-    }
-    p{
-        max-width: 80%;
-    }
+@mixin margin-width {
+  * {
+    margin: 30px 0;
+  }
+  p {
+    max-width: 80%;
+  }
 }
-@mixin accordion{
-    border: 1px solid grey;
-    border-top: 10px solid $purple;
-    width: 80%;
-    margin: 100px auto;
-    color: $darkpurple;
+@mixin accordion {
+  border: 1px solid grey;
+  border-top: 10px solid $purple;
+  width: 80%;
+  margin: 100px auto;
+  color: $darkpurple;
 }
-@mixin nav-grid{
-    grid-area: 1/4/2/5;
+@mixin nav-grid {
+  grid-area: 1/4/2/5;
 }
 /*----------------------GLOBAL----------*/
-body{
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-    padding: 0;
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
 }
-p{
-    font-family: 'Montserrat', sans-serif;
+p {
+  font-family: "Montserrat", sans-serif;
 }
-h1, h2, h3{
-    max-width: 80%;
-    text-align: center;
-    margin: auto;
+h1,
+h2,
+h3 {
+  max-width: 80%;
+  text-align: center;
+  margin: auto;
 }
 /*-------Nav----------*/
 .nav {
-    @include flex(center, space-around, row);
-    background-color: white;
-    overflow: hidden;
-    list-style-type: none;
-    margin: 0;
-    a{
-        float: left;
-        display: block;
-        color: $purple;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-        transition: 0.25s color;
-    }
-    a:hover {
-        color: #69f0ae;
-    }
-    a.active {
-        color: #69f0ae;
-    }
-    .icon {
-        display: none;
-    }
+  @include flex(center, space-around, row);
+  background-color: white;
+  overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+  a {
+    float: left;
+    display: block;
+    color: $purple;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.25s color;
+  }
+  a:hover {
+    color: #69f0ae;
+  }
+  a.active {
+    color: #69f0ae;
+  }
+  .icon {
+    display: none;
+  }
 }
-.nav-flex{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    list-style-type: none;
-    a{
-        text-decoration: none;
-    }
+.nav-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+  a {
+    text-decoration: none;
+  }
 }
 /*-------Button----------*/
-.button{
-    @include button;
+.button {
+  @include button;
 }
-.button:hover{
-    @include buttonHover;
+.button:hover {
+  @include buttonHover;
 }
-.button:active{
-    @include buttonActive;
+.button:active {
+  @include buttonActive;
 }
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
-.topPage-home{
-    background-image: url(images/background.svg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    padding: 50px 20px;
+.topPage-home {
+  background-image: url(images/background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 20px;
 }
-.img1{
-    position: absolute;
-    clip-path: circle(78.5% at 50% 21%);
-    z-index: -1;
+.img1 {
+  position: absolute;
+  clip-path: circle(78.5% at 50% 21%);
+  z-index: -1;
 }
-.topPage__calendar{
-    width: 100%;
+.topPage__calendar {
+  width: 100%;
 }
 
 /*-------How it works----------*/
-.howItWorks{
-    h2{
-        margin: 50vh auto;
-        text-align: center;
+.howItWorks {
+  h2 {
+    margin: 50vh auto;
+    text-align: center;
+  }
+  .howItWorks__step {
+    position: relative;
+    @include flex;
+    @include margin-width;
+  }
+  @keyframes arrow {
+    from {
+      transform: translate(0px, 0px);
     }
-    .howItWorks__step{
-        position: relative;
-        @include flex;
-        @include margin-width;
+    to {
+      transform: translate(0px, 30px);
     }
-    @keyframes arrow{
-        from {transform: translate(0px, 0px);}
-        to {transform: translate(0px, 30px);}
-    }
-    .img__arrow{
-        animation-name: arrow;
-        animation-duration: 0.8s;
-        animation-direction: alternate;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in-out;
-    }
+  }
+  .img__arrow {
+    animation-name: arrow;
+    animation-duration: 0.8s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+  }
 }
 
 /*-------Popular 30 day challenges----------*/
-.popular30day__part{
-    @include flex;
-    @include margin-width;
-    h2{
-        text-align: center;
-    }
-    img{
-        width: 90%;
-    }
-    .button{
-        @include button(100px, 40px, 1em);
-        margin-left: auto;
-        margin-right: 10px;
-    }
+.popular30day__part {
+  @include flex;
+  @include margin-width;
+  h2 {
+    text-align: center;
+  }
+  img {
+    width: 90%;
+  }
+  .button {
+    @include button(100px, 40px, 1em);
+    margin-left: auto;
+    margin-right: 10px;
+  }
 }
 /*-------Accordion----------*/
-.accordion{
-    @include accordion;
-    ul{
-        list-style-type: none;
-        margin: 0;
-        padding: 20px;
-        box-shadow: 5px 5px 5px grey;
-        li{
-            border-top: 1px dashed grey;
-            padding: 30px;
-            padding-left: 0px;
-        }
-        li:first-child{
-            margin-top: 50px;
-        }
-        li:last-child{
-            border-bottom: 1px dashed grey;
-        }
+.accordion {
+  @include accordion;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    box-shadow: 5px 5px 5px grey;
+    li {
+      border-top: 1px dashed grey;
+      padding: 30px;
+      padding-left: 0px;
     }
-
+    li:first-child {
+      margin-top: 50px;
+    }
+    li:last-child {
+      border-bottom: 1px dashed grey;
+    }
+  }
 }
 
 /*----------------------MY CHALLENGE----------*/
-@mixin grid($rows:1fr 1fr 1fr 1fr, $columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr){
-    display: grid;
-    grid-template-columns: $columns;
-    grid-template-rows: $rows;
-    list-style-type: none;
-    text-align: center;
+@mixin grid($rows: 1fr 1fr 1fr 1fr, $columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  list-style-type: none;
+  text-align: center;
 }
-@mixin fail{
-    background: red;
+@mixin fail {
+  background: red;
 }
-@mixin correct{
-    background: green;
+@mixin correct {
+  background: green;
 }
 @mixin correctAnimation {
-    @keyframes correct{
-        from {background: $purple;}
-        to {background: green;}
+  @keyframes correct {
+    from {
+      background: $purple;
     }
-    animation: correct 1s forwards;
+    to {
+      background: green;
+    }
+  }
+  animation: correct 1s forwards;
 }
 @mixin reverse {
-    @keyframes revers{
-        from {background: green;}
-        to {background: $purple;}
+  @keyframes revers {
+    from {
+      background: green;
     }
-    animation: revers 0.5s;
+    to {
+      background: $purple;
+    }
+  }
+  animation: revers 0.5s;
+}
+@mixin dayDetails {
+  width: 200px;
+  height: 200px;
 }
 @mixin triangle($border-left: 20px solid blue, $border-right: 0) {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 0; 
-    height: 0; 
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-    border-left: $border-left;
-    border-right: $border-right;
-    cursor: pointer;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: $border-left;
+  border-right: $border-right;
+  cursor: pointer;
 }
-@mixin arrow ($transform: rotate(-45deg)) {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 8px;
-    transform: $transform;
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 0;
-    margin: auto;
-    top: 10px;
-    cursor: pointer;
+@mixin arrow($transform: rotate(-45deg)) {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 8px;
+  transform: $transform;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 0;
+  margin: auto;
+  top: 10px;
+  cursor: pointer;
 }
 @mixin editable {
-    border: 1px solid $purple;
+  border: 1px solid $purple;
 }
-.calendar{
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: $green;
-    background-blend-mode: soft-light;
-    background-position: center;
-    padding: 150px 0;
-    font-size: large;
+.calendar {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: $green;
+  background-blend-mode: soft-light;
+  background-position: center;
+  padding: 150px 0;
+  font-size: large;
 }
-.calendar-yoga{
-    background-image: url(images/yoga.svg);
+.calendar-yoga {
+  background-image: url(images/yoga.svg);
 }
-.calendar-nofap{
-    background-image: url(images/noFap.svg);
+.calendar-nofap {
+  background-image: url(images/noFap.svg);
 }
-.calendar-junkfood{
-    background-image: url(images/junk-food.svg);
+.calendar-junkfood {
+  background-image: url(images/junk-food.svg);
 }
-.challengeName__h1{
-    padding: 50px 0;
+.challengeName__h1 {
+  padding: 50px 0;
 }
-.challengeDescription{
-    @include grid(1fr 1fr, 1fr 1fr 1fr);
+.challengeDescription {
+  @include grid(1fr 1fr, 1fr 1fr 1fr);
 }
-.challengeDescription__textarea{
-    grid-area: 1/1/2/4;
-    background: transparent;
-    border:0px solid lightblue;
+.challengeDescription__textarea {
+  grid-area: 1/1/2/4;
+  background: transparent;
+  border: 0px solid lightblue;
+  border-radius: 10px;
+  height: auto;
+  width: 70%;
+  justify-self: center;
+}
+.calendar__30days {
+  @include grid;
+  padding: 0;
+  .day {
+    padding: 25px 10px;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.3s background, 0.3s width, 0.3s height;
     border-radius: 10px;
-    height: auto;
-    width: 70%;
-    justify-self: center;
+    border: 1px dashed purple;
+    box-shadow: 0 0 5px;
+  }
 }
-.calendar__30days{
-    @include grid;
-    padding: 0;
-    .day{
-        padding: 25px 10px;
-        margin: 10px;
-        cursor: pointer;
-        transition: 0.3s background;
-        border-radius: 10px;
-        border: 1px dashed purple;
-        box-shadow: 0 0 5px;
-    }
+.calendar__daysLabel {
+  @include grid(1fr);
+  padding: 0;
+  position: relative;
+  .rotateBackward {
+    grid-area: 2/7/3/8;
+    @include arrow;
+  }
+  .rotateForward {
+    grid-area: 2/1/3/2;
+    @include arrow(rotate(135deg));
+  }
 }
-.calendar__daysLabel{
-    @include grid(1fr);
-    padding: 0;
-    position: relative;
-    .rotateBackward{
-        grid-area: 2/7/3/8;
-        @include arrow;
-
-    }
-    .rotateForward{
-        grid-area: 2/1/3/2;
-        @include arrow(rotate(135deg));
-    }
+.correct {
+  @include correctAnimation;
 }
-.correct{
-    @include correctAnimation;
+.reverseAnimation {
+  @include reverse;
 }
-.reverseAnimation{
-    @include reverse;
+.purpleHover:hover {
+  background: $purple;
 }
-.purpleHover:hover{
-    background: $purple;
+.editable {
+  @include editable;
 }
-.editable{
-    @include editable;
+.button-small {
+  @include button(80px, 35px, 1.1em);
 }
-.button-small{
-    @include button(80px, 35px, 1.1em);
+.editButton {
+  grid-area: 2/3/3/4;
+  justify-self: end;
+  margin-right: 20px;
 }
-.editButton{
-    grid-area: 2/3/3/4;
-    justify-self: end;
-    margin-right: 20px;
+.saveButton {
+  grid-area: 2/2/3/3;
+  visibility: hidden;
+  justify-self: center;
 }
-.saveButton{
-    grid-area: 2/2/3/3;
-    visibility: hidden;
-    justify-self: center;
+.dayDetails {
+  @include dayDetails;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
-    .calendar__30days{
-        .day{
-            padding: 10px 5px;
-            margin: 5px;
-        }
+  .calendar__30days {
+    .day {
+      padding: 10px 5px;
+      margin: 5px;
     }
+  }
 
-    .purpleHover:hover{
-        background: none;
-    }
+  .purpleHover:hover {
+    background: none;
+  }
 }
 
 @media screen and (min-width: 600px) {
-    .nav-grid{
-        @include nav-grid;
-        ul{
-            list-style-type: none;
-            display: flex;
-            justify-content: space-between;
-        }
+  .nav-grid {
+    @include nav-grid;
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
     }
-    .topPage-home{
-        @include grid(1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
-        .topPage__calendar{
-            grid-area: 2/1/4/3;
-            justify-self: center;
-            width: 100%;
-        }
-        .topPage__logo{
-            grid-area: 1/1/2/3;
-            width: 100%;
-            .header__logo{
-                width: 70%;
-            }
-        }
-        .topPage__h1{
-            grid-area: 2/3/3/5;
-        }
-        .topPage__button{
-            grid-area: 3/3/4/5;
-            justify-self: center;
-        }
+  }
+  .topPage-home {
+    @include grid(1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
+    .topPage__calendar {
+      grid-area: 2/1/4/3;
+      justify-self: center;
+      width: 100%;
     }
-
-
-
-
+    .topPage__logo {
+      grid-area: 1/1/2/3;
+      width: 100%;
+      .header__logo {
+        width: 70%;
+      }
+    }
+    .topPage__h1 {
+      grid-area: 2/3/3/5;
+    }
+    .topPage__button {
+      grid-area: 3/3/4/5;
+      justify-self: center;
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

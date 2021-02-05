@@ -11,7 +11,9 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   max-width: 80%;
   text-align: center;
   margin: auto;
@@ -60,7 +62,7 @@ h1, h2, h3 {
 
 /*-------Button----------*/
 .button {
-  background: #93CDD9;
+  background: #93cdd9;
   width: 120px;
   height: 50px;
   border-radius: 7px;
@@ -151,7 +153,7 @@ h1, h2, h3 {
   width: 90%;
 }
 .popular30day__part .button {
-  background: #93CDD9;
+  background: #93cdd9;
   width: 100px;
   height: 40px;
   border-radius: 7px;
@@ -169,7 +171,7 @@ h1, h2, h3 {
   border-top: 10px solid #a348cb;
   width: 80%;
   margin: 100px auto;
-  color: #A247CB;
+  color: #a247cb;
 }
 .accordion ul {
   list-style-type: none;
@@ -246,7 +248,7 @@ h1, h2, h3 {
   padding: 25px 10px;
   margin: 10px;
   cursor: pointer;
-  transition: 0.3s background;
+  transition: 0.3s background, 0.3s width, 0.3s height;
   border-radius: 10px;
   border: 1px dashed purple;
   box-shadow: 0 0 5px;
@@ -325,7 +327,7 @@ h1, h2, h3 {
 }
 
 .button-small {
-  background: #93CDD9;
+  background: #93cdd9;
   width: 80px;
   height: 35px;
   border-radius: 7px;
@@ -345,6 +347,11 @@ h1, h2, h3 {
   grid-area: 2/2/3/3;
   visibility: hidden;
   justify-self: center;
+}
+
+.dayDetails {
+  width: 200px;
+  height: 200px;
 }
 
 /*----------------------MEDIA QUERIES----------*/
