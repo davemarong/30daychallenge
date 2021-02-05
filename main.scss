@@ -232,6 +232,10 @@ h3 {
   width: 200px;
   height: 200px;
 }
+@mixin dayDate {
+  position: absolute;
+  bottom: -20px;
+}
 @mixin triangle($border-left: 20px solid blue, $border-right: 0) {
   position: absolute;
   left: 0;
@@ -298,8 +302,10 @@ h3 {
   @include grid;
   padding: 0;
   .day {
+    @include flex;
+    position: relative;
     padding: 25px 10px;
-    margin: 10px;
+    margin: 35px 10px;
     cursor: pointer;
     transition: 0.3s background, 0.3s width, 0.3s height;
     border-radius: 10px;
@@ -347,6 +353,9 @@ h3 {
 }
 .dayDetails {
   @include dayDetails;
+}
+.dayDate {
+  @include dayDate;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {

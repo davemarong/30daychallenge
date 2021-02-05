@@ -245,8 +245,13 @@ h3 {
   padding: 0;
 }
 .calendar__30days .day {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   padding: 25px 10px;
-  margin: 10px;
+  margin: 35px 10px;
   cursor: pointer;
   transition: 0.3s background, 0.3s width, 0.3s height;
   border-radius: 10px;
@@ -352,6 +357,11 @@ h3 {
 .dayDetails {
   width: 200px;
   height: 200px;
+}
+
+.dayDate {
+  position: absolute;
+  bottom: -20px;
 }
 
 /*----------------------MEDIA QUERIES----------*/

@@ -2,6 +2,9 @@
 let days = document.getElementsByClassName("day0");
 let daysArray = Array.from(days);
 
+let dayDate = document.getElementsByClassName(".dayDate");
+let dayDateArray = Array.from(dayDate);
+
 daysArray.forEach(function (current) {
   current.classList.remove("day0");
   current.addEventListener("click", function () {
@@ -19,6 +22,13 @@ daysArray.forEach(function (current) {
     }
   });
 });
+for (let i = 1; i < 31; i++) {
+  let x = i + "X";
+  console.log(x);
+  x = document.getElementById(i + "X");
+  console.log(x);
+}
+dayDateArray.forEach(function (current) {});
 
 /*-------Creates and edits challenge name(h1) and description cookie----------*/
 let challengeName = document.querySelector(".challengeName__h1");
