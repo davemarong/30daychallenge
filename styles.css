@@ -360,6 +360,7 @@ h3 {
 }
 
 .dayDate {
+  visibility: hidden;
   position: absolute;
   bottom: -20px;
 }

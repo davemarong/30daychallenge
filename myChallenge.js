@@ -2,32 +2,46 @@
 let days = document.getElementsByClassName("day0");
 let daysArray = Array.from(days);
 
-let dayDate = document.getElementsByClassName(".dayDate");
+let dayDate = document.getElementsByClassName("dayDate");
 let dayDateArray = Array.from(dayDate);
 
 daysArray.forEach(function (current) {
   current.classList.remove("day0");
   current.addEventListener("click", function () {
     let x = current.id;
+    let currentDate = x + "X";
+    let date = document.getElementById(currentDate);
     if (current.classList.contains("purpleHover")) {
       current.classList.remove("purpleHover");
       current.classList.remove("reverseAnimation");
       current.classList.add("correct");
       createCookie("day" + x, x, 100);
+      createCookie("dayDate" + x, x + "X", 100);
+      let today = Date();
+      date.textContent = new Date(Date.now()).toLocaleString().split(",")[0];
+      date.style.visibility = "visible";
     } else {
       current.classList.add("purpleHover");
       current.classList.add("reverseAnimation");
       current.classList.remove("correct");
       eraseCookie("day" + x);
+      eraseCookie("dayDate" + x);
+      date.textContent = "";
+      date.style.visibility = "hidden";
     }
   });
 });
-for (let i = 1; i < 31; i++) {
-  let x = i + "X";
-  console.log(x);
-  x = document.getElementById(i + "X");
-  console.log(x);
-}
+
+// for (let i = 1; i < 31; i++) {
+//   let x = {
+//     idName: i + "X",
+//   };
+//   console.log(x.idName);
+//   console.log(x);
+//   x.idName = document.getElementById(i + "X");
+//   console.log(x.idName);
+// }
+// console.log(x.idName);
 dayDateArray.forEach(function (current) {});
 
 /*-------Creates and edits challenge name(h1) and description cookie----------*/
@@ -81,6 +95,16 @@ daysArray.forEach(function (current) {
   }
   numberX += 1;
 });
+function updateDayDate() {
+  for (let i = 1; i < 31; i++) {
+    let cookie = readCookie("dayDate" + i);
+    if (cookie !== null) {
+      let date = document.getElementById(i + "X");
+      date.textContent = new Date(Date.now()).toLocaleString().split(",")[0];
+      date.style.visibility = "visible";
+    }
+  }
+}
 
 function updateChallengeInfo() {
   let name = readCookie("challengeName");
@@ -121,6 +145,7 @@ updateDescription()
 //updateChallengeName();
 updateChallengeType();
 updateChallengeInfo();
+updateDayDate();
 
 /*-------Move weekdays up or down----------*/
 /*let calendarWeekdays = document.querySelector(".calendar__daysLabel");

@@ -233,6 +233,7 @@ h3 {
   height: 200px;
 }
 @mixin dayDate {
+  visibility: hidden;
   position: absolute;
   bottom: -20px;
 }
