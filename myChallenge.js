@@ -38,17 +38,6 @@ daysArray.forEach(function (current) {
     }
   });
 });
-
-// for (let i = 1; i < 31; i++) {
-//   let x = {
-//     idName: i + "X",
-//   };
-//   console.log(x.idName);
-//   console.log(x);
-//   x.idName = document.getElementById(i + "X");
-//   console.log(x.idName);
-// }
-// console.log(x.idName);
 dayDateArray.forEach(function (current) {});
 
 /*-------Hide and show dayDate----------*/
@@ -71,6 +60,34 @@ function showOrHideDates() {
 }
 datesBtn.addEventListener("click", showOrHideDates);
 
+/*-------Detailed information feature----------*/
+let detailsBtn = document.querySelector(".detailsButton");
+
+let calendar_details = document.getElementsByClassName("calendar__details");
+let calendar_details_array = Array.from(calendar_details);
+
+let height = 0;
+function changeDetails() {
+  if (height == 0) {
+    calendar_details_array.forEach(function (current) {
+      current.style.visibility = "visible";
+      current.style.opacity = "1";
+      current.style.height = "200px";
+      height = 200;
+    });
+  } else {
+    calendar_details_array.forEach(function (current) {
+      current.style.visibility = "hidden";
+      current.style.opacity = "0";
+      current.style.height = "0px";
+      height = 0;
+    });
+  }
+}
+detailsBtn.addEventListener("click", changeDetails);
+
+/*-------Create detail cookies----------*/
+
 /*-------Creates and edits challenge name(h1) and description cookie----------*/
 let challengeName = document.querySelector(".challengeName__h1");
 let challengeDescription = document.querySelector(
@@ -79,15 +96,20 @@ let challengeDescription = document.querySelector(
 let editBtn = document.querySelector(".editButton");
 let saveBtn = document.querySelector(".saveButton");
 
-editBtn.addEventListener("click", function () {
+function editInfo() {
   challengeName.setAttribute("contenteditable", true);
   challengeName.classList.add("editable");
-  challengeName.focus();
   challengeDescription.setAttribute("contenteditable", true);
   challengeDescription.classList.add("editable");
+  calendar_details_array.forEach(function (current) {
+    current.setAttribute("contenteditable", true);
+    current.classList.add("editable");
+  });
   saveBtn.style.visibility = "visible";
-});
-saveBtn.addEventListener("click", function () {
+}
+
+function saveInfo() {
+  let x = 1;
   let name = challengeName.textContent;
   let description = challengeDescription.textContent;
   createCookie("challengeName", name, 100);
@@ -96,19 +118,18 @@ saveBtn.addEventListener("click", function () {
   challengeDescription.setAttribute("contenteditable", false);
   challengeName.classList.remove("editable");
   challengeDescription.classList.remove("editable");
+  calendar_details_array.forEach(function (current) {
+    current.setAttribute("contenteditable", false);
+    current.classList.remove("editable");
+    let detailInfo = current.textContent;
+    createCookie("details" + x, detailInfo, 100);
+    x++;
+  });
   saveBtn.style.visibility = "hidden";
-});
-/*challengeName.addEventListener("input", function(){
-    let name = challengeName.textContent;
-    createCookie("name",name,100);
-})
+}
 
-
-challengeDescription.addEventListener("input", function(){
-    let description = challengeDescription.value;
-    createCookie("description",description,100);
-})
-*/
+editBtn.addEventListener("click", editInfo);
+saveBtn.addEventListener("click", saveInfo);
 
 /*-------Feature buttons transition----------*/
 let features_settings = document.querySelector(".feature__settings");
@@ -140,6 +161,10 @@ function changeView() {
     daysArray.forEach(function (current) {
       current.classList.add("day-flex");
     });
+    calendar_details_array.forEach(function (current) {
+      current.style.position = "relative";
+      current.style.visibility = "visible";
+    });
     view = "overview";
   } else {
     calendar__container.classList.remove("flex");
@@ -147,11 +172,17 @@ function changeView() {
     daysArray.forEach(function (current) {
       current.classList.remove("day-flex");
     });
+    calendar_details_array.forEach(function (current) {
+      current.style.visibility = "hidden";
+      current.style.position = "absolute";
+    });
+
     view = "";
   }
 }
 
 viewBtn.addEventListener("click", changeView);
+
 /*-------Check for cookies when page load----------*/
 let numberX = 1;
 daysArray.forEach(function (current) {
@@ -174,10 +205,20 @@ function updateDayDate() {
   }
 }
 
+function updateDetailInfo() {
+  let x = 1;
+  calendar_details_array.forEach(function (current) {
+    let cookie = readCookie("details" + x);
+    if (cookie !== "") {
+      current.textContent = cookie;
+    }
+    x++;
+  });
+}
+
 function updateChallengeInfo() {
   let name = readCookie("challengeName");
   let description = readCookie("challengeDescription");
-  // if (name !== null) {
   if (name !== null) {
     challengeName.textContent = name;
   }
@@ -185,11 +226,7 @@ function updateChallengeInfo() {
     challengeDescription.textContent = description;
   }
 }
-/*function updateChallengeName(){
-    let name = readCookie("name");
-    challengeName.textContent = name;
-}
-*/
+
 let calendar = document.querySelector("#calendar");
 
 function removeChallengeTypeClasses() {
@@ -203,70 +240,7 @@ function updateChallengeType() {
   calendar.classList.add(challengeType);
 }
 
-/*function updateDescription(){
-    let description = readCookie("description");
-    challengeDescription.value = description;
-}
-updateDescription()
-*/
-
-//updateChallengeName();
 updateChallengeType();
 updateChallengeInfo();
 updateDayDate();
-
-/*-------Move weekdays up or down----------*/
-/*let calendarWeekdays = document.querySelector(".calendar__daysLabel");
-
-function rotateWeekDaysForward(){
-    let firstDay = calendarWeekdays.firstElementChild;
-    firstDay.remove();
-    calendarWeekdays.appendChild(firstDay);
-}
-function rotateWeekDaysBackwards (){
-    let lastDay = calendarWeekdays.lastElementChild;
-    let firstDay = calendarWeekdays.firstElementChild;
-    lastDay.remove();
-    calendarWeekdays.insertBefore(lastDay, firstDay);
-}
-let rotateForward = document.querySelector(".rotateForward");
-let rotateBackward = document.querySelector(".rotateBackward");
-
-rotateForward.addEventListener("click", rotateWeekDaysForward);
-rotateBackward.addEventListener("click", rotateWeekDaysBackwards);
-*/
-
-/*-------Create new ----------*/
-let clone = calendar.cloneNode(true);
-/*
-
-let createNewBtn = document.querySelector("#createCalendar");
-
-function newId(){ 
-
-    let newNumber = 2;
-    clone.id = "calendar" + newNumber;
-    newNumber += 1;
-    calendar.after(clone);
-
-    let days2 = document.getElementsByClassName("day0");
-    let daysArray2 = Array.from(days2);
-    createNewBtn.addEventListener("click", newId);
-    daysArray2.forEach(function(current) {
-        current.classList.remove("day0");
-        current.addEventListener("click", function() {
-            if (current.classList.contains("purpleHover")){
-                current.classList.remove("purpleHover")
-                current.classList.add("correct")
-            }
-            else{
-                current.classList.add("purpleHover")
-                current.classList.remove("correct")
-            }
-        });
-    })
-
-}
-createNewBtn.addEventListener("click", newId);
-
-*/
+updateDetailInfo();
