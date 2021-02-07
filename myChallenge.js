@@ -109,6 +109,25 @@ challengeDescription.addEventListener("input", function(){
     createCookie("description",description,100);
 })
 */
+
+/*-------Feature buttons transition----------*/
+let features_settings = document.querySelector(".feature__settings");
+let feature_list = document.querySelector(".feature__buttons");
+let translate = 0;
+
+function featureTransition() {
+  if (translate == 0) {
+    feature_list.style.visibility = "visible";
+    feature_list.style.transform = "translate(-0%)";
+    translate = -100;
+  } else {
+    feature_list.style.transform = "translate(-100%)";
+    translate = 0;
+  }
+}
+
+features_settings.addEventListener("click", featureTransition);
+
 /*-------Change view----------*/
 let viewBtn = document.querySelector(".viewButton");
 let calendar__container = document.querySelector(".calendar__30days");

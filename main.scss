@@ -267,6 +267,11 @@ h3 {
 @mixin editable {
   border: 1px solid $purple;
 }
+@mixin feature__buttons {
+  visibility: hidden;
+  transform: translate(-100%);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
 .calendar {
   background-repeat: no-repeat;
   background-size: contain;
@@ -345,7 +350,6 @@ h3 {
 .editButton {
   grid-area: 2/3/3/4;
   justify-self: end;
-  margin-right: 20px;
 }
 .saveButton {
   grid-area: 2/2/3/3;
@@ -368,6 +372,9 @@ h3 {
   width: 130px;
   height: 100px;
   border-radius: 75px !important;
+}
+.feature__buttons {
+  @include feature__buttons;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
