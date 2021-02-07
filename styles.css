@@ -389,6 +389,15 @@ h3 {
   visibility: hidden;
   transform: translate(-100%);
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  padding: 0;
+  margin-top: 50px;
+  text-align: center;
+}
+.feature__buttons .button-feature {
+  margin: 10px;
+  width: 80px;
+  height: 35px;
+  font-size: 1.1em;
 }
 
 .calendar__details {
@@ -397,6 +406,14 @@ h3 {
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s;
+}
+
+.feature {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /*----------------------MEDIA QUERIES----------*/

@@ -271,6 +271,9 @@ h3 {
   visibility: hidden;
   transform: translate(-100%);
   transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  padding: 0;
+  margin-top: 50px;
+  text-align: center;
 }
 @mixin calendar__details {
   height: 0px;
@@ -382,9 +385,18 @@ h3 {
 }
 .feature__buttons {
   @include feature__buttons;
+  .button-feature {
+    margin: 10px;
+    width: 80px;
+    height: 35px;
+    font-size: 1.1em;
+  }
 }
 .calendar__details {
   @include calendar__details;
+}
+.feature {
+  @include flex;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
