@@ -301,7 +301,6 @@ h3 {
   justify-self: center;
 }
 .calendar__30days {
-  @include grid;
   padding: 0;
   .day {
     @include flex;
@@ -359,12 +358,22 @@ h3 {
 .dayDate {
   @include dayDate;
 }
+.flex {
+  @include flex;
+}
+.grid {
+  @include grid;
+}
+.day-flex {
+  width: 130px;
+  height: 100px;
+  border-radius: 75px !important;
+}
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
   .calendar__30days {
-    @include grid(1fr 1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
     .day {
-      padding: 10px 5px;
+      padding: 18px 5px;
       margin: 25px 15px;
     }
   }
@@ -373,7 +382,9 @@ h3 {
     background: none;
   }
 }
-
+.grid {
+  @include grid(1fr, 1fr 1fr 1fr 1fr);
+}
 @media screen and (min-width: 600px) {
   .nav-grid {
     @include nav-grid;

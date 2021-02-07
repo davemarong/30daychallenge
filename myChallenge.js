@@ -109,8 +109,30 @@ challengeDescription.addEventListener("input", function(){
     createCookie("description",description,100);
 })
 */
-/*-------Check for cookies when page load----------*/
+/*-------Change view----------*/
+let viewBtn = document.querySelector(".viewButton");
+let calendar__container = document.querySelector(".calendar__30days");
 
+let view;
+function changeView() {
+  if (view == "") {
+    calendar__container.classList.remove("grid");
+    calendar__container.classList.add("flex");
+    daysArray.forEach(function (current) {
+      current.classList.add("day-flex");
+    });
+    view = "overview";
+  } else {
+    calendar__container.classList.remove("flex");
+    calendar__container.classList.add("grid");
+    daysArray.forEach(function (current) {
+      current.classList.remove("day-flex");
+    });
+    view = "";
+  }
+}
+
+viewBtn.addEventListener("click", changeView);
 /*-------Check for cookies when page load----------*/
 let numberX = 1;
 daysArray.forEach(function (current) {
@@ -195,7 +217,7 @@ rotateForward.addEventListener("click", rotateWeekDaysForward);
 rotateBackward.addEventListener("click", rotateWeekDaysBackwards);
 */
 
-/*-------Create new calendar----------*/
+/*-------Create new ----------*/
 let clone = calendar.cloneNode(true);
 /*
 
