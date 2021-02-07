@@ -22,6 +22,7 @@ h3 {
 /*-------Nav----------*/
 .nav {
   display: flex;
+  display: -webkit-flexbox;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
@@ -107,6 +108,7 @@ h3 {
 .howItWorks .howItWorks__step {
   position: relative;
   display: flex;
+  display: -webkit-flexbox;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -136,6 +138,7 @@ h3 {
 /*-------Popular 30 day challenges----------*/
 .popular30day__part {
   display: flex;
+  display: -webkit-flexbox;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -238,15 +241,21 @@ h3 {
 
 .calendar__30days {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   list-style-type: none;
   text-align: center;
   padding: 0;
 }
 .calendar__30days .day {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   padding: 25px 10px;
-  margin: 10px;
+  margin: 35px 10px;
   cursor: pointer;
   transition: 0.3s background, 0.3s width, 0.3s height;
   border-radius: 10px;
@@ -256,7 +265,7 @@ h3 {
 
 .calendar__daysLabel {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   list-style-type: none;
   text-align: center;
@@ -354,11 +363,24 @@ h3 {
   height: 200px;
 }
 
+.dayDate {
+  visibility: hidden;
+  position: absolute;
+  bottom: -20px;
+}
+
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
+  .calendar__30days {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    list-style-type: none;
+    text-align: center;
+  }
   .calendar__30days .day {
     padding: 10px 5px;
-    margin: 5px;
+    margin: 25px 15px;
   }
 
   .purpleHover:hover {

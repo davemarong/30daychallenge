@@ -2,23 +2,74 @@
 let days = document.getElementsByClassName("day0");
 let daysArray = Array.from(days);
 
+let dayDate = document.getElementsByClassName("dayDate");
+let dayDateArray = Array.from(dayDate);
+
 daysArray.forEach(function (current) {
   current.classList.remove("day0");
   current.addEventListener("click", function () {
     let x = current.id;
+    let currentDate = x + "X";
+    let date = document.getElementById(currentDate);
     if (current.classList.contains("purpleHover")) {
       current.classList.remove("purpleHover");
       current.classList.remove("reverseAnimation");
       current.classList.add("correct");
       createCookie("day" + x, x, 100);
+      let dateValue = (date.textContent = new Date(Date.now())
+        .toLocaleString()
+        .split(",")[0]);
+      date.style.visibility = "visible";
+      createCookie("dayDate" + x, dateValue, 100);
     } else {
-      current.classList.add("purpleHover");
-      current.classList.add("reverseAnimation");
-      current.classList.remove("correct");
-      eraseCookie("day" + x);
+      if (
+        confirm(
+          "If you continue, the date for this particular day will be deleted and can not be reversed."
+        )
+      ) {
+        current.classList.add("purpleHover");
+        current.classList.add("reverseAnimation");
+        current.classList.remove("correct");
+        eraseCookie("day" + x);
+        eraseCookie("dayDate" + x);
+        date.textContent = "";
+        date.style.visibility = "hidden";
+      }
     }
   });
 });
+
+// for (let i = 1; i < 31; i++) {
+//   let x = {
+//     idName: i + "X",
+//   };
+//   console.log(x.idName);
+//   console.log(x);
+//   x.idName = document.getElementById(i + "X");
+//   console.log(x.idName);
+// }
+// console.log(x.idName);
+dayDateArray.forEach(function (current) {});
+
+/*-------Hide and show dayDate----------*/
+let datesBtn = document.querySelector(".datesButton");
+let hidden;
+function showOrHideDates() {
+  if (hidden == true) {
+    dayDateArray.forEach(function (current) {
+      if (current.textContent !== "") {
+        current.style.visibility = "visible";
+        hidden = false;
+      }
+    });
+  } else {
+    dayDateArray.forEach(function (current) {
+      current.style.visibility = "hidden";
+      hidden = true;
+    });
+  }
+}
+datesBtn.addEventListener("click", showOrHideDates);
 
 /*-------Creates and edits challenge name(h1) and description cookie----------*/
 let challengeName = document.querySelector(".challengeName__h1");
@@ -71,6 +122,16 @@ daysArray.forEach(function (current) {
   }
   numberX += 1;
 });
+function updateDayDate() {
+  for (let i = 1; i < 31; i++) {
+    let cookie = readCookie("dayDate" + i);
+    if (cookie !== null) {
+      let date = document.getElementById(i + "X");
+      date.textContent = cookie;
+      date.style.visibility = "visible";
+    }
+  }
+}
 
 function updateChallengeInfo() {
   let name = readCookie("challengeName");
@@ -111,6 +172,7 @@ updateDescription()
 //updateChallengeName();
 updateChallengeType();
 updateChallengeInfo();
+updateDayDate();
 
 /*-------Move weekdays up or down----------*/
 /*let calendarWeekdays = document.querySelector(".calendar__daysLabel");

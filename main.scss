@@ -9,6 +9,7 @@ $lighterblue: #6be6ff;
 /*----------------------MIXINS----------*/
 @mixin flex($align-it: center, $justify-con: center, $flex-dir: column) {
   display: flex;
+  display: -webkit-flexbox;
   flex-direction: $flex-dir;
   justify-content: $justify-con;
   align-items: $align-it;
@@ -193,7 +194,7 @@ h3 {
 }
 
 /*----------------------MY CHALLENGE----------*/
-@mixin grid($rows: 1fr 1fr 1fr 1fr, $columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr) {
+@mixin grid($rows: 1fr 1fr 1fr 1fr, $columns: 1fr 1fr 1fr 1fr 1fr 1fr) {
   display: grid;
   grid-template-columns: $columns;
   grid-template-rows: $rows;
@@ -231,6 +232,11 @@ h3 {
 @mixin dayDetails {
   width: 200px;
   height: 200px;
+}
+@mixin dayDate {
+  visibility: hidden;
+  position: absolute;
+  bottom: -20px;
 }
 @mixin triangle($border-left: 20px solid blue, $border-right: 0) {
   position: absolute;
@@ -298,8 +304,10 @@ h3 {
   @include grid;
   padding: 0;
   .day {
+    @include flex;
+    position: relative;
     padding: 25px 10px;
-    margin: 10px;
+    margin: 35px 10px;
     cursor: pointer;
     transition: 0.3s background, 0.3s width, 0.3s height;
     border-radius: 10px;
@@ -348,12 +356,16 @@ h3 {
 .dayDetails {
   @include dayDetails;
 }
+.dayDate {
+  @include dayDate;
+}
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
   .calendar__30days {
+    @include grid(1fr 1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
     .day {
       padding: 10px 5px;
-      margin: 5px;
+      margin: 25px 15px;
     }
   }
 
