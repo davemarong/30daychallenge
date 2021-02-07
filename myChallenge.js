@@ -16,18 +16,25 @@ daysArray.forEach(function (current) {
       current.classList.remove("reverseAnimation");
       current.classList.add("correct");
       createCookie("day" + x, x, 100);
-      createCookie("dayDate" + x, x + "X", 100);
-      let today = Date();
-      date.textContent = new Date(Date.now()).toLocaleString().split(",")[0];
+      let dateValue = (date.textContent = new Date(Date.now())
+        .toLocaleString()
+        .split(",")[0]);
       date.style.visibility = "visible";
+      createCookie("dayDate" + x, dateValue, 100);
     } else {
-      current.classList.add("purpleHover");
-      current.classList.add("reverseAnimation");
-      current.classList.remove("correct");
-      eraseCookie("day" + x);
-      eraseCookie("dayDate" + x);
-      date.textContent = "";
-      date.style.visibility = "hidden";
+      if (
+        confirm(
+          "If you continue, the date for this particular day will be deleted and can not be reversed."
+        )
+      ) {
+        current.classList.add("purpleHover");
+        current.classList.add("reverseAnimation");
+        current.classList.remove("correct");
+        eraseCookie("day" + x);
+        eraseCookie("dayDate" + x);
+        date.textContent = "";
+        date.style.visibility = "hidden";
+      }
     }
   });
 });
@@ -43,6 +50,26 @@ daysArray.forEach(function (current) {
 // }
 // console.log(x.idName);
 dayDateArray.forEach(function (current) {});
+
+/*-------Hide and show dayDate----------*/
+let datesBtn = document.querySelector(".datesButton");
+let hidden;
+function showOrHideDates() {
+  if (hidden == true) {
+    dayDateArray.forEach(function (current) {
+      if (current.textContent !== "") {
+        current.style.visibility = "visible";
+        hidden = false;
+      }
+    });
+  } else {
+    dayDateArray.forEach(function (current) {
+      current.style.visibility = "hidden";
+      hidden = true;
+    });
+  }
+}
+datesBtn.addEventListener("click", showOrHideDates);
 
 /*-------Creates and edits challenge name(h1) and description cookie----------*/
 let challengeName = document.querySelector(".challengeName__h1");
@@ -100,7 +127,7 @@ function updateDayDate() {
     let cookie = readCookie("dayDate" + i);
     if (cookie !== null) {
       let date = document.getElementById(i + "X");
-      date.textContent = new Date(Date.now()).toLocaleString().split(",")[0];
+      date.textContent = cookie;
       date.style.visibility = "visible";
     }
   }
