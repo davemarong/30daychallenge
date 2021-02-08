@@ -38,7 +38,6 @@ daysArray.forEach(function (current) {
     }
   });
 });
-dayDateArray.forEach(function (current) {});
 
 /*-------Hide and show dayDate----------*/
 let datesBtn = document.querySelector(".datesButton");
@@ -48,17 +47,18 @@ function showOrHideDates() {
     dayDateArray.forEach(function (current) {
       if (current.textContent !== "") {
         current.style.visibility = "visible";
+        current.style.opacity = "1";
         hidden = false;
       }
     });
   } else {
     dayDateArray.forEach(function (current) {
       current.style.visibility = "hidden";
+      current.style.opacity = "0";
       hidden = true;
     });
   }
 }
-datesBtn.addEventListener("click", showOrHideDates);
 
 /*-------Detailed information feature----------*/
 let detailsBtn = document.querySelector(".detailsButton");
@@ -66,8 +66,9 @@ let detailsBtn = document.querySelector(".detailsButton");
 let calendar_details = document.getElementsByClassName("calendar__details");
 let calendar_details_array = Array.from(calendar_details);
 
-let height = 0;
+let height = 200;
 function changeDetails() {
+  showOrHideDates();
   if (height == 0) {
     calendar_details_array.forEach(function (current) {
       current.style.visibility = "visible";
@@ -86,9 +87,7 @@ function changeDetails() {
 }
 detailsBtn.addEventListener("click", changeDetails);
 
-/*-------Create detail cookies----------*/
-
-/*-------Creates and edits challenge name(h1) and description cookie----------*/
+/*-------Creates and edits challenge name(h1), description and details cookie----------*/
 let challengeName = document.querySelector(".challengeName__h1");
 let challengeDescription = document.querySelector(
   ".challengeDescription__textarea"
@@ -99,6 +98,7 @@ let saveBtn = document.querySelector(".saveButton");
 function editInfo() {
   challengeName.setAttribute("contenteditable", true);
   challengeName.classList.add("editable");
+  challengeName.focus();
   challengeDescription.setAttribute("contenteditable", true);
   challengeDescription.classList.add("editable");
   calendar_details_array.forEach(function (current) {
@@ -122,7 +122,9 @@ function saveInfo() {
     current.setAttribute("contenteditable", false);
     current.classList.remove("editable");
     let detailInfo = current.textContent;
-    createCookie("details" + x, detailInfo, 100);
+    if (detailInfo !== "") {
+      createCookie("details" + x, detailInfo, 100);
+    }
     x++;
   });
   saveBtn.style.visibility = "hidden";
@@ -132,7 +134,7 @@ editBtn.addEventListener("click", editInfo);
 saveBtn.addEventListener("click", saveInfo);
 
 /*-------Feature buttons transition----------*/
-let features_settings = document.querySelector(".feature__settings");
+let settingsBtn = document.querySelector(".settingsButton");
 let feature_list = document.querySelector(".feature__buttons");
 let translate = 0;
 
@@ -142,12 +144,12 @@ function featureTransition() {
     feature_list.style.transform = "translate(-0%)";
     translate = -100;
   } else {
-    feature_list.style.transform = "translate(-100%)";
+    feature_list.style.transform = "translate(-130%)";
     translate = 0;
   }
 }
 
-features_settings.addEventListener("click", featureTransition);
+settingsBtn.addEventListener("click", featureTransition);
 
 /*-------Change view----------*/
 let viewBtn = document.querySelector(".viewButton");
@@ -162,8 +164,8 @@ function changeView() {
       current.classList.add("day-flex");
     });
     calendar_details_array.forEach(function (current) {
-      current.style.position = "relative";
       current.style.visibility = "visible";
+      current.style.position = "relative";
     });
     view = "overview";
   } else {
@@ -182,6 +184,9 @@ function changeView() {
 }
 
 viewBtn.addEventListener("click", changeView);
+
+/*-------InActive buttons----------*/
+function inActive() {}
 
 /*-------Check for cookies when page load----------*/
 let numberX = 1;
@@ -209,7 +214,7 @@ function updateDetailInfo() {
   let x = 1;
   calendar_details_array.forEach(function (current) {
     let cookie = readCookie("details" + x);
-    if (cookie !== "") {
+    if (typeof cookie == "string") {
       current.textContent = cookie;
     }
     x++;

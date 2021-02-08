@@ -24,6 +24,7 @@ h3 {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: row;
+  -webkit-justify-content: space-around;
   justify-content: space-around;
   align-items: center;
   background-color: white;
@@ -63,7 +64,7 @@ h3 {
 
 /*-------Button----------*/
 .button {
-  background: #93cdd9;
+  background: #8929b6;
   width: 120px;
   height: 50px;
   border-radius: 7px;
@@ -74,11 +75,11 @@ h3 {
 }
 
 .button:hover {
-  background: #81d8e9;
+  background: #a348cb;
 }
 
 .button:active {
-  background: #6be6ff;
+  background: #a167bbad;
 }
 
 /*----------------------HOME PAGE----------*/
@@ -110,6 +111,7 @@ h3 {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
 }
@@ -140,6 +142,7 @@ h3 {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
 }
@@ -156,7 +159,7 @@ h3 {
   width: 90%;
 }
 .popular30day__part .button {
-  background: #93cdd9;
+  background: #8929b6;
   width: 100px;
   height: 40px;
   border-radius: 7px;
@@ -174,7 +177,7 @@ h3 {
   border-top: 10px solid #a348cb;
   width: 80%;
   margin: 100px auto;
-  color: #a247cb;
+  color: #8929b6;
 }
 .accordion ul {
   list-style-type: none;
@@ -219,6 +222,7 @@ h3 {
 
 .challengeName__h1 {
   padding: 50px 0;
+  font-size: 2em;
 }
 
 .challengeDescription {
@@ -246,6 +250,7 @@ h3 {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -331,7 +336,7 @@ h3 {
 }
 
 .button-small {
-  background: #93cdd9;
+  background: #8929b6;
   width: 80px;
   height: 35px;
   border-radius: 7px;
@@ -358,15 +363,22 @@ h3 {
 }
 
 .dayDate {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
+  left: 50%;
+  opacity: 1;
+  transition: 0.5s all;
+  text-align: center;
+  margin: auto;
+  transform: translate(-50%, -50%);
 }
 
 .flex {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
 }
@@ -385,35 +397,42 @@ h3 {
   border-radius: 75px !important;
 }
 
-.feature__buttons {
-  visibility: hidden;
-  transform: translate(-100%);
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  padding: 0;
-  margin-top: 50px;
-  text-align: center;
-}
 .feature__buttons .button-feature {
   margin: 10px;
   width: 80px;
   height: 35px;
-  font-size: 1.1em;
+  font-size: 0.9em;
+  text-align: center;
+  transition: all 0.5s;
 }
 
 .calendar__details {
-  height: 0px;
+  height: 200px;
   width: 65%;
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   transition: all 0.5s;
+  text-align: center;
 }
 
 .feature {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: column;
+  -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
+}
+
+.settingsButton {
+  font-size: 1.1em;
+}
+
+.inActive {
+  background-color: #a167bbad;
+  width: 55px;
+  height: 25px;
+  font-size: 0.7em;
 }
 
 /*----------------------MEDIA QUERIES----------*/

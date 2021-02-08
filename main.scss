@@ -1,7 +1,8 @@
 /*----------------------VARIABLES----------*/
 $white: #fffff5;
+$lightpurple: #a167bbad;
 $purple: #a348cb;
-$darkpurple: #a247cb;
+$darkpurple: #8929b6;
 $green: #69f0ae;
 $blue: #93cdd9;
 $lightblue: #81d8e9;
@@ -11,11 +12,12 @@ $lighterblue: #6be6ff;
   display: flex;
   display: -webkit-flexbox;
   flex-direction: $flex-dir;
+  -webkit-justify-content: $justify-con;
   justify-content: $justify-con;
   align-items: $align-it;
 }
 @mixin button($width: 120px, $height: 50px, $font-size: 1.4em) {
-  background: #93cdd9;
+  background: $darkpurple;
   width: $width;
   height: $height;
   border-radius: 7px;
@@ -25,10 +27,10 @@ $lighterblue: #6be6ff;
   cursor: pointer;
 }
 @mixin buttonHover {
-  background: $lightblue;
+  background: $purple;
 }
 @mixin buttonActive {
-  background: $lighterblue;
+  background: $lightpurple;
 }
 @mixin margin-width {
   * {
@@ -234,9 +236,15 @@ h3 {
   height: 200px;
 }
 @mixin dayDate {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
+  left: 50%;
+  opacity: 1;
+  transition: 0.5s all;
+  text-align: center;
+  margin: auto;
+  transform: translate(-50%, -50%);
 }
 @mixin triangle($border-left: 20px solid blue, $border-right: 0) {
   position: absolute;
@@ -276,11 +284,18 @@ h3 {
   text-align: center;
 }
 @mixin calendar__details {
-  height: 0px;
+  height: 200px;
   width: 65%;
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   transition: all 0.5s;
+  text-align: center;
+}
+@mixin inActive {
+  background-color: $lightpurple;
+  width: 55px;
+  height: 25px;
+  font-size: 0.7em;
 }
 .calendar {
   background-repeat: no-repeat;
@@ -302,6 +317,7 @@ h3 {
 }
 .challengeName__h1 {
   padding: 50px 0;
+  font-size: 2em;
 }
 .challengeDescription {
   @include grid(1fr 1fr, 1fr 1fr 1fr);
@@ -384,12 +400,13 @@ h3 {
   border-radius: 75px !important;
 }
 .feature__buttons {
-  @include feature__buttons;
   .button-feature {
     margin: 10px;
     width: 80px;
     height: 35px;
-    font-size: 1.1em;
+    font-size: 0.9em;
+    text-align: center;
+    transition: all 0.5s;
   }
 }
 .calendar__details {
@@ -397,6 +414,12 @@ h3 {
 }
 .feature {
   @include flex;
+}
+.settingsButton {
+  font-size: 1.1em;
+}
+.inActive {
+  @include inActive;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
