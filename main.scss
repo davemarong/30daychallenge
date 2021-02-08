@@ -3,6 +3,7 @@ $white: #fffff5;
 $lightpurple: #a167bbad;
 $purple: #a348cb;
 $darkpurple: #8929b6;
+$pink: #da5ec9;
 $green: #69f0ae;
 $blue: #93cdd9;
 $lightblue: #81d8e9;
@@ -283,6 +284,11 @@ h3 {
   margin-top: 50px;
   text-align: center;
 }
+@mixin feature__topMenu {
+  @include flex(center, space-between, row);
+  padding: 0;
+  margin: 0;
+}
 @mixin calendar__details {
   height: 200px;
   width: 65%;
@@ -300,7 +306,6 @@ h3 {
 .calendar {
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: $green;
   background-blend-mode: soft-light;
   background-position: center;
   padding: 150px 0;
@@ -400,6 +405,7 @@ h3 {
   border-radius: 75px !important;
 }
 .feature__buttons {
+  @include feature__topMenu;
   .button-feature {
     margin: 10px;
     width: 80px;
@@ -413,13 +419,64 @@ h3 {
   @include calendar__details;
 }
 .feature {
-  @include flex;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 .settingsButton {
   font-size: 1.1em;
 }
 .inActive {
   @include inActive;
+}
+.instructions {
+  @include flex;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 80px;
+  z-index: 1;
+  background-color: white;
+  .instructions__step {
+    display: none;
+    border: 1px solid $purple;
+    border-radius: 51px;
+    padding: 20px;
+    box-shadow: 0 0 7px $pink;
+    margin: 10px;
+  }
+}
+@keyframes instructionsButton {
+  from {
+    background-color: $darkpurple;
+  }
+  to {
+    background-color: $lighterblue;
+  }
+}
+.button-animation {
+  animation: instructionsButton 0.8s linear infinite alternate;
+}
+@keyframes blinkingBorder {
+  from {
+    border: 3px solid $darkpurple;
+  }
+  to {
+    border: 3px solid $lighterblue;
+  }
+}
+.border-animation {
+  animation: blinkingBorder 0.8s linear infinite alternate;
+}
+@keyframes circleAnimation {
+  from {
+    border: 5px solid $darkpurple;
+  }
+  to {
+    border: 5px solid $lighterblue;
+  }
+}
+.circle-animation {
+  animation: circleAnimation 0.8s linear infinite alternate;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {

@@ -5,40 +5,6 @@ let daysArray = Array.from(days);
 let dayDate = document.getElementsByClassName("dayDate");
 let dayDateArray = Array.from(dayDate);
 
-daysArray.forEach(function (current) {
-  current.classList.remove("day0");
-  current.addEventListener("click", function () {
-    let x = current.id;
-    let currentDate = x + "X";
-    let date = document.getElementById(currentDate);
-    if (current.classList.contains("purpleHover")) {
-      current.classList.remove("purpleHover");
-      current.classList.remove("reverseAnimation");
-      current.classList.add("correct");
-      createCookie("day" + x, x, 100);
-      let dateValue = (date.textContent = new Date(Date.now())
-        .toLocaleString()
-        .split(",")[0]);
-      date.style.visibility = "visible";
-      createCookie("dayDate" + x, dateValue, 100);
-    } else {
-      if (
-        confirm(
-          "If you continue, the date for this particular day will be deleted and can not be reversed."
-        )
-      ) {
-        current.classList.add("purpleHover");
-        current.classList.add("reverseAnimation");
-        current.classList.remove("correct");
-        eraseCookie("day" + x);
-        eraseCookie("dayDate" + x);
-        date.textContent = "";
-        date.style.visibility = "hidden";
-      }
-    }
-  });
-});
-
 /*-------Hide and show dayDate----------*/
 let datesBtn = document.querySelector(".datesButton");
 let hidden;
@@ -67,8 +33,8 @@ let calendar_details = document.getElementsByClassName("calendar__details");
 let calendar_details_array = Array.from(calendar_details);
 
 let height = 200;
-function changeDetails() {
-  showOrHideDates();
+
+function showOrHideDetails() {
   if (height == 0) {
     calendar_details_array.forEach(function (current) {
       current.style.visibility = "visible";
@@ -85,7 +51,10 @@ function changeDetails() {
     });
   }
 }
-detailsBtn.addEventListener("click", changeDetails);
+detailsBtn.addEventListener("click", function () {
+  showOrHideDetails();
+  showOrHideDates();
+});
 
 /*-------Creates and edits challenge name(h1), description and details cookie----------*/
 let challengeName = document.querySelector(".challengeName__h1");
@@ -96,9 +65,12 @@ let editBtn = document.querySelector(".editButton");
 let saveBtn = document.querySelector(".saveButton");
 
 function editInfo() {
+  height = 0;
+  hidden = true;
+  showOrHideDetails();
+  showOrHideDates();
   challengeName.setAttribute("contenteditable", true);
   challengeName.classList.add("editable");
-  challengeName.focus();
   challengeDescription.setAttribute("contenteditable", true);
   challengeDescription.classList.add("editable");
   calendar_details_array.forEach(function (current) {
@@ -133,6 +105,42 @@ function saveInfo() {
 editBtn.addEventListener("click", editInfo);
 saveBtn.addEventListener("click", saveInfo);
 
+/*-------Style "completed" and "uncompleted" mark on days----------*/
+daysArray.forEach(function (current) {
+  current.classList.remove("day0");
+  current.addEventListener("click", function () {
+    let x = current.id;
+    let currentDate = x + "X";
+    let date = document.getElementById(currentDate);
+    if (current.classList.contains("purpleHover")) {
+      current.classList.remove("purpleHover");
+      current.classList.remove("reverseAnimation");
+      current.classList.add("correct");
+      createCookie("day" + x, x, 100);
+      let dateValue = (date.textContent = new Date(Date.now())
+        .toLocaleString()
+        .split(",")[0]);
+      date.style.visibility = "visible";
+      createCookie("dayDate" + x, dateValue, 100);
+      editInfo();
+    } else {
+      if (
+        confirm(
+          "If you continue, the date for this particular day will be deleted and can not be reversed."
+        )
+      ) {
+        current.classList.add("purpleHover");
+        current.classList.add("reverseAnimation");
+        current.classList.remove("correct");
+        eraseCookie("day" + x);
+        eraseCookie("dayDate" + x);
+        date.textContent = "";
+        date.style.visibility = "hidden";
+      }
+    }
+  });
+});
+
 /*-------Feature buttons transition----------*/
 let settingsBtn = document.querySelector(".settingsButton");
 let feature_list = document.querySelector(".feature__buttons");
@@ -149,7 +157,7 @@ function featureTransition() {
   }
 }
 
-settingsBtn.addEventListener("click", featureTransition);
+// settingsBtn.addEventListener("click", featureTransition);
 
 /*-------Change view----------*/
 let viewBtn = document.querySelector(".viewButton");
@@ -187,6 +195,82 @@ viewBtn.addEventListener("click", changeView);
 
 /*-------InActive buttons----------*/
 function inActive() {}
+
+/*-------Instruction steps 1-5 ----------*/
+let instruction__step1 = document.querySelector(".instructions__step1");
+let instruction__step2 = document.querySelector(".instructions__step2");
+let instruction__step3 = document.querySelector(".instructions__step3");
+let instruction__step4 = document.querySelector(".instructions__step4");
+let instruction__step5 = document.querySelector(".instructions__step5");
+let day1 = document.querySelector(".day1");
+let details1 = document.querySelector(".details1");
+
+function step1() {
+  instruction__step1.style.display = "block";
+  editBtn.classList.add("button-animation");
+  editBtn.addEventListener("click", function removeStep1() {
+    editBtn.classList.remove("button-animation");
+    instruction__step1.style.display = "none";
+    editBtn.removeEventListener("click", removeStep1);
+    step2();
+  });
+}
+function step2() {
+  instruction__step2.style.display = "block";
+  challengeName.classList.add("border-animation");
+  challengeDescription.classList.add("border-animation");
+  saveBtn.classList.add("button-animation");
+  saveBtn.addEventListener("click", function removeStep2() {
+    instruction__step2.style.display = "none";
+    challengeName.classList.remove("border-animation");
+    challengeDescription.classList.remove("border-animation");
+    saveBtn.classList.remove("button-animation");
+    saveBtn.removeEventListener("click", removeStep2);
+    step3();
+  });
+}
+
+function step3() {
+  instruction__step3.style.display = "block";
+  day1.classList.add("circle-animation");
+  day1.classList.add("purpleHover");
+  day1.classList.remove("correct");
+  day1.addEventListener("click", function removeStep3() {
+    instruction__step3.style.display = "none";
+    day1.classList.remove("circle-animation");
+    day1.removeEventListener("click", removeStep3);
+    step4();
+  });
+}
+
+function step4() {
+  instruction__step4.style.display = "block";
+  details1.classList.add("border-animation");
+  saveBtn.classList.add("button-animation");
+  saveBtn.addEventListener("click", function removeStep4() {
+    instruction__step4.style.display = "none";
+    details1.classList.remove("border-animation");
+    saveBtn.classList.remove("button-animation");
+    saveBtn.removeEventListener("click", removeStep4);
+    step5();
+  });
+}
+
+function step5() {
+  instruction__step5.style.display = "block";
+  detailsBtn.classList.add("button-animation");
+  detailsBtn.addEventListener("click", function removeStep5() {
+    detailsBtn.classList.remove("button-animation");
+    viewBtn.classList.add("button-animation");
+    detailsBtn.removeEventListener("click", removeStep5);
+    viewBtn.addEventListener("click", function removeStep5b() {
+      viewBtn.classList.remove("button-animation");
+      instruction__step5.style.display = "none";
+      viewBtn.removeEventListener("click", removeStep5b);
+      createCookie("introductionSteps", "completed", 300);
+    });
+  });
+}
 
 /*-------Check for cookies when page load----------*/
 let numberX = 1;
@@ -229,6 +313,12 @@ function updateChallengeInfo() {
   }
   if (description !== null) {
     challengeDescription.textContent = description;
+  }
+}
+function isIntroductionsStepsCompleted() {
+  let cookie = readCookie("introductionSteps");
+  if (cookie !== "completed") {
+    step1();
   }
 }
 

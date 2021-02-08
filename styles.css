@@ -201,7 +201,6 @@ h3 {
 .calendar {
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #69f0ae;
   background-blend-mode: soft-light;
   background-position: center;
   padding: 150px 0;
@@ -397,6 +396,16 @@ h3 {
   border-radius: 75px !important;
 }
 
+.feature__buttons {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: row;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
 .feature__buttons .button-feature {
   margin: 10px;
   width: 80px;
@@ -416,12 +425,9 @@ h3 {
 }
 
 .feature {
-  display: flex;
-  display: -webkit-flexbox;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-  align-items: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
 
 .settingsButton {
@@ -433,6 +439,64 @@ h3 {
   width: 55px;
   height: 25px;
   font-size: 0.7em;
+}
+
+.instructions {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 80px;
+  z-index: 1;
+  background-color: white;
+}
+.instructions .instructions__step {
+  display: none;
+  border: 1px solid #a348cb;
+  border-radius: 51px;
+  padding: 20px;
+  box-shadow: 0 0 7px #da5ec9;
+  margin: 10px;
+}
+
+@keyframes instructionsButton {
+  from {
+    background-color: #8929b6;
+  }
+  to {
+    background-color: #6be6ff;
+  }
+}
+.button-animation {
+  animation: instructionsButton 0.8s linear infinite alternate;
+}
+
+@keyframes blinkingBorder {
+  from {
+    border: 3px solid #8929b6;
+  }
+  to {
+    border: 3px solid #6be6ff;
+  }
+}
+.border-animation {
+  animation: blinkingBorder 0.8s linear infinite alternate;
+}
+
+@keyframes circleAnimation {
+  from {
+    border: 5px solid #8929b6;
+  }
+  to {
+    border: 5px solid #6be6ff;
+  }
+}
+.circle-animation {
+  animation: circleAnimation 0.8s linear infinite alternate;
 }
 
 /*----------------------MEDIA QUERIES----------*/
