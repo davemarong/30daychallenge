@@ -302,24 +302,26 @@ h3 {
   width: 55px;
   height: 25px;
   font-size: 0.7em;
+  opacity: 0.2;
+  cursor: auto;
 }
-.calendar {
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-blend-mode: soft-light;
-  background-position: center;
-  padding: 150px 0;
-  font-size: large;
-}
-.calendar-yoga {
-  background-image: url(images/yoga.svg);
-}
-.calendar-nofap {
-  background-image: url(images/noFap.svg);
-}
-.calendar-junkfood {
-  background-image: url(images/junk-food.svg);
-}
+// .calendar {
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   background-blend-mode: soft-light;
+//   background-position: center;
+//   padding: 150px 0;
+//   font-size: large;
+// }
+// .calendar-yoga {
+//   background-image: url(images/yoga.svg);
+// }
+// .calendar-nofap {
+//   background-image: url(images/noFap.svg);
+// }
+// .calendar-junkfood {
+//   background-image: url(images/junk-food.svg);
+// }
 .challengeName__h1 {
   padding: 50px 0;
   font-size: 2em;
@@ -379,13 +381,12 @@ h3 {
   @include button(80px, 35px, 1.1em);
 }
 .editButton {
-  grid-area: 2/3/3/4;
-  justify-self: end;
 }
 .saveButton {
-  grid-area: 2/2/3/3;
   visibility: hidden;
-  justify-self: center;
+}
+.cancelButton {
+  visibility: hidden;
 }
 .dayDetails {
   @include dayDetails;
@@ -422,6 +423,7 @@ h3 {
   position: sticky;
   position: -webkit-sticky;
   top: 0;
+  z-index: 1;
 }
 .settingsButton {
   font-size: 1.1em;

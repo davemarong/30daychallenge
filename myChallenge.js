@@ -52,8 +52,10 @@ function showOrHideDetails() {
   }
 }
 detailsBtn.addEventListener("click", function () {
-  showOrHideDetails();
-  showOrHideDates();
+  if (view == "zoomedIn") {
+    showOrHideDetails();
+    showOrHideDates();
+  }
 });
 
 /*-------Creates and edits challenge name(h1), description and details cookie----------*/
@@ -63,21 +65,25 @@ let challengeDescription = document.querySelector(
 );
 let editBtn = document.querySelector(".editButton");
 let saveBtn = document.querySelector(".saveButton");
+let cancelBtn = document.querySelector(".cancelButton");
 
 function editInfo() {
-  height = 0;
-  hidden = true;
-  showOrHideDetails();
-  showOrHideDates();
-  challengeName.setAttribute("contenteditable", true);
-  challengeName.classList.add("editable");
-  challengeDescription.setAttribute("contenteditable", true);
-  challengeDescription.classList.add("editable");
-  calendar_details_array.forEach(function (current) {
-    current.setAttribute("contenteditable", true);
-    current.classList.add("editable");
-  });
-  saveBtn.style.visibility = "visible";
+  if (view == "zoomedIn") {
+    height = 0;
+    hidden = true;
+    showOrHideDetails();
+    showOrHideDates();
+    challengeName.setAttribute("contenteditable", true);
+    challengeName.classList.add("editable");
+    challengeDescription.setAttribute("contenteditable", true);
+    challengeDescription.classList.add("editable");
+    calendar_details_array.forEach(function (current) {
+      current.setAttribute("contenteditable", true);
+      current.classList.add("editable");
+    });
+    saveBtn.style.visibility = "visible";
+    cancelBtn.style.visibility = "visible";
+  }
 }
 
 function saveInfo() {
@@ -100,10 +106,26 @@ function saveInfo() {
     x++;
   });
   saveBtn.style.visibility = "hidden";
+  cancelBtn.style.visibility = "hidden";
+}
+function cancelEditMode() {
+  challengeName.setAttribute("contenteditable", false);
+  challengeDescription.setAttribute("contenteditable", false);
+  challengeName.classList.remove("editable");
+  challengeDescription.classList.remove("editable");
+  calendar_details_array.forEach(function (current) {
+    current.setAttribute("contenteditable", false);
+    current.classList.remove("editable");
+  });
+  saveBtn.style.visibility = "hidden";
+  cancelBtn.style.visibility = "hidden";
+  updateChallengeInfo();
+  updateDetailInfo();
 }
 
 editBtn.addEventListener("click", editInfo);
 saveBtn.addEventListener("click", saveInfo);
+cancelBtn.addEventListener("click", cancelEditMode);
 
 /*-------Style "completed" and "uncompleted" mark on days----------*/
 daysArray.forEach(function (current) {
@@ -122,7 +144,11 @@ daysArray.forEach(function (current) {
         .split(",")[0]);
       date.style.visibility = "visible";
       createCookie("dayDate" + x, dateValue, 100);
-      editInfo();
+      if (view == "zoomedIn") {
+        editInfo();
+        challengeName.classList.remove("editable");
+        challengeDescription.classList.remove("editable");
+      }
     } else {
       if (
         confirm(
@@ -163,9 +189,9 @@ function featureTransition() {
 let viewBtn = document.querySelector(".viewButton");
 let calendar__container = document.querySelector(".calendar__30days");
 
-let view;
+let view = "zoomedIn";
 function changeView() {
-  if (view == "") {
+  if (view == "zoomedOut") {
     calendar__container.classList.remove("grid");
     calendar__container.classList.add("flex");
     daysArray.forEach(function (current) {
@@ -175,7 +201,9 @@ function changeView() {
       current.style.visibility = "visible";
       current.style.position = "relative";
     });
-    view = "overview";
+    detailsBtn.classList.remove("inActive");
+    editBtn.classList.remove("inActive");
+    view = "zoomedIn";
   } else {
     calendar__container.classList.remove("flex");
     calendar__container.classList.add("grid");
@@ -186,8 +214,13 @@ function changeView() {
       current.style.visibility = "hidden";
       current.style.position = "absolute";
     });
-
-    view = "";
+    height = 200;
+    hidden = false;
+    showOrHideDetails();
+    showOrHideDates();
+    detailsBtn.classList.add("inActive");
+    editBtn.classList.add("inActive");
+    view = "zoomedOut";
   }
 }
 
@@ -197,6 +230,7 @@ viewBtn.addEventListener("click", changeView);
 function inActive() {}
 
 /*-------Instruction steps 1-5 ----------*/
+let instruction__step0 = document.querySelector(".instructions__step0");
 let instruction__step1 = document.querySelector(".instructions__step1");
 let instruction__step2 = document.querySelector(".instructions__step2");
 let instruction__step3 = document.querySelector(".instructions__step3");
@@ -204,7 +238,19 @@ let instruction__step4 = document.querySelector(".instructions__step4");
 let instruction__step5 = document.querySelector(".instructions__step5");
 let day1 = document.querySelector(".day1");
 let details1 = document.querySelector(".details1");
+let startBtn = document.querySelector(".startButton");
 
+function step0() {
+  instruction__step0.style.display = "flex";
+  instruction__step0.classList.add("border-animation");
+  instruction__step0.classList.add("flex");
+  startBtn.classList.add("button-animation");
+  startBtn.addEventListener("click", function removeStep0() {
+    instruction__step0.style.display = "none";
+    startBtn.removeEventListener("click", removeStep0);
+    step1();
+  });
+}
 function step1() {
   instruction__step1.style.display = "block";
   editBtn.classList.add("button-animation");
@@ -219,6 +265,7 @@ function step2() {
   instruction__step2.style.display = "block";
   challengeName.classList.add("border-animation");
   challengeDescription.classList.add("border-animation");
+  challengeName.focus();
   saveBtn.classList.add("button-animation");
   saveBtn.addEventListener("click", function removeStep2() {
     instruction__step2.style.display = "none";
@@ -318,24 +365,25 @@ function updateChallengeInfo() {
 function isIntroductionsStepsCompleted() {
   let cookie = readCookie("introductionSteps");
   if (cookie !== "completed") {
-    step1();
+    step0();
   }
 }
 
 let calendar = document.querySelector("#calendar");
 
-function removeChallengeTypeClasses() {
-  calendar.classList.remove(".calendar-yoga");
-  calendar.classList.remove(".calendar-nofap");
-  calendar.classList.remove(".calendar-junkfood");
-}
-function updateChallengeType() {
-  removeChallengeTypeClasses();
-  let challengeType = readCookie("challengeType");
-  calendar.classList.add(challengeType);
-}
+// function removeChallengeTypeClasses() {
+//   calendar.classList.remove(".calendar-yoga");
+//   calendar.classList.remove(".calendar-nofap");
+//   calendar.classList.remove(".calendar-junkfood");
+// }
+// function updateChallengeType() {
+//   removeChallengeTypeClasses();
+//   let challengeType = readCookie("challengeType");
+//   calendar.classList.add(challengeType);
+// }
 
-updateChallengeType();
+isIntroductionsStepsCompleted();
+// updateChallengeType();
 updateChallengeInfo();
 updateDayDate();
 updateDetailInfo();

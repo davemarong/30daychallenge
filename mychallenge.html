@@ -37,10 +37,24 @@
           <button class="button button-feature detailsButton">Details</button>
           <button class="button button-feature viewButton">View</button>
           <button class="button button-feature editButton">Edit</button>
+        </ul>
+        <ul>
           <button class="button button-feature saveButton">Save</button>
+          <button class="button button-feature cancelButton">Cancel</button>
         </ul>
       </section>
+      <section></section>
       <section class="instructions">
+        <div class="instructions__step instructions__step0">
+          <h2>Welcome!</h2>
+          <p>
+            This website was created so you could orginize, plan and execute
+            your 30 day challenge more efficient. Since this is your first time
+            visiting this page, we will quickly show you how to use this
+            application.
+          </p>
+          <button class="button button-feature startButton">Start!</button>
+        </div>
         <div class="instructions__step instructions__step1">
           <h2>Step 1</h2>
           <p>Click on "Edit" to activate edit-mode.</p>
@@ -81,15 +95,18 @@
             class="challengeName__h1"
             contenteditable="false"
             aria-placeholder="For example: Adele's running Challenge"
-          ></h1>
+          >
+            For example: Adele's running Challenge
+          </h1>
         </section>
         <section class="challengeDescription">
           <p
             class="challengeDescription__textarea"
             contenteditable="false"
-            aria-placeholder="For example: I ran 5 miles in the forest and 2 miles by the road."
+            aria-placeholder="For example: I will run at least 5 miles every day. If i do this, i will treat myself with that Zelda game i want so bad."
           >
-            Click on "Settings" and choose "Edit" to change this part.
+            For example: I will run at least 5 miles every day. If i do this, i
+            will treat myself with that Zelda game i want so bad..
           </p>
         </section>
         <ol class="calendar__30days flex">
@@ -100,7 +117,9 @@
             class="calendar__details details1"
             contenteditable="false"
             aria-placeholder="For example: I ran 5 miles in the forest and 2 miles by the road."
-          ></p>
+          >
+            For example: I ran 5 miles in the forest and 2 miles by the road.
+          </p>
           <li class="day0 day purpleHover day-flex day2" id="2">
             2<span class="dayDate" id="2X"></span>
           </li>
