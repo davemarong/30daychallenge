@@ -75,31 +75,38 @@ function editInfo() {
     showOrHideDates();
     challengeName.setAttribute("contenteditable", true);
     challengeName.classList.add("editable");
+    challengeName.classList.add("border-animation");
     challengeDescription.setAttribute("contenteditable", true);
+    challengeDescription.classList.add("border-animation");
     challengeDescription.classList.add("editable");
     calendar_details_array.forEach(function (current) {
       current.setAttribute("contenteditable", true);
       current.classList.add("editable");
+      current.classList.add("border-animation");
     });
     saveBtn.style.visibility = "visible";
     cancelBtn.style.visibility = "visible";
+    feature_list.style.opacity = 0.2;
   }
 }
 
 function saveInfo() {
   let x = 1;
-  let name = challengeName.textContent;
-  let description = challengeDescription.textContent;
+  let name = challengeName.innerText;
+  let description = challengeDescription.innerText;
   createCookie("challengeName", name, 100);
   createCookie("challengeDescription", description, 100);
   challengeName.setAttribute("contenteditable", false);
   challengeDescription.setAttribute("contenteditable", false);
   challengeName.classList.remove("editable");
+  challengeName.classList.remove("border-animation");
   challengeDescription.classList.remove("editable");
+  challengeDescription.classList.remove("border-animation");
   calendar_details_array.forEach(function (current) {
     current.setAttribute("contenteditable", false);
     current.classList.remove("editable");
-    let detailInfo = current.textContent;
+    current.classList.remove("border-animation");
+    let detailInfo = current.innerText;
     if (detailInfo !== "") {
       createCookie("details" + x, detailInfo, 100);
     }
@@ -107,6 +114,7 @@ function saveInfo() {
   });
   saveBtn.style.visibility = "hidden";
   cancelBtn.style.visibility = "hidden";
+  feature_list.style.opacity = 1;
 }
 function cancelEditMode() {
   challengeName.setAttribute("contenteditable", false);
@@ -116,16 +124,14 @@ function cancelEditMode() {
   calendar_details_array.forEach(function (current) {
     current.setAttribute("contenteditable", false);
     current.classList.remove("editable");
+    current.classList.remove("border-animation");
   });
   saveBtn.style.visibility = "hidden";
   cancelBtn.style.visibility = "hidden";
+  feature_list.style.opacity = 1;
   updateChallengeInfo();
   updateDetailInfo();
 }
-
-editBtn.addEventListener("click", editInfo);
-saveBtn.addEventListener("click", saveInfo);
-cancelBtn.addEventListener("click", cancelEditMode);
 
 /*-------Style "completed" and "uncompleted" mark on days----------*/
 daysArray.forEach(function (current) {
@@ -145,9 +151,24 @@ daysArray.forEach(function (current) {
       date.style.visibility = "visible";
       createCookie("dayDate" + x, dateValue, 100);
       if (view == "zoomedIn") {
-        editInfo();
-        challengeName.classList.remove("editable");
-        challengeDescription.classList.remove("editable");
+        // editInfo();
+        height = 0;
+        hidden = true;
+        showOrHideDetails();
+        showOrHideDates();
+        let currentDay = document.querySelector(".details" + x);
+        currentDay.setAttribute("contenteditable", true);
+        currentDay.classList.add("editable");
+        currentDay.classList.add("border-animation");
+        saveBtn.style.visibility = "visible";
+        cancelBtn.style.visibility = "visible";
+        feature_list.style.opacity = 0.2;
+        setTimeout(function () {
+          currentDay.focus();
+        }, 500);
+
+        // challengeName.classList.remove("editable");
+        // challengeDescription.classList.remove("editable");
       }
     } else {
       if (
@@ -239,6 +260,7 @@ let instruction__step5 = document.querySelector(".instructions__step5");
 let day1 = document.querySelector(".day1");
 let details1 = document.querySelector(".details1");
 let startBtn = document.querySelector(".startButton");
+let feature = document.querySelector(".feature");
 
 function step0() {
   instruction__step0.style.display = "flex";
@@ -254,6 +276,7 @@ function step0() {
 function step1() {
   instruction__step1.style.display = "block";
   editBtn.classList.add("button-animation");
+  // feature.style.position = "relative";
   editBtn.addEventListener("click", function removeStep1() {
     editBtn.classList.remove("button-animation");
     instruction__step1.style.display = "none";
@@ -265,14 +288,18 @@ function step2() {
   instruction__step2.style.display = "block";
   challengeName.classList.add("border-animation");
   challengeDescription.classList.add("border-animation");
-  challengeName.focus();
   saveBtn.classList.add("button-animation");
+  // feature_list.classList.add("displayNone");
   saveBtn.addEventListener("click", function removeStep2() {
     instruction__step2.style.display = "none";
     challengeName.classList.remove("border-animation");
     challengeDescription.classList.remove("border-animation");
     saveBtn.classList.remove("button-animation");
     saveBtn.removeEventListener("click", removeStep2);
+    // let challengeNameCookie = challengeName.textContent;
+    // let challengeDescriptionCookie = challengeDescription.textContent;
+    // createCookie("challengeName", challengeNameCookie, 100);
+    // createCookie("challengeDescription", challengeDescriptionCookie, 100);
     step3();
   });
 }
@@ -282,6 +309,7 @@ function step3() {
   day1.classList.add("circle-animation");
   day1.classList.add("purpleHover");
   day1.classList.remove("correct");
+  // feature_list.classList.remove("displayNone");
   day1.addEventListener("click", function removeStep3() {
     instruction__step3.style.display = "none";
     day1.classList.remove("circle-animation");
@@ -387,3 +415,7 @@ isIntroductionsStepsCompleted();
 updateChallengeInfo();
 updateDayDate();
 updateDetailInfo();
+
+editBtn.addEventListener("click", editInfo);
+saveBtn.addEventListener("click", saveInfo);
+cancelBtn.addEventListener("click", cancelEditMode);

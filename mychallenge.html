@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create your own 30 Day Challenge calendar for free!"
+    />
+    <meta
+      name="keywords"
+      content="30daychallenge, 30 day challenge, 30dayschallenge, 30 days challenge, 30, 30 day, 30 challenge, day challenge"
+    />
     <title></title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -33,12 +41,12 @@
       <section class="feature">
         <!-- <button class="button settingsButton">Settings</button> -->
         <ul class="feature__buttons">
-          <button class="button button-feature themeButton">Theme</button>
+          <!-- <button class="button button-feature themeButton">Theme</button> -->
           <button class="button button-feature detailsButton">Details</button>
           <button class="button button-feature viewButton">View</button>
           <button class="button button-feature editButton">Edit</button>
         </ul>
-        <ul>
+        <ul class="saveCancel">
           <button class="button button-feature saveButton">Save</button>
           <button class="button button-feature cancelButton">Cancel</button>
         </ul>
@@ -96,20 +104,12 @@
       </section>
       <section id="calendar" class="calendar">
         <section class="challengeName">
-          <h1
-            class="challengeName__h1"
-            contenteditable="false"
-            aria-placeholder="For example: Adele's running Challenge"
-          >
-            For example: Adele's running Challenge
+          <h1 class="challengeName__h1" contenteditable="false">
+            For example: Adele's running 30 day Challenge
           </h1>
         </section>
         <section class="challengeDescription">
-          <p
-            class="challengeDescription__textarea"
-            contenteditable="false"
-            aria-placeholder="For example: I will run at least 5 miles every day. If i do this, i will treat myself with that Zelda game i want so bad."
-          >
+          <p class="challengeDescription__textarea" contenteditable="false">
             For example: I will run at least 5 miles every day. If i do this, i
             will treat myself with that Zelda game i want so bad..
           </p>

@@ -5,6 +5,7 @@ $purple: #a348cb;
 $darkpurple: #8929b6;
 $pink: #da5ec9;
 $green: #69f0ae;
+
 $blue: #93cdd9;
 $lightblue: #81d8e9;
 $lighterblue: #6be6ff;
@@ -17,13 +18,13 @@ $lighterblue: #6be6ff;
   justify-content: $justify-con;
   align-items: $align-it;
 }
-@mixin button($width: 120px, $height: 50px, $font-size: 1.4em) {
+@mixin button($width: 80px, $height: 35px, $font-size: 1.4em) {
   background: $darkpurple;
   width: $width;
   height: $height;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 5px;
+  box-shadow: 0 0 5px rgb(18, 17, 17);
   font-size: $font-size;
   cursor: pointer;
 }
@@ -212,11 +213,11 @@ h3 {
 }
 @mixin correctAnimation {
   @keyframes correct {
-    from {
-      background: $purple;
+    0% {
+      background: #a348cb;
     }
-    to {
-      background: green;
+    100% {
+      background: #faff49;
     }
   }
   animation: correct 1s forwards;
@@ -224,7 +225,7 @@ h3 {
 @mixin reverse {
   @keyframes revers {
     from {
-      background: green;
+      background: #faff49;
     }
     to {
       background: $purple;
@@ -285,9 +286,10 @@ h3 {
   text-align: center;
 }
 @mixin feature__topMenu {
-  @include flex(center, space-between, row);
+  @include flex(center, space-evenly, row);
   padding: 0;
   margin: 0;
+  transition: opacity 1s;
 }
 @mixin calendar__details {
   height: 200px;
@@ -296,6 +298,10 @@ h3 {
   opacity: 1;
   transition: all 0.5s;
   text-align: center;
+  border: 1px solid #8929b6;
+  box-shadow: 0 0 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 @mixin inActive {
   background-color: $lightpurple;
@@ -325,6 +331,7 @@ h3 {
 .challengeName__h1 {
   padding: 50px 0;
   font-size: 2em;
+  border-radius: 20px;
 }
 .challengeDescription {
   @include grid(1fr 1fr, 1fr 1fr 1fr);
@@ -348,7 +355,7 @@ h3 {
     cursor: pointer;
     transition: 0.3s background, 0.3s width, 0.3s height;
     border-radius: 10px;
-    border: 1px dashed purple;
+    border: 1px solid purple;
     box-shadow: 0 0 5px;
   }
 }
@@ -407,14 +414,15 @@ h3 {
 }
 .feature__buttons {
   @include feature__topMenu;
-  .button-feature {
-    margin: 10px;
-    width: 80px;
-    height: 35px;
-    font-size: 0.9em;
-    text-align: center;
-    transition: all 0.5s;
-  }
+}
+.button-feature {
+  margin: 10px;
+  width: 80px;
+  height: 35px;
+  font-size: 0.9em;
+  text-align: center;
+  transition: all 0.5s;
+  color: rgb(237, 231, 231);
 }
 .calendar__details {
   @include calendar__details;
@@ -433,9 +441,9 @@ h3 {
 }
 .instructions {
   @include flex;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 80px;
+  position: fixed;
+  // position: -webkit-sticky;
+  bottom: 0;
   z-index: 1;
   background-color: white;
   .instructions__step {
@@ -459,11 +467,13 @@ h3 {
   animation: instructionsButton 0.8s linear infinite alternate;
 }
 @keyframes blinkingBorder {
-  from {
-    border: 3px solid $darkpurple;
+  0% {
+    border: 3px solid #a348cb;
+    box-shadow: 0 0 5px #a348cb;
   }
-  to {
-    border: 3px solid $lighterblue;
+  100% {
+    border: 3px solid #6be6ff;
+    box-shadow: 0 0 20px #6be6ff;
   }
 }
 .border-animation {
@@ -472,13 +482,18 @@ h3 {
 @keyframes circleAnimation {
   from {
     border: 5px solid $darkpurple;
+    box-shadow: 0 0 5px #a348cb;
   }
   to {
     border: 5px solid $lighterblue;
+    box-shadow: 0 0 20px #6be6ff;
   }
 }
 .circle-animation {
   animation: circleAnimation 0.8s linear infinite alternate;
+}
+.displayNone {
+  display: none;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
@@ -526,5 +541,9 @@ h3 {
       grid-area: 3/3/4/5;
       justify-self: center;
     }
+  }
+  .instructions__step {
+    padding: 10px 20px;
+    margin: 5px 10px;
   }
 }

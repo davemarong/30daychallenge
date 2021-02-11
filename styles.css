@@ -65,11 +65,11 @@ h3 {
 /*-------Button----------*/
 .button {
   background: #8929b6;
-  width: 120px;
-  height: 50px;
+  width: 80px;
+  height: 35px;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 5px;
+  box-shadow: 0 0 5px #121111;
   font-size: 1.4em;
   cursor: pointer;
 }
@@ -164,7 +164,7 @@ h3 {
   height: 40px;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 5px;
+  box-shadow: 0 0 5px #121111;
   font-size: 1em;
   cursor: pointer;
   margin-left: auto;
@@ -201,6 +201,7 @@ h3 {
 .challengeName__h1 {
   padding: 50px 0;
   font-size: 2em;
+  border-radius: 20px;
 }
 
 .challengeDescription {
@@ -237,7 +238,7 @@ h3 {
   cursor: pointer;
   transition: 0.3s background, 0.3s width, 0.3s height;
   border-radius: 10px;
-  border: 1px dashed purple;
+  border: 1px solid purple;
   box-shadow: 0 0 5px;
 }
 
@@ -285,11 +286,11 @@ h3 {
   animation: correct 1s forwards;
 }
 @keyframes correct {
-  from {
+  0% {
     background: #a348cb;
   }
-  to {
-    background: green;
+  100% {
+    background: #faff49;
   }
 }
 
@@ -298,7 +299,7 @@ h3 {
 }
 @keyframes revers {
   from {
-    background: green;
+    background: #faff49;
   }
   to {
     background: #a348cb;
@@ -319,7 +320,7 @@ h3 {
   height: 35px;
   border-radius: 7px;
   border: none;
-  box-shadow: 0 0 5px;
+  box-shadow: 0 0 5px #121111;
   font-size: 1.1em;
   cursor: pointer;
 }
@@ -376,19 +377,22 @@ h3 {
   display: flex;
   display: -webkit-flexbox;
   flex-direction: row;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0;
   margin: 0;
+  transition: opacity 1s;
 }
-.feature__buttons .button-feature {
+
+.button-feature {
   margin: 10px;
   width: 80px;
   height: 35px;
   font-size: 0.9em;
   text-align: center;
   transition: all 0.5s;
+  color: #ede7e7;
 }
 
 .calendar__details {
@@ -398,6 +402,10 @@ h3 {
   opacity: 1;
   transition: all 0.5s;
   text-align: center;
+  border: 1px solid #8929b6;
+  box-shadow: 0 0 5px;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .feature {
@@ -427,9 +435,8 @@ h3 {
   -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 80px;
+  position: fixed;
+  bottom: 0;
   z-index: 1;
   background-color: white;
 }
@@ -455,11 +462,13 @@ h3 {
 }
 
 @keyframes blinkingBorder {
-  from {
-    border: 3px solid #8929b6;
+  0% {
+    border: 3px solid #a348cb;
+    box-shadow: 0 0 5px #a348cb;
   }
-  to {
+  100% {
     border: 3px solid #6be6ff;
+    box-shadow: 0 0 20px #6be6ff;
   }
 }
 .border-animation {
@@ -469,13 +478,19 @@ h3 {
 @keyframes circleAnimation {
   from {
     border: 5px solid #8929b6;
+    box-shadow: 0 0 5px #a348cb;
   }
   to {
     border: 5px solid #6be6ff;
+    box-shadow: 0 0 20px #6be6ff;
   }
 }
 .circle-animation {
   animation: circleAnimation 0.8s linear infinite alternate;
+}
+
+.displayNone {
+  display: none;
 }
 
 /*----------------------MEDIA QUERIES----------*/
@@ -532,6 +547,11 @@ h3 {
   .topPage-home .topPage__button {
     grid-area: 3/3/4/5;
     justify-self: center;
+  }
+
+  .instructions__step {
+    padding: 10px 20px;
+    margin: 5px 10px;
   }
 }
 
