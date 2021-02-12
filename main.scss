@@ -217,7 +217,7 @@ h3 {
       background: #a348cb;
     }
     100% {
-      background: #faff49;
+      background: #66e649;
     }
   }
   animation: correct 1s forwards;
@@ -225,7 +225,7 @@ h3 {
 @mixin reverse {
   @keyframes revers {
     from {
-      background: #faff49;
+      background: #66e649;
     }
     to {
       background: $purple;
@@ -329,9 +329,9 @@ h3 {
 //   background-image: url(images/junk-food.svg);
 // }
 .challengeName__h1 {
-  padding: 50px 0;
+  padding: 20px 15px;
   font-size: 2em;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 .challengeDescription {
   @include grid(1fr 1fr, 1fr 1fr 1fr);
@@ -344,6 +344,7 @@ h3 {
   height: auto;
   width: 70%;
   justify-self: center;
+  padding: 10px 15px;
 }
 .calendar__30days {
   padding: 0;
@@ -427,6 +428,9 @@ h3 {
 .calendar__details {
   @include calendar__details;
 }
+.calendar__details:focus {
+  outline: none;
+}
 .feature {
   position: sticky;
   position: -webkit-sticky;
@@ -449,7 +453,7 @@ h3 {
   .instructions__step {
     display: none;
     border: 1px solid $purple;
-    border-radius: 51px;
+    border-radius: 15px;
     padding: 20px;
     box-shadow: 0 0 7px $pink;
     margin: 10px;
@@ -494,6 +498,15 @@ h3 {
 }
 .displayNone {
   display: none;
+}
+.logo__container {
+  display: flex;
+  .logo {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    max-width: 400px;
+  }
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {

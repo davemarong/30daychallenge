@@ -211,6 +211,8 @@ let calendar__container = document.querySelector(".calendar__30days");
 
 let view = "zoomedIn";
 function changeView() {
+  let days = document.getElementsByClassName("day0");
+  let daysArray = Array.from(days);
   if (view == "zoomedOut") {
     calendar__container.classList.remove("grid");
     calendar__container.classList.add("flex");
@@ -246,9 +248,11 @@ function changeView() {
 
 viewBtn.addEventListener("click", changeView);
 
-/*-------InActive buttons----------*/
-function inActive() {}
-
+/*-------Delete Days and Details----------*/
+function deleteAllDaysAndDetails() {
+  let days = document.getElementsByClassName("day0");
+  let daysArray = Array.from(days);
+}
 /*-------Instruction steps 1-5 ----------*/
 let instruction__step0 = document.querySelector(".instructions__step0");
 let instruction__step1 = document.querySelector(".instructions__step1");
@@ -396,21 +400,7 @@ function isIntroductionsStepsCompleted() {
   }
 }
 
-let calendar = document.querySelector("#calendar");
-
-// function removeChallengeTypeClasses() {
-//   calendar.classList.remove(".calendar-yoga");
-//   calendar.classList.remove(".calendar-nofap");
-//   calendar.classList.remove(".calendar-junkfood");
-// }
-// function updateChallengeType() {
-//   removeChallengeTypeClasses();
-//   let challengeType = readCookie("challengeType");
-//   calendar.classList.add(challengeType);
-// }
-
 isIntroductionsStepsCompleted();
-// updateChallengeType();
 updateChallengeInfo();
 updateDayDate();
 updateDetailInfo();
