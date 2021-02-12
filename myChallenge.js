@@ -133,60 +133,65 @@ function cancelEditMode() {
 }
 
 /*-------Style "completed" and "uncompleted" mark on days----------*/
-daysArray.forEach(function (current) {
-  current.classList.remove("day0");
-  current.addEventListener("click", function () {
-    let x = current.id;
-    let currentDate = x + "X";
-    let date = document.getElementById(currentDate);
-    if (current.classList.contains("purpleHover")) {
-      current.classList.remove("purpleHover");
-      current.classList.remove("reverseAnimation");
-      current.classList.add("correct");
-      createCookie("day" + x, x, 100);
-      let dateValue = (date.textContent = new Date(Date.now())
-        .toLocaleString()
-        .split(",")[0]);
-      date.style.visibility = "visible";
-      createCookie("dayDate" + x, dateValue, 100);
-      if (view == "zoomedIn") {
-        // editInfo();
-        height = 0;
-        hidden = true;
-        showOrHideDetails();
-        showOrHideDates();
-        let currentDay = document.querySelector(".details" + x);
-        currentDay.setAttribute("contenteditable", true);
-        currentDay.classList.add("editable");
-        currentDay.classList.add("border-animation");
-        saveBtn.style.visibility = "visible";
-        cancelBtn.style.visibility = "visible";
-        feature_list.style.opacity = 0.2;
-        setTimeout(function () {
-          currentDay.focus();
-        }, 500);
+function kompis() {
+  let days = document.getElementsByClassName("day0");
+  let daysArray = Array.from(days);
+  // console.log(days);
+  // console.log(daysArray);
+  daysArray.forEach(function (current) {
+    current.classList.remove("day0");
+    current.addEventListener("click", function () {
+      let x = current.id;
+      let currentDate = x + "X";
+      let date = document.getElementById(currentDate);
+      if (current.classList.contains("purpleHover")) {
+        current.classList.remove("purpleHover");
+        current.classList.remove("reverseAnimation");
+        current.classList.add("correct");
+        createCookie("day" + x, x, 100);
+        let dateValue = (date.textContent = new Date(Date.now())
+          .toLocaleString()
+          .split(",")[0]);
+        date.style.visibility = "visible";
+        createCookie("dayDate" + x, dateValue, 100);
+        if (view == "zoomedIn") {
+          // editInfo();
+          height = 0;
+          hidden = true;
+          showOrHideDetails();
+          showOrHideDates();
+          let currentDay = document.querySelector(".details" + x);
+          currentDay.setAttribute("contenteditable", true);
+          currentDay.classList.add("editable");
+          currentDay.classList.add("border-animation");
+          saveBtn.style.visibility = "visible";
+          cancelBtn.style.visibility = "visible";
+          feature_list.style.opacity = 0.2;
+          setTimeout(function () {
+            currentDay.focus();
+          }, 500);
 
-        // challengeName.classList.remove("editable");
-        // challengeDescription.classList.remove("editable");
+          // challengeName.classList.remove("editable");
+          // challengeDescription.classList.remove("editable");
+        }
+      } else {
+        if (
+          confirm(
+            "If you continue, the date for this particular day will be deleted and can not be reversed."
+          )
+        ) {
+          current.classList.add("purpleHover");
+          current.classList.add("reverseAnimation");
+          current.classList.remove("correct");
+          eraseCookie("day" + x);
+          eraseCookie("dayDate" + x);
+          date.textContent = "";
+          date.style.visibility = "hidden";
+        }
       }
-    } else {
-      if (
-        confirm(
-          "If you continue, the date for this particular day will be deleted and can not be reversed."
-        )
-      ) {
-        current.classList.add("purpleHover");
-        current.classList.add("reverseAnimation");
-        current.classList.remove("correct");
-        eraseCookie("day" + x);
-        eraseCookie("dayDate" + x);
-        date.textContent = "";
-        date.style.visibility = "hidden";
-      }
-    }
+    });
   });
-});
-
+}
 /*-------Feature buttons transition----------*/
 let settingsBtn = document.querySelector(".settingsButton");
 let feature_list = document.querySelector(".feature__buttons");
@@ -211,8 +216,10 @@ let calendar__container = document.querySelector(".calendar__30days");
 
 let view = "zoomedIn";
 function changeView() {
-  let days = document.getElementsByClassName("day0");
+  let days = document.getElementsByClassName("day");
   let daysArray = Array.from(days);
+  console.log(days);
+  console.log(daysArray);
   if (view == "zoomedOut") {
     calendar__container.classList.remove("grid");
     calendar__container.classList.add("flex");
@@ -351,16 +358,20 @@ function step5() {
 }
 
 /*-------Check for cookies when page load----------*/
-let numberX = 1;
-daysArray.forEach(function (current) {
-  let name = readCookie("day" + numberX);
-  if (name == current.id) {
-    current.classList.remove("purpleHover");
-    current.classList.remove("reverseAnimation");
-    current.classList.add("correct");
-  }
-  numberX += 1;
-});
+function bor() {
+  let days = document.getElementsByClassName("day0");
+  let daysArray = Array.from(days);
+  let numberX = 1;
+  daysArray.forEach(function (current) {
+    let name = readCookie("day" + numberX);
+    if (name == current.id) {
+      current.classList.remove("purpleHover");
+      current.classList.remove("reverseAnimation");
+      current.classList.add("correct");
+    }
+    numberX += 1;
+  });
+}
 function updateDayDate() {
   for (let i = 1; i < 31; i++) {
     let cookie = readCookie("dayDate" + i);
@@ -399,7 +410,7 @@ function isIntroductionsStepsCompleted() {
     step0();
   }
 }
-
+kompis();
 isIntroductionsStepsCompleted();
 updateChallengeInfo();
 updateDayDate();
