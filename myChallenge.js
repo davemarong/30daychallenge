@@ -1,13 +1,12 @@
 /*-------Style "completed" and "uncompleted" mark on days----------*/
-let days = document.getElementsByClassName("day0");
-let daysArray = Array.from(days);
-
-let dayDate = document.getElementsByClassName("dayDate");
-let dayDateArray = Array.from(dayDate);
+// let days = document.getElementsByClassName("day0");
+// let daysArray = Array.from(days);
 
 /*-------Hide and show dayDate----------*/
 let hidden;
 function showOrHideDates() {
+  let dayDate = document.getElementsByClassName("dayDate");
+  let dayDateArray = Array.from(dayDate);
   if (hidden == true) {
     dayDateArray.forEach(function (current) {
       if (current.textContent !== "") {
@@ -133,7 +132,7 @@ function cancelEditMode() {
 }
 
 /*-------Style "completed" and "uncompleted" mark on days----------*/
-function kompis() {
+function checkOrUncheckDays() {
   let days = document.getElementsByClassName("day0");
   let daysArray = Array.from(days);
   // console.log(days);
@@ -193,7 +192,6 @@ function kompis() {
   });
 }
 /*-------Feature buttons transition----------*/
-let settingsBtn = document.querySelector(".settingsButton");
 let feature_list = document.querySelector(".feature__buttons");
 let translate = 0;
 
@@ -261,18 +259,13 @@ function deleteAllDaysAndDetails() {
   let daysArray = Array.from(days);
 }
 /*-------Instruction steps 1-5 ----------*/
-let instruction__step0 = document.querySelector(".instructions__step0");
-let instruction__step1 = document.querySelector(".instructions__step1");
-let instruction__step2 = document.querySelector(".instructions__step2");
-let instruction__step3 = document.querySelector(".instructions__step3");
-let instruction__step4 = document.querySelector(".instructions__step4");
-let instruction__step5 = document.querySelector(".instructions__step5");
 let day1 = document.querySelector(".day1");
 let details1 = document.querySelector(".details1");
 let startBtn = document.querySelector(".startButton");
 let feature = document.querySelector(".feature");
 
 function step0() {
+  let instruction__step0 = document.querySelector(".instructions__step0");
   instruction__step0.style.display = "flex";
   instruction__step0.classList.add("border-animation");
   instruction__step0.classList.add("flex");
@@ -284,6 +277,7 @@ function step0() {
   });
 }
 function step1() {
+  let instruction__step1 = document.querySelector(".instructions__step1");
   instruction__step1.style.display = "block";
   editBtn.classList.add("button-animation");
   // feature.style.position = "relative";
@@ -295,6 +289,7 @@ function step1() {
   });
 }
 function step2() {
+  let instruction__step2 = document.querySelector(".instructions__step2");
   instruction__step2.style.display = "block";
   challengeName.classList.add("border-animation");
   challengeDescription.classList.add("border-animation");
@@ -315,6 +310,7 @@ function step2() {
 }
 
 function step3() {
+  let instruction__step3 = document.querySelector(".instructions__step3");
   instruction__step3.style.display = "block";
   day1.classList.add("circle-animation");
   day1.classList.add("purpleHover");
@@ -329,6 +325,7 @@ function step3() {
 }
 
 function step4() {
+  let instruction__step4 = document.querySelector(".instructions__step4");
   instruction__step4.style.display = "block";
   details1.classList.add("border-animation");
   saveBtn.classList.add("button-animation");
@@ -342,6 +339,7 @@ function step4() {
 }
 
 function step5() {
+  let instruction__step5 = document.querySelector(".instructions__step5");
   instruction__step5.style.display = "block";
   detailsBtn.classList.add("button-animation");
   detailsBtn.addEventListener("click", function removeStep5() {
@@ -358,8 +356,8 @@ function step5() {
 }
 
 /*-------Check for cookies when page load----------*/
-function bor() {
-  let days = document.getElementsByClassName("day0");
+function updateCheckedDays() {
+  let days = document.getElementsByClassName("day");
   let daysArray = Array.from(days);
   let numberX = 1;
   daysArray.forEach(function (current) {
@@ -410,8 +408,9 @@ function isIntroductionsStepsCompleted() {
     step0();
   }
 }
-kompis();
+checkOrUncheckDays();
 isIntroductionsStepsCompleted();
+updateCheckedDays();
 updateChallengeInfo();
 updateDayDate();
 updateDetailInfo();
