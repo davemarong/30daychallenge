@@ -6,7 +6,6 @@ let dayDate = document.getElementsByClassName("dayDate");
 let dayDateArray = Array.from(dayDate);
 
 /*-------Hide and show dayDate----------*/
-let datesBtn = document.querySelector(".datesButton");
 let hidden;
 function showOrHideDates() {
   if (hidden == true) {
