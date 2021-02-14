@@ -25,7 +25,7 @@ function showOrHideDates() {
 }
 
 /*-------Detailed information feature----------*/
-let detailsBtn = document.querySelector(".detailsButton");
+let detailsBtn = document.querySelector(".button-feature-details");
 
 let calendar_details = document.getElementsByClassName("calendar__details");
 let calendar_details_array = Array.from(calendar_details);
@@ -61,9 +61,9 @@ let challengeName = document.querySelector(".challengeName__h1");
 let challengeDescription = document.querySelector(
   ".challengeDescription__textarea"
 );
-let editBtn = document.querySelector(".editButton");
-let saveBtn = document.querySelector(".saveButton");
-let cancelBtn = document.querySelector(".cancelButton");
+let editBtn = document.querySelector(".button-feature-edit");
+let saveBtn = document.querySelector(".button-feature-save");
+let cancelBtn = document.querySelector(".button-feature-cancel");
 
 function editInfo() {
   if (view == "zoomedIn") {
@@ -209,7 +209,7 @@ function featureTransition() {
 // settingsBtn.addEventListener("click", featureTransition);
 
 /*-------Change view----------*/
-let viewBtn = document.querySelector(".viewButton");
+let viewBtn = document.querySelector(".button-feature-view");
 let calendar__container = document.querySelector(".calendar__30days");
 
 let view = "zoomedIn";
@@ -253,8 +253,9 @@ function changeView() {
 
 viewBtn.addEventListener("click", changeView);
 
-/*-------Delete Days and Details----------*/
-function deleteAllDaysAndDetails() {
+/*-------Delete Challenge Name, Description, Details, Date and checked/marked days----------*/
+let deleteBtn = document.querySelector(".button-feature-delete");
+function deleteAllInformation() {
   let challengeName = document.querySelector(".challengeName__h1");
   let challengeDescription = document.querySelector(
     ".challengeDescription__textarea"
@@ -274,10 +275,20 @@ function deleteAllDaysAndDetails() {
   }
   saveInfo();
 }
+deleteBtn.addEventListener("click", function () {
+  if (
+    confirm(
+      "If you press ok, you will delete all information you have saved on this website (name, descriptions, date, checked/marked days). Are you sure?"
+    )
+  ) {
+    deleteAllInformation();
+  }
+});
+
 /*-------Instruction steps 1-5 ----------*/
 let day1 = document.querySelector(".day1");
 let details1 = document.querySelector(".details1");
-let startBtn = document.querySelector(".startButton");
+let startBtn = document.querySelector(".button-feature-start");
 let feature = document.querySelector(".feature");
 
 function step0() {

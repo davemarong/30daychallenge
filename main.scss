@@ -1,3 +1,23 @@
+/*--------Tables of content----
+1 - Variables
+2 - Mixins
+3 - Global
+4 - Nav
+5 - Buttons
+6 - Grid
+7 - Flex
+8 - HomePage
+  8.1 - Top Page  
+  8.2 - How It Works
+  8.3 - Popular 30 day challenges
+  8.4 - Accordion
+9 - My Challenge
+  9.1 - 
+10 - Media Queries
+  10.1 - 
+
+
+*/
 /*----------------------VARIABLES----------*/
 $white: #fffff5;
 $lightpurple: #a167bbad;
@@ -5,35 +25,10 @@ $purple: #a348cb;
 $darkpurple: #8929b6;
 $pink: #da5ec9;
 $green: #69f0ae;
-
 $blue: #93cdd9;
 $lightblue: #81d8e9;
 $lighterblue: #6be6ff;
 /*----------------------MIXINS----------*/
-@mixin flex($align-it: center, $justify-con: center, $flex-dir: column) {
-  display: flex;
-  display: -webkit-flexbox;
-  flex-direction: $flex-dir;
-  -webkit-justify-content: $justify-con;
-  justify-content: $justify-con;
-  align-items: $align-it;
-}
-@mixin button($width: 80px, $height: 35px, $font-size: 1.4em) {
-  background: $darkpurple;
-  width: $width;
-  height: $height;
-  border-radius: 7px;
-  border: none;
-  box-shadow: 0 0 5px rgb(18, 17, 17);
-  font-size: $font-size;
-  cursor: pointer;
-}
-@mixin buttonHover {
-  background: $purple;
-}
-@mixin buttonActive {
-  background: $lightpurple;
-}
 @mixin margin-width {
   * {
     margin: 30px 0;
@@ -49,8 +44,104 @@ $lighterblue: #6be6ff;
   margin: 100px auto;
   color: $darkpurple;
 }
-@mixin nav-grid {
-  grid-area: 1/4/2/5;
+@mixin fail {
+  background: red;
+}
+@mixin correct {
+  background: green;
+}
+@mixin correctAnimation {
+  @keyframes correct {
+    0% {
+      background: #a348cb;
+    }
+    100% {
+      background: #66e649;
+    }
+  }
+  animation: correct 1s forwards;
+}
+@mixin reverse {
+  @keyframes revers {
+    from {
+      background: #66e649;
+    }
+    to {
+      background: $purple;
+    }
+  }
+  animation: revers 0.5s;
+}
+@mixin dayDetails {
+  width: 200px;
+  height: 200px;
+}
+@mixin dayDate {
+  visibility: visible;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  opacity: 1;
+  transition: 0.5s all;
+  text-align: center;
+  margin: auto;
+  transform: translate(-50%, -50%);
+}
+@mixin triangle($border-left: 20px solid blue, $border-right: 0) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: $border-left;
+  border-right: $border-right;
+  cursor: pointer;
+}
+@mixin arrow($transform: rotate(-45deg)) {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 8px;
+  transform: $transform;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 0;
+  margin: auto;
+  top: 10px;
+  cursor: pointer;
+}
+@mixin editable {
+  border: 1px solid $purple;
+}
+
+@mixin feature__topMenu {
+  @include flex(center, space-evenly, row);
+  padding: 0;
+  margin: 0;
+  transition: opacity 1s;
+}
+@mixin calendar__details {
+  height: 200px;
+  width: 65%;
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.5s;
+  text-align: center;
+  border: 1px solid #8929b6;
+  box-shadow: 0 0 5px;
+  border-radius: 10px;
+  padding: 10px;
+}
+@mixin inActive {
+  background-color: $lightpurple;
+  width: 55px;
+  height: 25px;
+  font-size: 0.7em;
+  opacity: 0.2;
+  cursor: auto;
 }
 /*----------------------GLOBAL----------*/
 body {
@@ -68,6 +159,38 @@ h3 {
   text-align: center;
   margin: auto;
 }
+/*-------Grid----------*/
+@mixin nav-grid {
+  grid-area: 1/4/2/5;
+}
+@mixin grid($rows: 1fr 1fr 1fr 1fr, $columns: 1fr 1fr 1fr 1fr 1fr 1fr) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  list-style-type: none;
+  text-align: center;
+}
+.grid {
+  @include grid(1fr 1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
+}
+/*-------Flex----------*/
+@mixin flex($align-it: center, $justify-con: center, $flex-dir: column) {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: $flex-dir;
+  -webkit-justify-content: $justify-con;
+  justify-content: $justify-con;
+  align-items: $align-it;
+}
+.flex {
+  @include flex;
+}
+.day-flex {
+  width: 130px;
+  height: 100px;
+  border-radius: 75px !important;
+}
+
 /*-------Nav----------*/
 .nav {
   @include flex(center, space-around, row);
@@ -104,7 +227,31 @@ h3 {
     text-decoration: none;
   }
 }
-/*-------Button----------*/
+/*-------Buttons----------*/
+@mixin button($width: 80px, $height: 35px, $font-size: 1.4em) {
+  background: $darkpurple;
+  width: $width;
+  height: $height;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 5px rgb(18, 17, 17);
+  font-size: $font-size;
+  cursor: pointer;
+}
+@mixin feature__buttons {
+  visibility: hidden;
+  transform: translate(-100%);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  padding: 0;
+  margin-top: 50px;
+  text-align: center;
+}
+@mixin buttonHover {
+  background: $purple;
+}
+@mixin buttonActive {
+  background: $lightpurple;
+}
 .button {
   @include button;
 }
@@ -113,6 +260,43 @@ h3 {
 }
 .button:active {
   @include buttonActive;
+}
+.button-small {
+  @include button(80px, 35px, 1.1em);
+}
+.button-feature-edit {
+}
+.button-feature-save {
+  visibility: hidden;
+}
+.button-feature-cancel {
+  visibility: hidden;
+}
+.feature__buttons {
+  @include feature__topMenu;
+}
+.button-feature {
+  margin: 10px;
+  width: 80px;
+  height: 35px;
+  font-size: 0.9em;
+  text-align: center;
+  transition: all 0.5s;
+  color: rgb(237, 231, 231);
+}
+.button-feature-settings {
+  font-size: 1.1em;
+}
+.button-animation {
+  animation: instructionsButton 0.8s linear infinite alternate;
+}
+@keyframes instructionsButton {
+  from {
+    background-color: $darkpurple;
+  }
+  to {
+    background-color: $lighterblue;
+  }
 }
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
@@ -198,119 +382,7 @@ h3 {
 }
 
 /*----------------------MY CHALLENGE----------*/
-@mixin grid($rows: 1fr 1fr 1fr 1fr, $columns: 1fr 1fr 1fr 1fr 1fr 1fr) {
-  display: grid;
-  grid-template-columns: $columns;
-  grid-template-rows: $rows;
-  list-style-type: none;
-  text-align: center;
-}
-@mixin fail {
-  background: red;
-}
-@mixin correct {
-  background: green;
-}
-@mixin correctAnimation {
-  @keyframes correct {
-    0% {
-      background: #a348cb;
-    }
-    100% {
-      background: #66e649;
-    }
-  }
-  animation: correct 1s forwards;
-}
-@mixin reverse {
-  @keyframes revers {
-    from {
-      background: #66e649;
-    }
-    to {
-      background: $purple;
-    }
-  }
-  animation: revers 0.5s;
-}
-@mixin dayDetails {
-  width: 200px;
-  height: 200px;
-}
-@mixin dayDate {
-  visibility: visible;
-  position: absolute;
-  bottom: -40px;
-  left: 50%;
-  opacity: 1;
-  transition: 0.5s all;
-  text-align: center;
-  margin: auto;
-  transform: translate(-50%, -50%);
-}
-@mixin triangle($border-left: 20px solid blue, $border-right: 0) {
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-top: 60px solid transparent;
-  border-bottom: 60px solid transparent;
-  border-left: $border-left;
-  border-right: $border-right;
-  cursor: pointer;
-}
-@mixin arrow($transform: rotate(-45deg)) {
-  border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 8px;
-  transform: $transform;
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 0;
-  margin: auto;
-  top: 10px;
-  cursor: pointer;
-}
-@mixin editable {
-  border: 1px solid $purple;
-}
-@mixin feature__buttons {
-  visibility: hidden;
-  transform: translate(-100%);
-  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-  padding: 0;
-  margin-top: 50px;
-  text-align: center;
-}
-@mixin feature__topMenu {
-  @include flex(center, space-evenly, row);
-  padding: 0;
-  margin: 0;
-  transition: opacity 1s;
-}
-@mixin calendar__details {
-  height: 200px;
-  width: 65%;
-  visibility: visible;
-  opacity: 1;
-  transition: all 0.5s;
-  text-align: center;
-  border: 1px solid #8929b6;
-  box-shadow: 0 0 5px;
-  border-radius: 10px;
-  padding: 10px;
-}
-@mixin inActive {
-  background-color: $lightpurple;
-  width: 55px;
-  height: 25px;
-  font-size: 0.7em;
-  opacity: 0.2;
-  cursor: auto;
-}
+
 // .calendar {
 //   background-repeat: no-repeat;
 //   background-size: contain;
@@ -385,45 +457,11 @@ h3 {
 .editable {
   @include editable;
 }
-.button-small {
-  @include button(80px, 35px, 1.1em);
-}
-.editButton {
-}
-.saveButton {
-  visibility: hidden;
-}
-.cancelButton {
-  visibility: hidden;
-}
 .dayDetails {
   @include dayDetails;
 }
 .dayDate {
   @include dayDate;
-}
-.flex {
-  @include flex;
-}
-.grid {
-  @include grid(1fr 1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
-}
-.day-flex {
-  width: 130px;
-  height: 100px;
-  border-radius: 75px !important;
-}
-.feature__buttons {
-  @include feature__topMenu;
-}
-.button-feature {
-  margin: 10px;
-  width: 80px;
-  height: 35px;
-  font-size: 0.9em;
-  text-align: center;
-  transition: all 0.5s;
-  color: rgb(237, 231, 231);
 }
 .calendar__details {
   @include calendar__details;
@@ -436,9 +474,6 @@ h3 {
   position: -webkit-sticky;
   top: 0;
   z-index: 1;
-}
-.settingsButton {
-  font-size: 1.1em;
 }
 .inActive {
   @include inActive;
@@ -459,17 +494,7 @@ h3 {
     margin: 10px;
   }
 }
-@keyframes instructionsButton {
-  from {
-    background-color: $darkpurple;
-  }
-  to {
-    background-color: $lighterblue;
-  }
-}
-.button-animation {
-  animation: instructionsButton 0.8s linear infinite alternate;
-}
+
 @keyframes blinkingBorder {
   0% {
     border: 3px solid #a348cb;

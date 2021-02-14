@@ -1,3 +1,23 @@
+/*--------Tables of content----
+1 - Variables
+2 - Mixins
+3 - Global
+4 - Nav
+5 - Buttons
+6 - Grid
+7 - Flex
+8 - HomePage
+  8.1 - Top Page  
+  8.2 - How It Works
+  8.3 - Popular 30 day challenges
+  8.4 - Accordion
+9 - My Challenge
+  9.1 - 
+10 - Media Queries
+  10.1 - 
+
+
+*/
 /*----------------------VARIABLES----------*/
 /*----------------------MIXINS----------*/
 /*----------------------GLOBAL----------*/
@@ -17,6 +37,31 @@ h3 {
   max-width: 80%;
   text-align: center;
   margin: auto;
+}
+
+/*-------Grid----------*/
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  list-style-type: none;
+  text-align: center;
+}
+
+/*-------Flex----------*/
+.flex {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-flex {
+  width: 130px;
+  height: 100px;
+  border-radius: 75px !important;
 }
 
 /*-------Nav----------*/
@@ -62,7 +107,7 @@ h3 {
   text-decoration: none;
 }
 
-/*-------Button----------*/
+/*-------Buttons----------*/
 .button {
   background: #8929b6;
   width: 80px;
@@ -82,6 +127,63 @@ h3 {
   background: #a167bbad;
 }
 
+.button-small {
+  background: #8929b6;
+  width: 80px;
+  height: 35px;
+  border-radius: 7px;
+  border: none;
+  box-shadow: 0 0 5px #121111;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.button-feature-save {
+  visibility: hidden;
+}
+
+.button-feature-cancel {
+  visibility: hidden;
+}
+
+.feature__buttons {
+  display: flex;
+  display: -webkit-flexbox;
+  flex-direction: row;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  transition: opacity 1s;
+}
+
+.button-feature {
+  margin: 10px;
+  width: 80px;
+  height: 35px;
+  font-size: 0.9em;
+  text-align: center;
+  transition: all 0.5s;
+  color: #ede7e7;
+}
+
+.button-feature-settings {
+  font-size: 1.1em;
+}
+
+.button-animation {
+  animation: instructionsButton 0.8s linear infinite alternate;
+}
+
+@keyframes instructionsButton {
+  from {
+    background-color: #8929b6;
+  }
+  to {
+    background-color: #6be6ff;
+  }
+}
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
 .topPage-home {
@@ -315,25 +417,6 @@ h3 {
   border: 1px solid #a348cb;
 }
 
-.button-small {
-  background: #8929b6;
-  width: 80px;
-  height: 35px;
-  border-radius: 7px;
-  border: none;
-  box-shadow: 0 0 5px #121111;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
-.saveButton {
-  visibility: hidden;
-}
-
-.cancelButton {
-  visibility: hidden;
-}
-
 .dayDetails {
   width: 200px;
   height: 200px;
@@ -349,51 +432,6 @@ h3 {
   text-align: center;
   margin: auto;
   transform: translate(-50%, -50%);
-}
-
-.flex {
-  display: flex;
-  display: -webkit-flexbox;
-  flex-direction: column;
-  -webkit-justify-content: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  list-style-type: none;
-  text-align: center;
-}
-
-.day-flex {
-  width: 130px;
-  height: 100px;
-  border-radius: 75px !important;
-}
-
-.feature__buttons {
-  display: flex;
-  display: -webkit-flexbox;
-  flex-direction: row;
-  -webkit-justify-content: space-evenly;
-  justify-content: space-evenly;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  transition: opacity 1s;
-}
-
-.button-feature {
-  margin: 10px;
-  width: 80px;
-  height: 35px;
-  font-size: 0.9em;
-  text-align: center;
-  transition: all 0.5s;
-  color: #ede7e7;
 }
 
 .calendar__details {
@@ -418,10 +456,6 @@ h3 {
   position: -webkit-sticky;
   top: 0;
   z-index: 1;
-}
-
-.settingsButton {
-  font-size: 1.1em;
 }
 
 .inActive {
@@ -452,18 +486,6 @@ h3 {
   padding: 20px;
   box-shadow: 0 0 7px #da5ec9;
   margin: 10px;
-}
-
-@keyframes instructionsButton {
-  from {
-    background-color: #8929b6;
-  }
-  to {
-    background-color: #6be6ff;
-  }
-}
-.button-animation {
-  animation: instructionsButton 0.8s linear infinite alternate;
 }
 
 @keyframes blinkingBorder {
