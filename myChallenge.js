@@ -105,9 +105,9 @@ function saveInfo() {
     current.classList.remove("editable");
     current.classList.remove("border-animation");
     let detailInfo = current.innerText;
-    if (detailInfo !== "") {
-      createCookie("details" + x, detailInfo, 100);
-    }
+    // if (detailInfo !== "") {
+    createCookie("details" + x, detailInfo, 100);
+    // }
     x++;
   });
   saveBtn.style.visibility = "hidden";
@@ -255,8 +255,24 @@ viewBtn.addEventListener("click", changeView);
 
 /*-------Delete Days and Details----------*/
 function deleteAllDaysAndDetails() {
-  let days = document.getElementsByClassName("day0");
-  let daysArray = Array.from(days);
+  let challengeName = document.querySelector(".challengeName__h1");
+  let challengeDescription = document.querySelector(
+    ".challengeDescription__textarea"
+  );
+  challengeName.textContent = "";
+  challengeDescription.textContent = "";
+  for (let x = 1; x < 31; x++) {
+    let dayCircle = document.querySelector(".day" + x);
+    let dayStamp = document.querySelector(".day" + x + " > span");
+    dayCircle.classList.remove("correct");
+    dayCircle.classList.add("purpleHover");
+    eraseCookie("day" + x, x, 100);
+    dayStamp.textContent = "";
+    let dayDescription = document.querySelector(".details" + x);
+    dayDescription.textContent = "";
+    createCookie("dayDate" + x, "", 100);
+  }
+  saveInfo();
 }
 /*-------Instruction steps 1-5 ----------*/
 let day1 = document.querySelector(".day1");
