@@ -216,8 +216,6 @@ let view = "zoomedIn";
 function changeView() {
   let days = document.getElementsByClassName("day");
   let daysArray = Array.from(days);
-  console.log(days);
-  console.log(daysArray);
   if (view == "zoomedOut") {
     calendar__container.classList.remove("grid");
     calendar__container.classList.add("flex");
@@ -382,6 +380,14 @@ function step5() {
   });
 }
 
+// /*-------Repeat instructions steps ----------*/
+// function repeatInstrcutionSteps() {
+//   let day1 = document.querySelector(".day1");
+//   if (day1.classList.contains("correct")) {
+//     let cookie = readCookie("dayDate1");
+//     return cookie;
+//   }
+// }
 /*-------Check for cookies when page load----------*/
 function updateCheckedDays() {
   let days = document.getElementsByClassName("day");
