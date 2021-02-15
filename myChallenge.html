@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create your own 30 Day Challenge calendar for free!"
+    />
+    <meta
+      name="keywords"
+      content="30daychallenge, 30 day challenge, 30dayschallenge, 30 days challenge, 30, 30 day, 30 challenge, day challenge"
+    />
+    <title>30 Day Challenge</title>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K9WC7S9");
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Raleway:wght@200&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <section class="logo__container">
+        <img class="logo" src="images/logo.svg" />
+      </section>
+      <section class="feature">
+        <!-- <button class="button settingsButton">Settings</button> -->
+        <ul class="feature__buttons">
+          <!-- <button class="button button-feature themeButton">Theme</button> -->
+          <!-- <button class="button button-feature button-feature-instructions"> -->
+          <!-- Instructions
+          </button> -->
+          <button class="button button-feature button-feature-delete">
+            Delete
+          </button>
+          <button class="button button-feature button-feature-details">
+            Details
+          </button>
+          <button class="button button-feature button-feature-view">
+            View
+          </button>
+          <button class="button button-feature button-feature-edit">
+            Edit
+          </button>
+        </ul>
+        <ul class="saveCancel">
+          <button class="button button-feature button-feature-save">
+            Save
+          </button>
+          <button class="button button-feature button-feature-cancel">
+            Cancel
+          </button>
+        </ul>
+      </section>
+      <section></section>
+      <section class="instructions">
+        <div class="instructions__step instructions__step0">
+          <h2>Welcome!</h2>
+          <p>
+            This website was created so you could
+            <strong>organize, plan and execute</strong>
+            your 30 day challenge more efficiently. Since this is your first
+            time using 30-DaysChallenge.net, we will quickly show you how to use
+            this application.
+          </p>
+          <button class="button button-feature button-feature-start">
+            Start!
+          </button>
+        </div>
+        <div class="instructions__step instructions__step1">
+          <h2>Step 1</h2>
+          <p>Click on "Edit" to activate <strong>edit-mode</strong>.</p>
+        </div>
+        <div class="instructions__step instructions__step2">
+          <h2>Step 2</h2>
+          <p>
+            Write your
+            <strong>"Challenge name" and "Challenge description" </strong>inside
+            the blinking box. Then click on "Save" to save your changes.
+          </p>
+        </div>
+        <div class="instructions__step instructions__step3">
+          <h2>Step 3</h2>
+          <p>
+            Scroll down and click on the first circle to
+            <strong>mark/check off a day</strong>
+            completed in your 30 Day Challenge.
+          </p>
+        </div>
+        <div class="instructions__step instructions__step4">
+          <h2>Step 4</h2>
+          <p>
+            Scroll down to the blinking box, and write a
+            <strong>description/summary</strong>
+            about that particular challenge day. Then click "Save" to save your
+            changes.
+          </p>
+        </div>
+        <div class="instructions__step instructions__step5">
+          <h2>Final step</h2>
+          <p>
+            Click on "Details" to
+            <strong>hide the details/challenge description</strong>. Then click
+            on "View" to zoom out. Good luck with your 30 Day Challenge!
+          </p>
+        </div>
+      </section>
+      <section id="calendar" class="calendar">
+        <section class="challengeName">
+          <h1 class="challengeName__h1" contenteditable="false">
+            For example: Adele's running 30 day Challenge
+          </h1>
+        </section>
+        <section class="challengeDescription">
+          <p class="challengeDescription__textarea" contenteditable="false">
+            For example: I will run at least 5 miles every day. If i do this, I
+            will treat myself with that Zelda game I want so bad..
+          </p>
+        </section>
+        <ol class="calendar__30days flex">
+          <li class="day0 day purpleHover day-flex day1" id="1">
+            1<span class="dayDate" id="1X"></span>
+          </li>
+          <p
+            class="calendar__details details1"
+            contenteditable="false"
+            aria-placeholder="For example: I ran 5 miles in the forest and 2 miles by the road."
+          >
+            For example: I ran 5 miles in the forest and 2 miles by the road.
+          </p>
+          <li class="day0 day purpleHover day-flex day2" id="2">
+            2<span class="dayDate" id="2X"></span>
+          </li>
+          <p class="calendar__details details2" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day3" id="3">
+            3<span class="dayDate" id="3X"></span>
+          </li>
+          <p class="calendar__details details3" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day4" id="4">
+            4<span class="dayDate" id="4X"></span>
+          </li>
+          <p class="calendar__details details4" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day5" id="5">
+            5<span class="dayDate" id="5X"></span>
+          </li>
+          <p class="calendar__details details5" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day6" id="6">
+            6<span class="dayDate" id="6X"></span>
+          </li>
+          <p class="calendar__details details6" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day7" id="7">
+            7<span class="dayDate" id="7X"></span>
+          </li>
+          <p class="calendar__details details7" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day8" id="8">
+            8<span class="dayDate" id="8X"></span>
+          </li>
+          <p class="calendar__details details8" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day9" id="9">
+            9<span class="dayDate" id="9X"></span>
+          </li>
+          <p class="calendar__details details9" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day10" id="10">
+            10<span class="dayDate" id="10X"></span>
+          </li>
+          <p class="calendar__details details10" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day11" id="11">
+            11<span class="dayDate" id="11X"></span>
+          </li>
+          <p class="calendar__details details11" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day12" id="12">
+            12<span class="dayDate" id="12X"></span>
+          </li>
+          <p class="calendar__details details12" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day13" id="13">
+            13<span class="dayDate" id="13X"></span>
+          </li>
+          <p class="calendar__details details13" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day14" id="14">
+            14<span class="dayDate" id="14X"></span>
+          </li>
+          <p class="calendar__details details14" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day15" id="15">
+            15<span class="dayDate" id="15X"></span>
+          </li>
+          <p class="calendar__details details15" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day16" id="16">
+            16<span class="dayDate" id="16X"></span>
+          </li>
+          <p class="calendar__details details16" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day17" id="17">
+            17<span class="dayDate" id="17X"></span>
+          </li>
+          <p class="calendar__details details17" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day18" id="18">
+            18<span class="dayDate" id="18X"></span>
+          </li>
+          <p class="calendar__details details18" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day19" id="19">
+            19<span class="dayDate" id="19X"></span>
+          </li>
+          <p class="calendar__details details19" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day20" id="20">
+            20<span class="dayDate" id="20X"></span>
+          </li>
+          <p class="calendar__details details20" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day21" id="21">
+            21<span class="dayDate" id="21X"></span>
+          </li>
+          <p class="calendar__details details21" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day22" id="22">
+            22<span class="dayDate" id="22X"></span>
+          </li>
+          <p class="calendar__details details22" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day23" id="23">
+            23<span class="dayDate" id="23X"></span>
+          </li>
+          <p class="calendar__details details23" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day24" id="24">
+            24<span class="dayDate" id="24X"></span>
+          </li>
+          <p class="calendar__details details24" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day25" id="25">
+            25<span class="dayDate" id="25X"></span>
+          </li>
+          <p class="calendar__details details25" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day26" id="26">
+            26<span class="dayDate" id="26X"></span>
+          </li>
+          <p class="calendar__details details26" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day27" id="27">
+            27<span class="dayDate" id="27X"></span>
+          </li>
+          <p class="calendar__details details27" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day28" id="28">
+            28<span class="dayDate" id="28X"></span>
+          </li>
+          <p class="calendar__details details28" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day29" id="29">
+            29<span class="dayDate" id="29X"></span>
+          </li>
+          <p class="calendar__details details29" contenteditable="false"></p>
+          <li class="day0 day purpleHover day-flex day30" id="30">
+            30<span class="dayDate" id="30X"></span>
+          </li>
+          <p class="calendar__details details30" contenteditable="false"></p>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <script src="script.js"></script>
+      <script src="myChallenge.js"></script>
+      <script type="text/javascript">
+        var _qevents = _qevents || [];
+
+        (function () {
+          var elem = document.createElement("script");
+          elem.src =
+            (document.location.protocol == "https:"
+              ? "https://secure"
+              : "http://edge") + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName("script")[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+        })();
+
+        _qevents.push({
+          qacct: "p-U34EHpGejB1vt",
+          uid: "__INSERT_EMAIL_HERE__",
+        });
+      </script>
+
+      <noscript>
+        <div style="display: none">
+          <img
+            src="//pixel.quantserve.com/pixel/p-U34EHpGejB1vt.gif"
+            border="0"
+            height="1"
+            width="1"
+            alt="Quantcast"
+          />
+        </div>
+      </noscript>
+      <noscript
+        ><iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K9WC7S9"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        ></iframe
+      ></noscript>
+    </footer>
+  </body>
+</html>
