@@ -219,9 +219,10 @@ h3 {
   }
 }
 .nav-flex {
+  padding: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style-type: none;
   a {
     text-decoration: none;
@@ -263,6 +264,10 @@ h3 {
 }
 .button-small {
   @include button(80px, 35px, 1.1em);
+}
+.topPage__button {
+  width: 120px;
+  height: 50px;
 }
 .button-feature-edit {
 }
@@ -318,7 +323,7 @@ h3 {
 /*-------How it works----------*/
 .howItWorks {
   h2 {
-    margin: 50vh auto;
+    margin: 40vh auto;
     text-align: center;
   }
   .howItWorks__step {
@@ -367,11 +372,7 @@ h3 {
     margin: 0;
     padding: 20px;
     box-shadow: 5px 5px 5px grey;
-    li {
-      border-top: 1px dashed grey;
-      padding: 30px;
-      padding-left: 0px;
-    }
+
     li:first-child {
       margin-top: 50px;
     }
@@ -380,7 +381,36 @@ h3 {
     }
   }
 }
+.accordion__item {
+  cursor: pointer;
+  border-top: 1px dashed grey;
+  padding: 30px;
+  padding-left: 0px;
+  transition: 0.4s;
+}
+.accordion__item__dropdown {
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.3s;
+}
+.accordion-active {
+  font-size: x-large;
+}
 
+.accordion__item:after {
+  content: "\02795"; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: transparent;
+  float: right;
+  margin-left: 5px;
+  text-shadow: 0px 0px #6eddfc;
+}
+
+.accordion-active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
 /*----------------------MY CHALLENGE----------*/
 
 // .calendar {

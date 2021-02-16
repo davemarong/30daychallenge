@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*--------Tables of content----
 1 - Variables
 2 - Mixins
@@ -98,9 +99,10 @@ h3 {
 }
 
 .nav-flex {
+  padding: 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style-type: none;
 }
 .nav-flex a {
@@ -136,6 +138,11 @@ h3 {
   box-shadow: 0 0 5px #121111;
   font-size: 1.1em;
   cursor: pointer;
+}
+
+.topPage__button {
+  width: 120px;
+  height: 50px;
 }
 
 .button-feature-save {
@@ -205,7 +212,7 @@ h3 {
 
 /*-------How it works----------*/
 .howItWorks h2 {
-  margin: 50vh auto;
+  margin: 40vh auto;
   text-align: center;
 }
 .howItWorks .howItWorks__step {
@@ -287,16 +294,46 @@ h3 {
   padding: 20px;
   box-shadow: 5px 5px 5px grey;
 }
-.accordion ul li {
-  border-top: 1px dashed grey;
-  padding: 30px;
-  padding-left: 0px;
-}
 .accordion ul li:first-child {
   margin-top: 50px;
 }
 .accordion ul li:last-child {
   border-bottom: 1px dashed grey;
+}
+
+.accordion__item {
+  cursor: pointer;
+  border-top: 1px dashed grey;
+  padding: 30px;
+  padding-left: 0px;
+  transition: 0.4s;
+}
+
+.accordion__item__dropdown {
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  max-height: 0px;
+  transition: max-height 0.3s;
+}
+
+.accordion-active {
+  font-size: x-large;
+}
+
+.accordion__item:after {
+  content: "➕";
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: transparent;
+  float: right;
+  margin-left: 5px;
+  text-shadow: 0px 0px #6eddfc;
+}
+
+.accordion-active:after {
+  content: "➖";
+  /* Unicode character for "minus" sign (-) */
 }
 
 /*----------------------MY CHALLENGE----------*/
