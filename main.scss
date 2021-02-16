@@ -37,13 +37,6 @@ $lighterblue: #6be6ff;
     max-width: 80%;
   }
 }
-@mixin accordion {
-  border: 1px solid grey;
-  border-top: 10px solid $purple;
-  width: 80%;
-  margin: 100px auto;
-  color: $darkpurple;
-}
 @mixin fail {
   background: red;
 }
@@ -365,6 +358,13 @@ h3 {
   }
 }
 /*-------Accordion----------*/
+@mixin accordion {
+  border: 1px solid grey;
+  border-top: 10px solid $purple;
+  width: 80%;
+  margin: 100px auto;
+  color: $darkpurple;
+}
 .accordion {
   @include accordion;
   ul {
@@ -565,6 +565,29 @@ h3 {
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
+  .nav-mobile {
+    overflow: hidden;
+    background-color: transparent;
+  }
+  .nav-mobile-ul {
+    display: none;
+  }
+  .nav-mobile-ul a {
+    // color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  .nav-mobile .icon {
+    background: transparent;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 32px;
+    margin: 15px;
+  }
   .calendar__30days {
     .day {
       padding: 18px 5px;

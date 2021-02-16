@@ -24,3 +24,11 @@ for (let i = 0; i < accordion__item.length; i++) {
     }
   });
 }
+function toggleNavbar() {
+  var x = document.querySelector(".nav-mobile-ul");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}

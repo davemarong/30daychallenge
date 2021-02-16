@@ -21,18 +21,25 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Raleway:wght@200&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
     <main>
+      <nav class="nav-grid nav-mobile">
+        <ul class="nav-flex nav-mobile-ul">
+          <a href="index.html" class="active"><li>Home</li></a>
+          <a href="mychallenge.html"><li>My Challenge</li></a>
+          <a href="mychallenge.html"><li>How it works</li></a>
+        </ul>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </nav>
       <section class="topPage-home">
-        <nav class="nav-grid">
-          <ul class="nav-flex">
-            <a href="index.html" class="active"><li>Home</li></a>
-            <a href="mychallenge.html"><li>My Challenge</li></a>
-            <a href="mychallenge.html"><li>How it works</li></a>
-          </ul>
-        </nav>
         <header class="topPage__logo">
           <a href="index.html"
             ><img class="header__logo" src="images/logo.svg"
