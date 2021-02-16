@@ -321,6 +321,10 @@ h3 {
   font-size: x-large;
 }
 
+.accordion__ul p {
+  font-size: 0.8em;
+}
+
 .accordion__item:after {
   content: "➕";
   /* Unicode character for "plus" sign (+) */
@@ -569,6 +573,36 @@ h3 {
 
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
+  .nav-mobile {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    background-color: transparent;
+  }
+
+  .nav-mobile-ul {
+    flex-direction: column;
+  }
+
+  .nav-mobile-ul a {
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    width: 70%;
+  }
+
+  .nav-mobile .icon {
+    background: transparent;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 32px;
+    margin: 15px;
+    color: #81d8e9;
+  }
+
   .calendar__30days .day {
     padding: 18px 5px;
     margin: 25px 15px;
@@ -593,7 +627,11 @@ h3 {
   .nav-grid ul {
     list-style-type: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+  }
+
+  .icon {
+    display: none;
   }
 
   .topPage-home {

@@ -37,13 +37,6 @@ $lighterblue: #6be6ff;
     max-width: 80%;
   }
 }
-@mixin accordion {
-  border: 1px solid grey;
-  border-top: 10px solid $purple;
-  width: 80%;
-  margin: 100px auto;
-  color: $darkpurple;
-}
 @mixin fail {
   background: red;
 }
@@ -365,6 +358,13 @@ h3 {
   }
 }
 /*-------Accordion----------*/
+@mixin accordion {
+  border: 1px solid grey;
+  border-top: 10px solid $purple;
+  width: 80%;
+  margin: 100px auto;
+  color: $darkpurple;
+}
 .accordion {
   @include accordion;
   ul {
@@ -398,7 +398,9 @@ h3 {
 .accordion-active {
   font-size: x-large;
 }
-
+.accordion__ul p {
+  font-size: 0.8em;
+}
 .accordion__item:after {
   content: "\02795"; /* Unicode character for "plus" sign (+) */
   font-size: 13px;
@@ -565,6 +567,33 @@ h3 {
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
+  .nav-mobile {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+    background-color: transparent;
+  }
+  .nav-mobile-ul {
+    flex-direction: column;
+  }
+  .nav-mobile-ul a {
+    // color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    width: 70%;
+  }
+  .nav-mobile .icon {
+    background: transparent;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 32px;
+    margin: 15px;
+    color: $lightblue;
+  }
   .calendar__30days {
     .day {
       padding: 18px 5px;
@@ -585,8 +614,11 @@ h3 {
     ul {
       list-style-type: none;
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
     }
+  }
+  .icon {
+    display: none;
   }
   .topPage-home {
     @include grid(1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
