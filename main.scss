@@ -33,9 +33,6 @@ $lighterblue: #6be6ff;
   * {
     margin: 30px 0;
   }
-  p {
-    max-width: 80%;
-  }
 }
 @mixin fail {
   background: red;
@@ -144,6 +141,8 @@ body {
 }
 p {
   font-family: "Montserrat", sans-serif;
+  max-width: 650px;
+  text-align: center;
 }
 h1,
 h2,
@@ -347,6 +346,7 @@ h3 {
   @include margin-width;
   h2 {
     text-align: center;
+    justify-self: center;
   }
   img {
     width: 90%;
@@ -355,6 +355,11 @@ h3 {
     @include button(100px, 40px, 1em);
     margin-left: auto;
     margin-right: 10px;
+    align-self: start;
+  }
+  p {
+    justify-self: center;
+    text-align: left;
   }
 }
 /*-------Accordion----------*/
@@ -400,6 +405,7 @@ h3 {
 }
 .accordion__ul p {
   font-size: 0.8em;
+  text-align: left;
 }
 .accordion__item:after {
   content: "\02795"; /* Unicode character for "plus" sign (+) */
@@ -567,6 +573,13 @@ h3 {
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
+  p {
+    max-width: 80%;
+  }
+  .topPage__h1 {
+    margin: 20px auto;
+    text-align: center;
+  }
   .nav-mobile {
     max-height: 0;
     overflow: hidden;
@@ -645,5 +658,31 @@ h3 {
   .instructions__step {
     padding: 10px 20px;
     margin: 5px 10px;
+  }
+  .popular30day__intro {
+    @include flex(-it, -con, -dir);
+  }
+  .popular30day__intro img {
+    max-width: 300px;
+  }
+  .popular30day__intro p {
+    max-width: 650px;
+  }
+  .popular30day__main {
+    @include grid(1fr 1fr 1fr, 1fr 1fr);
+    margin: 20px;
+  }
+  .popular30day__main img {
+    grid-area: 1/1/4/2;
+  }
+  .popular30day__main:nth-child(odd) img {
+    grid-area: 1/2/4/3;
+  }
+  .popular30day__main h2 {
+    align-self: end;
+  }
+  .popular30day__main p {
+    margin: 0 25px;
+    text-align: left;
   }
 }
