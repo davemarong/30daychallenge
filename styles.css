@@ -93,9 +93,6 @@ h3 {
 .nav a:hover {
   color: #69f0ae;
 }
-.nav a.active {
-  color: #69f0ae;
-}
 .nav .icon {
   display: none;
 }
@@ -109,6 +106,10 @@ h3 {
 }
 .nav-flex a {
   text-decoration: none;
+}
+
+.active {
+  color: #69f0ae;
 }
 
 /*-------Buttons----------*/
