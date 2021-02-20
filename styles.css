@@ -581,6 +581,10 @@ h3 {
   margin: 150px 0px;
 }
 
+.topPage__challenges p {
+  margin: 40px auto;
+}
+
 .topPage__challenges ul {
   padding: 0px;
 }
@@ -666,6 +670,10 @@ h3 {
 
   .challenges__part img {
     width: 90%;
+  }
+
+  .challenges__part > * {
+    margin: 15px;
   }
 }
 .grid {
@@ -764,6 +772,10 @@ h3 {
     margin: 0 25px;
     text-align: left;
   }
+
+  .challenges__part > * {
+    margin: 15px;
+  }
 }
 @media screen and (min-width: 600px) {
   .challenges__part img {
@@ -813,7 +825,7 @@ h3 {
 }
 @media screen and (min-width: 1440px) {
   .challenges__part {
-    margin: 0px 140px;
+    margin: 300px 140px;
   }
 }
 
