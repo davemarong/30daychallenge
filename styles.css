@@ -565,6 +565,10 @@ h3 {
   display: none;
 }
 
+.logo__container {
+  grid-area: 1/2/2/4;
+}
+
 .topPage__challenges p,
 .challenges__part p {
   text-align: left;
@@ -614,7 +618,7 @@ h3 {
 }
 
 .logo {
-  width: 200px;
+  width: 75px;
   margin: 15px;
 }
 
@@ -622,6 +626,10 @@ h3 {
 @media screen and (max-width: 600px) {
   p {
     max-width: 80%;
+  }
+
+  .topPage__logo__container {
+    display: none;
   }
 
   .topPage__h1 {
@@ -695,6 +703,14 @@ h3 {
   }
 
   .icon {
+    display: none;
+  }
+
+  .topPage__logo__container {
+    grid-area: 1/1/2/3;
+  }
+
+  .logo__container {
     display: none;
   }
 
