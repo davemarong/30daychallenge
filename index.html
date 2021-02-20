@@ -12,6 +12,18 @@
       content="30daychallenge, 30 day challenge, 30dayschallenge, 30 days challenge, 30, 30 day, 30 challenge, day challenge"
     />
     <title></title>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K9WC7S9");
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -41,10 +53,8 @@
         </a>
       </nav>
       <section class="topPage-home">
-        <header class="topPage__logo">
-          <a href="index.html"
-            ><img class="header__logo" src="images/logo.svg"
-          /></a>
+        <header class="logo__container">
+          <a href="index.html"><img class="logo" src="images/logo.svg" /></a>
         </header>
         <img class="topPage__calendar" src="images/calendar.svg" />
         <h1 class="topPage__h1">
@@ -165,8 +175,53 @@
         </ul>
       </section>
     </main>
+    <footer>
+      <hr class="hr" />
+      <section class="footer">
+        <img class="logo logo-footer" src="images/logo.svg" />
+        <p class="footer__item"><i>&#169; 2021, www.30daychallenge.net</i></p>
+      </section>
+      <script type="text/javascript">
+        var _qevents = _qevents || [];
 
-    <footer></footer>
+        (function () {
+          var elem = document.createElement("script");
+          elem.src =
+            (document.location.protocol == "https:"
+              ? "https://secure"
+              : "http://edge") + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName("script")[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+        })();
+
+        _qevents.push({
+          qacct: "p-U34EHpGejB1vt",
+          uid: "__INSERT_EMAIL_HERE__",
+        });
+      </script>
+
+      <noscript>
+        <div style="display: none">
+          <img
+            src="//pixel.quantserve.com/pixel/p-U34EHpGejB1vt.gif"
+            border="0"
+            height="1"
+            width="1"
+            alt="Quantcast"
+          />
+        </div>
+      </noscript>
+      <noscript
+        ><iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K9WC7S9"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        ></iframe
+      ></noscript>
+    </footer>
     <script src="script.js"></script>
     <script src="homepage.js"></script>
   </body>

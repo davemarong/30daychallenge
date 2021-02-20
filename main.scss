@@ -562,14 +562,46 @@ h3 {
 .displayNone {
   display: none;
 }
-.logo__container {
-  display: flex;
-  .logo {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    max-width: 400px;
-  }
+// .logo__container {
+//   display: flex;
+//   .logo {
+//     width: 80%;
+//     margin: auto;
+//     padding: 20px;
+//     max-width: 400px;
+//   }
+// }
+.topPage__challenges p,
+.challenges__part p {
+  text-align: left;
+  margin: auto;
+}
+.challenges__part {
+  @include flex;
+  margin: 150px 0px;
+}
+.topPage__challenges ul {
+  padding: 0px;
+}
+.topPage__challenges a {
+  text-decoration: none;
+  text-align: center;
+}
+.topPage__challenges li {
+  margin: 10px;
+}
+.hr {
+  border: 3px solid #81d8e9;
+  border-radius: 30px;
+  width: 80%;
+}
+.footer {
+  @include flex;
+}
+
+.logo {
+  width: 200px;
+  margin: 15px;
 }
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
@@ -617,10 +649,14 @@ h3 {
   .purpleHover:hover {
     background: none;
   }
+  .challenges__part img {
+    width: 90%;
+  }
 }
 .grid {
   @include grid(1fr, 1fr 1fr 1fr 1fr);
 }
+
 @media screen and (min-width: 600px) {
   .nav-grid {
     @include nav-grid;
@@ -684,5 +720,46 @@ h3 {
   .popular30day__main p {
     margin: 0 25px;
     text-align: left;
+  }
+}
+@media screen and (min-width: 600px) {
+  .challenges__part img {
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .challenges__part {
+    @include grid(1fr 1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
+    margin: 300px 50px;
+  }
+  .challenges__part img {
+    max-width: 550px;
+  }
+  .challenges__part h2 {
+    grid-area: 1/1/2/5;
+  }
+  .challenges__part h3 {
+    grid-area: 3/2/4/4;
+  }
+  .challenges__part img {
+    grid-area: 2/1/5/2;
+  }
+  .challenges__part p {
+    grid-area: 2/2/3/5;
+    margin: 0px 20px 0px 0px;
+  }
+  .challenges__part ul {
+    grid-area: 3/2/5/4;
+    padding: 0%;
+    list-style-type: none;
+  }
+  .challenges__part a {
+    grid-area: 3/4/5/5;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .challenges__part {
+    margin: 0px 140px;
   }
 }

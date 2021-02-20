@@ -4,6 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K9WC7S9");
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -30,7 +42,8 @@
           <i class="fa fa-bars"></i>
         </a>
       </nav>
-      <section>
+      <img class="logo" src="images/logo.svg" />
+      <section class="topPage__challenges">
         <h1>Most popular challenges</h1>
         <p>
           There are a endless number of challenges out there, but only a few
@@ -52,37 +65,37 @@
         </ul>
       </section>
       <section class="popular30day">
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="investing">Investing</h2>
           <img src="images/investing.svg" />
           <p>
             Learn how to invest and make your money grow. Put some money in the
             stock marked/funds, read and learn every day.
           </p>
+          <h3>Most reported benefits</h3>
           <ul>
-            Most reported benefits:
             <li>Saving more</li>
             <li>Spending less money</li>
             <li>Long term thinking</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="running">Running</h2>
           <img src="images/running.svg" />
           <p>
             Set aside 20-60 minutes everyday for running. Get some good shoes
             and find some good routes.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>More energy</li>
             <li>Stamina increase</li>
             <li>Better sleep</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="sleep">Sleep</h2>
           <img src="images/sleep.svg" />
           <p>
@@ -90,15 +103,15 @@
             up(between 7 and 9 hours). Even if you dont fell tired or sleepy,
             you still go to bed. No phone in the bed!
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>Better sleep</li>
             <li>More stable mood</li>
             <li>More focused</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="nofap">NoFap</h2>
           <img src="images/nofap1.svg" />
           <p>
@@ -106,90 +119,90 @@
             this challenge. You could choose to not look at pictures from social
             media as well.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>Massive decrease in dopamine release</li>
             <li>Testosterone increase</li>
             <li>More energy</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="yoga">Yoga</h2>
           <img src="images/yoga1.svg" />
           <p>
             Choose 5-10 yoga poses, reasarch how to do them properly and strecht
             it out!
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>Body awereness</li>
             <li>More relaxed</li>
             <li>Increase in flexibility</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="nojunkfood">No Junk Food</h2>
           <img src="images/junkfood1.svg" />
           <p>
             Cut out all junk food/processed food. Replace this with natural and
             healthy food that will fuel your body.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>More energy</li>
             <li>More focused</li>
             <li>Less sick</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="read">Read</h2>
           <img src="images/read.svg" />
           <p>
             Find some books and set a time limit between 30-60 min for each day
             to read. Make sure to have a place were you will not be interupted.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>Learning</li>
             <li>Better vocabulary</li>
             <li>Better writing</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="nature">Nature</h2>
           <img src="images/nature.svg" />
           <p>
             Go out in nature without any external stimuli. Go with some friends
             or alone.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
-            <li>More relaxed/li></li>
+            <li>More relaxed</li>
             <li>Better mood</li>
             <li>Less sick</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="meditation">Meditation</h2>
           <img src="images/meditation.svg" />
           <p>
             Set aside som minutes (10-30 min) everyday in a place were you wont
             be interupted. You can use a guided meditation if you want to.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>Less stress</li>
             <li>Better mood</li>
             <li>More productive</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="saving">Saving</h2>
           <img src="images/saving.svg" />
           <p>
@@ -197,15 +210,15 @@
             back(food, coffe, alcohol and shopping are usually places who can be
             improved upon) and set up a budget.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>More money</li>
             <li>Long term thinking</li>
             <li>Awareness of money spending</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
-        <section class="popular30day__part">
+        <section class="challenges__part">
           <h2 id="screentime">Screen time</h2>
           <img src="images/screentime.svg" />
           <p>
@@ -214,18 +227,63 @@
             each day. At the end of each day, write down your phone time for
             that particular day.
           </p>
+          <h3>Most reported benefits:</h3>
           <ul>
-            Most reported benefits:
             <li>More social</li>
             <li>Decrease in dopamine release</li>
             <li>More confidence</li>
           </ul>
-          <button class="button">Learn more</button>
+          <a href="myChallenge.html"><button class="button">Start!</button></a>
         </section>
       </section>
     </main>
+    <footer>
+      <hr class="hr" />
+      <section class="footer">
+        <img class="logo logo-footer" src="images/logo.svg" />
+        <p class="footer__item"><i>&#169; 2021, www.30daychallenge.net</i></p>
+      </section>
+      <script type="text/javascript">
+        var _qevents = _qevents || [];
 
-    <footer></footer>
+        (function () {
+          var elem = document.createElement("script");
+          elem.src =
+            (document.location.protocol == "https:"
+              ? "https://secure"
+              : "http://edge") + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName("script")[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+        })();
+
+        _qevents.push({
+          qacct: "p-U34EHpGejB1vt",
+          uid: "__INSERT_EMAIL_HERE__",
+        });
+      </script>
+
+      <noscript>
+        <div style="display: none">
+          <img
+            src="//pixel.quantserve.com/pixel/p-U34EHpGejB1vt.gif"
+            border="0"
+            height="1"
+            width="1"
+            alt="Quantcast"
+          />
+        </div>
+      </noscript>
+      <noscript
+        ><iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K9WC7S9"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        ></iframe
+      ></noscript>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
