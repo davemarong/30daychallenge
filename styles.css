@@ -591,6 +591,7 @@ h3 {
 
 .topPage__challenges ul {
   padding: 0px;
+  list-style-type: none;
 }
 
 .topPage__challenges a {
@@ -620,6 +621,16 @@ h3 {
 .logo {
   width: 75px;
   margin: 15px;
+}
+
+/*----------------------ABOUT----------*/
+.about__heroImage {
+  background-image: linear-gradient(#6eddfc00, #da5ec959), url(images/about.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  height: 300px;
 }
 
 /*----------------------MEDIA QUERIES----------*/
@@ -676,12 +687,43 @@ h3 {
     background: none;
   }
 
+  .challenges__heroImage {
+    background-image: linear-gradient(#6eddfc00, #da5ec959), url(images/progress.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    height: 300px;
+  }
+
+  .challenges__heroImage h1 {
+    width: 50%;
+  }
+
   .challenges__part img {
     width: 90%;
   }
 
   .challenges__part > * {
     margin: 15px;
+  }
+
+  .about__part {
+    display: flex;
+    display: -webkit-flexbox;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0px;
+  }
+
+  .about__part > * {
+    margin: 10px;
+  }
+
+  .about__part img {
+    width: 175px;
   }
 }
 .grid {
