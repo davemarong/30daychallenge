@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K9WC7S9");
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Raleway:wght@200&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <section class="logo__container">
+          <a href="index.html"><img class="logo" src="images/logo.svg" /></a>
+        </section>
+        <nav class="nav-grid nav-mobile">
+          <ul class="nav-flex nav-mobile-ul">
+            <a href="index.html"><li>Home</li></a>
+            <a href="myChallenge.html"><li>My Challenge</li></a>
+            <a href="challenges.html"><li>Popular Challenges</li></a>
+            <a href="about.html" class="active"><li>About Us</li></a>
+          </ul>
+          <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </nav>
+      </header>
+      <section class="about__heroImage">
+        <h1>About Us</h1>
+      </section>
+      <section class="about">
+        <section class="about__part about__part-goal">
+          <h2>The goal</h2>
+          <img src="images/goal.svg" />
+          <p>
+            The goal of this website was to create a platform were the user
+            could plan, execute and log their progress, with an intuitiv and
+            easily manageable interface.
+          </p>
+        </section>
+        <section class="about__part about__part-creator">
+          <h2>The creator</h2>
+          <img src="images/creator.svg" />
+          <p>
+            My name is Dave Kjell Marong, a front end developer who's passion is
+            to create website applications that help people achieve there goals.
+          </p>
+        </section>
+        <section class="about__part about__part-vision">
+          <h2>The vision</h2>
+          <img src="images/vision.svg" />
+          <p>
+            www.30-daychallenge.net is a beta version, I have plenty of more
+            ideas to further develop this website. If this is something that
+            people find usefull, I will continue on this project.
+          </p>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <hr class="hr" />
+      <section class="footer">
+        <img class="logo logo-footer" src="images/logo.svg" />
+        <p class="footer__item"><i>&#169; 2021, www.30daychallenge.net</i></p>
+      </section>
+      <script type="text/javascript">
+        var _qevents = _qevents || [];
+
+        (function () {
+          var elem = document.createElement("script");
+          elem.src =
+            (document.location.protocol == "https:"
+              ? "https://secure"
+              : "http://edge") + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName("script")[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+        })();
+
+        _qevents.push({
+          qacct: "p-U34EHpGejB1vt",
+          uid: "__INSERT_EMAIL_HERE__",
+        });
+      </script>
+
+      <noscript>
+        <div style="display: none">
+          <img
+            src="//pixel.quantserve.com/pixel/p-U34EHpGejB1vt.gif"
+            border="0"
+            height="1"
+            width="1"
+            alt="Quantcast"
+          />
+        </div>
+      </noscript>
+      <noscript
+        ><iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K9WC7S9"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        ></iframe
+      ></noscript>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

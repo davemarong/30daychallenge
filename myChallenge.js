@@ -118,7 +118,9 @@ function cancelEditMode() {
   challengeName.setAttribute("contenteditable", false);
   challengeDescription.setAttribute("contenteditable", false);
   challengeName.classList.remove("editable");
+  challengeName.classList.remove("border-animation");
   challengeDescription.classList.remove("editable");
+  challengeDescription.classList.remove("border-animation");
   calendar_details_array.forEach(function (current) {
     current.setAttribute("contenteditable", false);
     current.classList.remove("editable");
