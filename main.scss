@@ -103,6 +103,7 @@ $lighterblue: #6be6ff;
   top: 10px;
   cursor: pointer;
 }
+
 @mixin editable {
   border: 1px solid $purple;
 }
@@ -155,6 +156,15 @@ h3 {
 @mixin nav-grid {
   grid-area: 1/4/2/5;
 }
+@mixin heroImage($url) {
+  background-image: linear-gradient(#6eddfc00, #da5ec9a7), url($url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  height: 300px;
+}
+
 @mixin grid($rows: 1fr 1fr 1fr 1fr, $columns: 1fr 1fr 1fr 1fr 1fr 1fr) {
   display: grid;
   grid-template-columns: $columns;
@@ -298,10 +308,7 @@ h3 {
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
 .topPage-home {
-  background-image: url(images/background.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 50px 20px;
+  background: linear-gradient(#6eddfc00, #da5ec9a7);
 }
 .img1 {
   position: absolute;
@@ -456,13 +463,7 @@ h3 {
 //   background-image: url(images/junk-food.svg);
 // }
 .mychallenge__heroImage {
-  background-image: linear-gradient(#6eddfc00, #da5ec959),
-    url(images/superwomen.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  height: 300px;
+  @include heroImage("images/superwomen.svg");
 }
 .challengeName__h1 {
   padding: 20px 15px;
@@ -598,13 +599,7 @@ h3 {
   margin: auto;
 }
 .challenges__heroImage {
-  background-image: linear-gradient(#6eddfc00, #da5ec959),
-    url(images/progress.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  height: 300px;
+  @include heroImage("images/progress.svg");
 }
 .challenges__part {
   @include flex;
@@ -640,12 +635,7 @@ h3 {
 
 /*----------------------ABOUT----------*/
 .about__heroImage {
-  background-image: linear-gradient(#6eddfc00, #da5ec959), url(images/about.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  height: 300px;
+  @include heroImage("images/about.svg");
 }
 .about__part-creator {
   background: linear-gradient(#6eddfc00, #da5ec959);
@@ -760,11 +750,12 @@ h3 {
       }
     }
     .topPage__h1 {
-      grid-area: 2/3/3/5;
+      grid-area: 1/2/2/4;
     }
     .topPage__button {
-      grid-area: 3/3/4/5;
+      grid-area: 2/3/3/5;
       justify-self: center;
+      align-self: end;
     }
   }
   .instructions__step {

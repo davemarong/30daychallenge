@@ -197,10 +197,7 @@ h3 {
 /*----------------------HOME PAGE----------*/
 /*-------Top page----------*/
 .topPage-home {
-  background-image: url(images/background.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 50px 20px;
+  background: linear-gradient(#6eddfc00, #da5ec9a7);
 }
 
 .img1 {
@@ -346,7 +343,7 @@ h3 {
 
 /*----------------------MY CHALLENGE----------*/
 .mychallenge__heroImage {
-  background-image: linear-gradient(#6eddfc00, #da5ec959), url(images/superwomen.svg);
+  background-image: linear-gradient(#6eddfc00, #da5ec9a7), url("images/superwomen.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -585,7 +582,7 @@ h3 {
 }
 
 .challenges__heroImage {
-  background-image: linear-gradient(#6eddfc00, #da5ec959), url(images/progress.svg);
+  background-image: linear-gradient(#6eddfc00, #da5ec9a7), url("images/progress.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -643,7 +640,7 @@ h3 {
 
 /*----------------------ABOUT----------*/
 .about__heroImage {
-  background-image: linear-gradient(#6eddfc00, #da5ec959), url(images/about.svg);
+  background-image: linear-gradient(#6eddfc00, #da5ec9a7), url("images/about.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -793,11 +790,12 @@ h3 {
     width: 70%;
   }
   .topPage-home .topPage__h1 {
-    grid-area: 2/3/3/5;
+    grid-area: 1/2/2/4;
   }
   .topPage-home .topPage__button {
-    grid-area: 3/3/4/5;
+    grid-area: 2/3/3/5;
     justify-self: center;
+    align-self: end;
   }
 
   .instructions__step {
