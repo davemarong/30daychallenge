@@ -330,6 +330,9 @@ h3 {
     @include flex;
     @include margin-width;
   }
+  .howItWorks__findYourChallenge-img {
+    max-width: 250px;
+  }
   @keyframes arrow {
     from {
       transform: translate(0px, 0px);
@@ -383,7 +386,6 @@ h3 {
   }
   p {
     justify-self: center;
-    text-align: left;
   }
 }
 /*-------Accordion----------*/
@@ -605,6 +607,10 @@ h3 {
   @include flex;
   margin: 150px 0px;
 }
+.challenges__part ul {
+  padding: 0;
+  list-style-type: none;
+}
 .topPage__challenges p {
   margin: 40px auto;
 }
@@ -629,13 +635,16 @@ h3 {
 }
 
 .logo {
-  width: 75px;
-  margin: 15px;
+  width: 100px;
+  margin: 10px;
 }
 
 /*----------------------ABOUT----------*/
 .about__heroImage {
   @include heroImage("images/about.svg");
+}
+.about__part {
+  padding: 60px;
 }
 .about__part-creator {
   background: linear-gradient(#6eddfc00, #da5ec959);
@@ -647,6 +656,7 @@ h3 {
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
   p {
+    font-size: 1em;
     max-width: 80%;
   }
   .topPage__logo__container {
@@ -655,6 +665,12 @@ h3 {
   .topPage__h1 {
     margin: 20px auto;
     text-align: center;
+  }
+  .topPage-home {
+    @include flex;
+  }
+  .topPage__button {
+    margin-bottom: 20px;
   }
   .nav-mobile {
     max-height: 0;
@@ -718,8 +734,12 @@ h3 {
 }
 
 @media screen and (min-width: 600px) {
+  p {
+    font-size: 1.5em;
+  }
   .nav-grid {
     @include nav-grid;
+    margin-left: 100px;
     ul {
       list-style-type: none;
       display: flex;
@@ -733,7 +753,9 @@ h3 {
     grid-area: 1/1/2/3;
   }
   .logo__container {
-    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   .topPage-home {
     @include grid(1fr 1fr 1fr, 1fr 1fr 1fr 1fr);
