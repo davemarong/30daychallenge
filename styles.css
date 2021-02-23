@@ -28,18 +28,32 @@ body {
   padding: 0;
 }
 
-p {
-  font-family: "Montserrat", sans-serif;
-  max-width: 650px;
-  text-align: center;
-}
-
 h1,
 h2,
 h3 {
   max-width: 80%;
   text-align: center;
   margin: auto;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  max-width: 650px;
+  text-align: center;
+  font-size: 1em;
+  max-width: 80%;
+}
+
+h1 {
+  font-size: 1.9em;
+}
+
+h2 {
+  font-size: 1.6em;
+}
+
+h3 {
+  font-size: 1.3em;
 }
 
 /*-------Grid----------*/
@@ -119,8 +133,9 @@ h3 {
   height: 35px;
   border-radius: 7px;
   border: none;
+  color: #f4eeee;
   box-shadow: 0 0 5px #121111;
-  font-size: 1.4em;
+  font-size: 18px;
   cursor: pointer;
 }
 
@@ -138,6 +153,7 @@ h3 {
   height: 35px;
   border-radius: 7px;
   border: none;
+  color: #f4eeee;
   box-shadow: 0 0 5px #121111;
   font-size: 1.1em;
   cursor: pointer;
@@ -146,6 +162,12 @@ h3 {
 .topPage__button {
   width: 120px;
   height: 50px;
+}
+
+.topPage__button a {
+  color: #f5f1f1;
+  text-decoration: none;
+  font-size: 1.7em;
 }
 
 .button-feature-save {
@@ -211,6 +233,9 @@ h3 {
 }
 
 /*-------How it works----------*/
+.howItWorks {
+  margin: 50px 0px;
+}
 .howItWorks h2 {
   margin: 40vh auto;
   text-align: center;
@@ -254,6 +279,7 @@ h3 {
   -webkit-justify-content: center;
   justify-content: center;
   align-items: center;
+  margin: 100px 0px;
 }
 .popular30day__part * {
   margin: 30px 0;
@@ -271,6 +297,7 @@ h3 {
   height: 40px;
   border-radius: 7px;
   border: none;
+  color: #f4eeee;
   box-shadow: 0 0 5px #121111;
   font-size: 1em;
   cursor: pointer;
@@ -280,6 +307,10 @@ h3 {
 }
 .popular30day__part p {
   justify-self: center;
+}
+
+.popular30day__part-nofap {
+  margin-top: 0px;
 }
 
 /*-------Accordion----------*/
@@ -352,6 +383,11 @@ h3 {
   background-size: contain;
   position: relative;
   height: 300px;
+}
+
+.mychallenge__heroImage h1 {
+  position: relative;
+  bottom: 15px;
 }
 
 .challengeName__h1 {
@@ -541,6 +577,9 @@ h3 {
   box-shadow: 0 0 7px #da5ec9;
   margin: 10px;
 }
+.instructions p {
+  max-width: 100%;
+}
 
 @keyframes blinkingBorder {
   0% {
@@ -670,11 +709,6 @@ h3 {
 
 /*----------------------MEDIA QUERIES----------*/
 @media screen and (max-width: 600px) {
-  p {
-    font-size: 1em;
-    max-width: 80%;
-  }
-
   .topPage__logo__container {
     display: none;
   }
@@ -737,7 +771,10 @@ h3 {
   }
 
   .challenges__heroImage h1 {
+    font-size: 1.6em;
     width: 50%;
+    position: relative;
+    bottom: 10px;
   }
 
   .challenges__part img {
@@ -775,10 +812,6 @@ h3 {
 }
 
 @media screen and (min-width: 600px) {
-  p {
-    font-size: 1.5em;
-  }
-
   .nav-grid {
     grid-area: 1/4/2/5;
     margin-left: 100px;
@@ -883,12 +916,24 @@ h3 {
     text-align: left;
   }
 
+  .popular30day__part h3 {
+    max-width: 100%;
+  }
+
   .challenges__part > * {
     margin: 15px;
   }
 
   .challenges__heroImage {
     height: 500px;
+  }
+
+  .challenges__heroImage h1 {
+    font-size: 1.6em;
+  }
+
+  .challenges__part img {
+    max-width: 500px;
   }
 
   .about__part img {
@@ -943,11 +988,6 @@ h3 {
     grid-area: 1/1/3/2;
   }
 }
-@media screen and (min-width: 600px) {
-  .challenges__part img {
-    max-width: 500px;
-  }
-}
 @media screen and (min-width: 992px) {
   .challenges__part {
     display: grid;
@@ -964,6 +1004,7 @@ h3 {
 
   .challenges__part h2 {
     grid-area: 1/1/2/5;
+    max-width: 100%;
   }
 
   .challenges__part h3 {
@@ -995,6 +1036,10 @@ h3 {
 
   .challenges__heroImage {
     height: 600px;
+  }
+
+  .popular30day__part h3 {
+    max-width: 100%;
   }
 
   .about__heroImage {
