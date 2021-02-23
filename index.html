@@ -1,27 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create your own 30 Day Challenge calendar for free!"
+    />
+    <meta
+      name="keywords"
+      content="30daychallenge, 30 day challenge, 30dayschallenge, 30 days challenge, 30, 30 day, 30 challenge, day challenge"
+    />
+    <title></title>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-K9WC7S9");
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Raleway:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-    <body>
-        <header class="header">
-            <h1>Dette begynner å bli gammelt</h1>
-            <p>hei bro</p>ss
-            <div>Hva skjer</div>
-            <span>Ikke saa mye</span>
-        </header>
+  <body>
+    <main>
+      <header>
+        <section class="logo__container">
+          <a href="index.html"><img class="logo" src="images/logo.svg" /></a>
+        </section>
+        <nav class="nav-grid nav-mobile">
+          <ul class="nav-flex nav-mobile-ul">
+            <a href="index.html" class="active"><li>Home</li></a>
+            <a href="myChallenge.html"><li>My Challenge</li></a>
+            <a href="challenges.html"><li>Popular Challenges</li></a>
+            <a href="about.html"><li>About Us</li></a>
+          </ul>
+          <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </nav>
+      </header>
+      <section class="topPage-home">
+        <img class="topPage__calendar" src="images/calendar.svg" />
+        <h1 class="topPage__h1">Change your life with a 30 day challenge</h1>
+        <button class="topPage__button button" type="button">
+          <a href="myChallenge.html">Start!</a>
+        </button>
+      </section>
+      <section class="howItWorks">
+        <h2>Here is how it works</h2>
+        <section class="howItWorks__step">
+          <h3>Find your challenge</h3>
+          <img
+            src="images/search.svg"
+            class="howItWorks__findYourChallenge-img"
+          />
+          <p>
+            Research and find your 30 day challenge. If you need some
+            inspiration, check out our
+            <a href="challenges.html">Popular Challenges</a> page.
+          </p>
+          <img class="img__arrow" src="images/down-arrow.svg" />
+        </section>
+        <section class="howItWorks__step">
+          <h3>Create your own 30 day challenge</h3>
+          <img src="images/building-blocks.svg" />
+          <p>
+            Go to <a href="myChallenge.html">My Challenge</a> page and cuztomize
+            your own challenge.
+          </p>
+          <img class="img__arrow" src="images/down-arrow.svg" />
+        </section>
+        <section class="howItWorks__step">
+          <h3>Track and register your progress</h3>
+          <img src="images/track-progress.svg" />
+          <p>
+            Track your progress easily right here on this website. You don't
+            even need to create an account!
+          </p>
+          <!-- <p>We make keeping track of your challenge easy and simple to do.</p> -->
+        </section>
+      </section>
+      <section class="popular30day">
+        <!-- <section class="popular30day__part popular30day__intro"> -->
+        <h2>Top 3 challenges</h2>
+        <!-- <img src="images/man-calendar.svg" />
+          <p>
+            Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+            consectetur, adipisci velit, sed quia non numquam eius modi tempora
+            incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+            officia deserunt mollit anim id est laborum.
+          </p>
+        </section> -->
+        <section
+          class="popular30day__part popular30day__main popular30day__part-nofap"
+        >
+          <h3>NoFap</h3>
+          <img src="images/noFap.svg" />
+          <p>
+            Problably the most famous 30 day challenge. Cut out all mastrubation
+            and porn from your life.
+          </p>
+          <a href="myChallenge.html"
+            ><button class="button btn-noFap">Start!</button></a
+          >
+        </section>
+        <section class="popular30day__part popular30day__main">
+          <h3>Yoga</h3>
+          <img src="images/yoga.svg" />
+          <p>
+            Choose 5-10 yoga poses, reasarch how to do them properly and strecht
+            it out!
+          </p>
+          <a href="myChallenge.html"
+            ><button class="button btn-yoga">Start!</button></a
+          >
+        </section>
+        <section class="popular30day__part popular30day__main">
+          <h3>No sugar</h3>
+          <img src="images/junk-food.svg" />
+          <p>
+            Cut out all junk food/processed food. Replace this with natural and
+            healthy food that will fuel your body.
+          </p>
+          <a href="myChallenge.html"
+            ><button class="button btn-noSugar">Start!</button></a
+          >
+        </section>
+      </section>
+      <section class="accordion">
+        <ul class="accordion__ul">
+          Common questions
+          <li class="accordion__item">What is a 30 day challenge?</li>
+          <div class="accordion__item__dropdown">
+            <p>Choosing a habit and do it for 30 days straight.</p>
+          </div>
+          <li class="accordion__item">Why 30 days?</li>
+          <div class="accordion__item__dropdown">
+            <p>
+              30 days are enough time to notice real benefits from most
+              challenges. 30 is that magic number between 'to many days' and 'to
+              few days'.
+            </p>
+          </div>
+          <li class="accordion__item">What are the benefits?</li>
+          <div class="accordion__item__dropdown">
+            <p>
+              You will find out if this new habit is something you want in your
+              life. You will discover and explore so many areas that will
+              improve your life in ways you cant even imagine.
+            </p>
+          </div>
+          <li class="accordion__item">Why should i use this website?</li>
+          <div class="accordion__item__dropdown">
+            <p>
+              Most people use 'notepad' on their phone or write their 30 day
+              challenge on a piece of paper. This is unpractical and not
+              organized. This website will make your process easier, structured
+              and motivating, which will increase your chance of completing the
+              challenge.
+            </p>
+          </div>
+          <li class="accordion__item">
+            Do I need to create an account and log in each time?
+          </li>
+          <div class="accordion__item__dropdown">
+            <p>
+              No! This website was created to be as fast and smooth as possible.
+              We use 'cookies' to save the information about your challenge. No
+              loggin needed.
+            </p>
+          </div>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <hr class="hr" />
+      <section class="footer">
+        <img class="logo logo-footer" src="images/logo.svg" />
+        <p class="footer__item"><i>&#169; 2021, www.30daychallenge.net</i></p>
+      </section>
+      <script type="text/javascript">
+        var _qevents = _qevents || [];
 
-        <main>
+        (function () {
+          var elem = document.createElement("script");
+          elem.src =
+            (document.location.protocol == "https:"
+              ? "https://secure"
+              : "http://edge") + ".quantserve.com/quant.js";
+          elem.async = true;
+          elem.type = "text/javascript";
+          var scpt = document.getElementsByTagName("script")[0];
+          scpt.parentNode.insertBefore(elem, scpt);
+        })();
 
-        </main>
+        _qevents.push({
+          qacct: "p-U34EHpGejB1vt",
+          uid: "__INSERT_EMAIL_HERE__",
+        });
+      </script>
 
-        <footer>
-
-        </footer>
-        <script src="script.js"></script>
-    </body>
+      <noscript>
+        <div style="display: none">
+          <img
+            src="//pixel.quantserve.com/pixel/p-U34EHpGejB1vt.gif"
+            border="0"
+            height="1"
+            width="1"
+            alt="Quantcast"
+          />
+        </div>
+      </noscript>
+      <noscript
+        ><iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-K9WC7S9"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        ></iframe
+      ></noscript>
+    </footer>
+    <script src="script.js"></script>
+    <script src="homepage.js"></script>
+  </body>
 </html>

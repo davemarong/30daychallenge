@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="332" height="334" viewBox="0 0 332 334">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e1ade5"/>
+      <stop offset="0.502" stop-color="#d57bcb"/>
+      <stop offset="1" stop-color="#d92f5d"/>
+    </radialGradient>
+    <filter id="Ellipse_184" x="0" y="0" width="315" height="315" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_183" x="16" y="18" width="316" height="316" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_47" data-name="Group 47" transform="translate(-201 -511)">
+    <g transform="matrix(1, 0, 0, 1, 201, 511)" filter="url(#Ellipse_184)">
+      <circle id="Ellipse_184-2" data-name="Ellipse 184" cx="127.5" cy="127.5" r="127.5" transform="translate(30 30)" opacity="0.504" fill="url(#radial-gradient)"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 201, 511)" filter="url(#Ellipse_183)">
+      <circle id="Ellipse_183-2" data-name="Ellipse 183" cx="128" cy="128" r="128" transform="translate(46 48)" fill="#a247cb" opacity="0.695"/>
+    </g>
+  </g>
+</svg>
