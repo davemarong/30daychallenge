@@ -1,4 +1,4 @@
 # 30daychallenge
 
-THIS WEBSITE IS LIVE:
+This website is live:
 https://30-daychallenge.net/
